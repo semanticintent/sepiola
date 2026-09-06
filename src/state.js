@@ -9,7 +9,8 @@ export function initialState() {
     ice: false,      // has read_ice revealed it
     circle: null,    // { id, reason|null } | null — persists until wipe() or the next circle()
     replay: null,    // { ids } | null
-    log: [],         // the talkback transcript: [{ line, ack }], appended by dispatch, never by a handler
+    log: [],         // the talkback transcript: [{ line, ack, readId? }], appended by dispatch, never by a handler
+    reads: [],       // the last reads kept for restore: [{ id, read, name, input, line, at }], appended by dispatch (D40)
     windows: Object.fromEntries([...WINDOWS, ...SHELL_WINDOWS].map((name, i) => [name, { open: name === 'rink' || name === 'console' || name === 'welcome', x: null, y: null, z: i }])),
   };
 }

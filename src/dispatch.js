@@ -1,6 +1,6 @@
 // Tools flow one way: input → handler → new state → render(touches) → runner.play(sequence) → ack.
 // This is the single path every caller uses: the scenario runner, the console (S3), WebMCP (S4), and the viewer's own touches.
-import { initialState } from './state.js';
+import { initialState, open } from './state.js';
 import { grammar, findMove, MoveError } from './grammar.js';
 import { AnalystError } from './analyst.js';
 import { copy, fill } from './copy.js';
@@ -17,6 +17,7 @@ const describe = (name, input) => `${name} ${JSON.stringify(input)}`.slice(0, 16
 export async function call(name, input = {}, line = describe(name, input)) {
   const move = findMove(name);
   let ack = null;
+  const before = state.read;
   if (!move) ack = { error: fill(copy.errors.unknownMove, { name }) };
   else {
     try {
@@ -28,7 +29,13 @@ export async function call(name, input = {}, line = describe(name, input)) {
     }
   }
   ack ??= move.ack(state);
-  state = { ...state, log: [...state.log, { line, ack }].slice(-200) };
+  // A move that produced a new read is remembered, so the viewer can restore it or run it again (D40).
+  let readId = null;
+  if (!ack.error && state.read && state.read !== before) {
+    readId = `${state.read.analysis_id}#${state.reads.length + 1}`;
+    state = { ...state, reads: [...state.reads, { id: readId, read: state.read, name, input, line, at: new Date().toISOString() }].slice(-20) };
+  }
+  state = { ...state, log: [...state.log, readId ? { line, ack, readId } : { line, ack }].slice(-200) };
   render(state, [...(ack.error ? [] : move.touches), 'console']);
   if (!ack.error && move.sequence) play(move.sequence);
   return ack;
@@ -75,6 +82,27 @@ function refuseLine(line, error) {
   state = { ...state, log: [...state.log, { line, ack }].slice(-200) };
   render(state, ['console']);
   return ack;
+}
+
+/** Put a remembered read back on the board. A viewer touch: no analyst, no network; the transcript says it happened. */
+export function restore(id) {
+  const entry = state.reads.find((r) => r.id === id);
+  if (!entry) return refuseLine(`restore ${id}`, copy.history.gone);
+  const move = findMove('read_ice');
+  state = open(open(open({ ...state, read: entry.read, ice: true, replay: null }, 'hand'), 'panel'), 'rink');
+  const label = entry.read.window.label ?? entry.read.window.start;
+  const ack = { restored: id, window: { start: entry.read.window.start, end: entry.read.window.end, days: entry.read.window.days } };
+  state = { ...state, log: [...state.log, { line: fill(copy.history.restored, { label }), ack }].slice(-200) };
+  render(state, [...move.touches, 'console']);
+  play(move.sequence);
+  return ack;
+}
+
+/** Re-issue the move that produced a remembered read, for a fresh read of the same week. */
+export function again(id) {
+  const entry = state.reads.find((r) => r.id === id);
+  if (!entry) return Promise.resolve(refuseLine(`again ${id}`, copy.history.gone));
+  return call(entry.name, entry.input, entry.line);
 }
 
 export const run = (line) => {

@@ -16,7 +16,8 @@ export function states(name, read) {
   const split = findMove('split').handler(iced, { a, b });
   const unmatched = findMove('split').handler(iced, { a: read.skaters.at(-1).id, b: read.skaters.at(-2).id });
   const cut = findMove('cut_to').handler(iced, { view: 'hand' });
-  const logged = { ...iced, log: [{ line: 'read_ice', ack: { read: read.analysis_id } }, { line: 'rank gridin', ack: { error: 'Unknown move "rank".' } }] };
+  const readId = `${read.analysis_id}#1`;
+  const logged = { ...iced, reads: [{ id: readId, read, name: 'read_ice', input: {}, line: 'read_ice', at: '2026-09-06T00:00:00Z' }], log: [{ line: 'read_ice', ack: { read: read.analysis_id }, readId }, { line: 'rank gridin', ack: { error: 'Unknown move "rank".' } }] };
   return { empty, cued, iced, circled, worded, wiped, replayed, split, unmatched, cut, logged };
 }
 

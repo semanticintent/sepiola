@@ -91,7 +91,8 @@ state
   windows       { rink: {open, x, y, z}, panel: {...}, hand, replay, console }
   circle        { id, reason | null } | null      persists until wipe() or the next circle()
   replay        { ids: [a] | [a, b] } | null
-  log           [{ line, ack }]                    the transcript, appended by dispatch (D20)
+  log           [{ line, ack, readId? }]           the transcript, appended by dispatch (D20)
+  reads         [{ id, read, name, input, line, at }] the last 20 reads, for restore / run again (D40)
   layer         active layer name (future)
 ```
 

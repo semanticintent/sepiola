@@ -4,7 +4,7 @@ import { describe, it, expect } from 'vitest';
 import { views } from '../src/views/index.js';
 import { hint } from '../src/views/console.js';
 import { grammar } from '../src/grammar.js';
-import { leaves } from '../src/copy.js';
+import { leaves, copy, fill } from '../src/copy.js';
 import { fixtures } from '../src/fixtures.js';
 import { resolve } from '../src/talkback.js';
 import { states } from './states.js';
@@ -17,9 +17,22 @@ describe('console', () => {
       const state = states(name, read).logged;
       const allowed = new Set([...leaves(), ...grammar.map(hint)]);
       for (const e of state.log) { allowed.add(`> ${e.line}`); allowed.add(e.ack.error ? `✗ ${e.ack.error}` : `✓ ${JSON.stringify(e.ack)}`); }
+      for (const r of state.reads) {
+        allowed.add(r.read.window.label ?? r.read.window.start);
+        const g = r.read.games_in_hand;
+        allowed.add(g.opp == null ? fill(copy.history.gamesSolo, { you: g.you }) : fill(copy.history.games, { you: g.you, opp: g.opp }));
+      }
       for (const t of textNodes(String(views.console(state)))) expect(allowed.has(t), `"${t}"`).toBe(true);
     });
   }
+  it('renders a remembered read as a card with restore and run-again controls', () => {
+    const [name, read] = Object.entries(fixtures)[0];
+    const m = String(views.console(states(name, read).logged));
+    expect(m).toContain(`data-restore="${read.analysis_id}#1"`);
+    expect(m).toContain(`data-again="${read.analysis_id}#1"`);
+    expect(m).toContain(read.window.label);
+    expect(m).toContain('vs 39 games');
+  });
   it('shows the ready line before anything has been said', () => {
     const [name, read] = Object.entries(fixtures)[0];
     expect(String(views.console(states(name, read).empty))).toContain('Talkback ready');

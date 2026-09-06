@@ -49,6 +49,15 @@ export const copy = {
     fixture: 'fixtures',
     live: 'live · {url}',
   },
+  history: {
+    games: '{you} vs {opp} games',
+    gamesSolo: '{you} games',
+    restore: 'Restore',
+    again: 'Run again',
+    raw: 'command and result',
+    restored: 'restored · {label}',
+    gone: 'That read is no longer kept. Run it again.',
+  },
   console: {
     paste: 'Paste a lineup',
     pasteGo: 'Cue it',

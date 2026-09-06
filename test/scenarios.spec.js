@@ -39,7 +39,7 @@ for (const file of scenarios) {
         expect(await page.locator(`.win[data-name="${view}"].focus`).count()).toBe(1);
       }
       if (line.startsWith('read_ice')) { expect(state.windows.panel.open).toBe(true); expect(state.windows.hand.open).toBe(true); }
-      expect(state.log.at(-1)).toEqual({ line, ack });
+      expect(state.log.at(-1)).toMatchObject({ line, ack }); // entries that produced a read also carry a readId
       await page.screenshot({ path: `test/shots/${name}-${String(i + 1).padStart(2, '0')}-${line.split(/\s+/)[0]}.png` });
     }
     expect(errors).toEqual([]);
@@ -113,7 +113,7 @@ test('with an analyst configured, cue_roster posts the lineup and read_ice re-re
   await page.click('#paste-go');
   await page.waitForFunction(() => window.sepiola.state().read !== null);
   const state0 = await page.evaluate(() => window.sepiola.state());
-  expect(state0.log.at(-1)).toEqual({ line: 'cue_roster (pasted lineup)', ack: { cued: 'fx-cgy-week1', skaters: 15 } });
+  expect(state0.log.at(-1)).toMatchObject({ line: 'cue_roster (pasted lineup)', ack: { cued: 'fx-cgy-week1', skaters: 15 } });
   expect(state0.windows.paste.open).toBe(false);
   expect(state0.windows.welcome.open).toBe(false);
   await page.evaluate(() => window.sepiola.run('read_ice'));
@@ -137,6 +137,20 @@ test('with an analyst configured, cue_roster posts the lineup and read_ice re-re
   await page.waitForFunction((n) => window.sepiola.state().log.length > n, await page.evaluate(() => window.sepiola.state().log.length));
   expect(posts.length).toBe(before + 1);
   expect(posts.at(-1)).toMatchObject({ start: '2026-11-02', look_ahead_days: 7 }); // the current read's window length (the fixture's), not the earlier request's
+  // Codex feedback: the transcript is history. Restore puts a kept read back with no network; Run again asks the analyst afresh.
+  const cards = page.locator('.hist');
+  expect(await cards.count()).toBeGreaterThanOrEqual(2);
+  await expect(cards.first()).toContainText('Oct 5 – 11');
+  await expect(cards.first()).toContainText('45 vs 39 games');
+  const postsBeforeRestore = posts.length;
+  await cards.first().locator('[data-restore]').click();
+  await page.waitForFunction(() => window.sepiola.state().read.analysis_id === 'fx-cgy-week1');
+  expect(posts.length).toBe(postsBeforeRestore); // restored from memory
+  await expect(page.locator('.win[data-name="rink"] .sub')).toContainText('Oct 5 – 11');
+  await expect(page.locator('[data-view="console"] .log')).toContainText('restored · Oct 5 – 11');
+  await cards.nth(1).locator('[data-again]').click();
+  await page.waitForFunction((n) => window.sepiola.state().log.length > n, await page.evaluate(() => window.sepiola.state().log.length));
+  expect(posts.length).toBe(postsBeforeRestore + 1); // run again went to the analyst
   // Codex feedback: a circle drawn before a re-read must show the new read's reason, not the old one.
   await page.evaluate(() => window.sepiola.run('circle zary'));
   await page.evaluate(() => window.sepiola.run('read_ice 7'));   // back to cgy-week1: Zary's reason changes

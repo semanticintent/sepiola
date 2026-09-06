@@ -3,7 +3,7 @@
 import './fonts.css';
 import './tokens.css';
 import './screen.css';
-import { run, call, getState, touch, moves } from './dispatch.js';
+import { run, call, getState, touch, moves, restore, again } from './dispatch.js';
 import { render } from './render.js';
 import { settled } from './motion/runner.js';
 import { open, close, move } from './state.js';
@@ -51,6 +51,10 @@ document.addEventListener('click', (e) => {
     box.value = copy.paste.sample; box.focus({ preventScroll: true });
     return;
   }
+  const restoreBtn = e.target.closest('[data-restore]');
+  if (restoreBtn) return restore(restoreBtn.dataset.restore);
+  const againBtn = e.target.closest('[data-again]');
+  if (againBtn) return again(againBtn.dataset.again);
   const weekBtn = e.target.closest('[data-week]');
   if (weekBtn) {
     const w = getState().read?.window;
@@ -120,4 +124,4 @@ document.getElementById('paste-go')?.addEventListener('click', () => {
 const webmcp = register();
 mountSignal({ webmcp, mode: mode(), url: analystUrl() });
 
-window.sepiola = { ready: true, run, call, submit, state: getState, settled, moves: moves(), webmcp, showAbout };
+window.sepiola = { ready: true, run, call, submit, restore, again, state: getState, settled, moves: moves(), webmcp, showAbout };
