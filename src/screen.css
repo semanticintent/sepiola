@@ -205,6 +205,19 @@ body::after{ /* fine grain */
 .gih .fill.you{fill:var(--bar-you)} .gih .fill.opp{fill:var(--bar-opp)}
 .gih .n{font-family:var(--font-d); font-weight:800; font-size:18px; fill:var(--ink); text-anchor:end}
 .edge{margin:10px 0 0; font-size:13.5px; color:var(--ink-2); line-height:1.4}
+.hand-toggle{all:unset; cursor:pointer; margin-top:10px; font-family:var(--font-d); font-weight:700; font-size:13px; padding:4px 10px; border-radius:8px; color:var(--ink); background:rgba(255,255,255,.6); border:1px solid rgba(180,130,60,.25)}
+.hand-toggle:hover,.hand-toggle:focus-visible{border-color:var(--amber); outline:none}
+.hand-detail{margin-top:10px}
+.counted{margin:0 0 8px; font-size:12px; color:var(--ink-2)}
+.tallies{display:grid; grid-template-columns:1fr 1fr; gap:10px}
+.tallies:has(> table:only-child){grid-template-columns:1fr}
+.tally{border-collapse:collapse; width:100%; font-size:12px}
+.tally caption{text-align:left; font-family:var(--font-d); font-weight:800; font-size:14px; padding:0 0 4px}
+.tally th{text-align:right; font-weight:600; color:var(--ink-2); font-size:11px; padding:2px 4px; border-bottom:1px solid rgba(180,130,60,.25)}
+.tally th:first-child{text-align:left}
+.tally td{padding:3px 4px; border-bottom:1px solid rgba(180,130,60,.12); white-space:nowrap}
+.tally td.n{text-align:right; font-family:var(--font-d); font-weight:700; font-size:13px}
+.tally td.b2b{color:var(--warn); font-family:var(--font-d); font-weight:800; font-size:10px; text-align:center; width:26px}
 
 /* console */
 #w-console{right:40px; top:64px; width:300px}

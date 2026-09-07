@@ -304,7 +304,76 @@
   "games_in_hand": {
     "you": 18,
     "opp": null,
-    "take": "18 games on the board. Paste the other guy's roster and I'll tell you the edge."
+    "take": "18 games on the board. Paste the other guy's roster and I'll tell you the edge.",
+    "counted": "Everyone not on injured reserve, bench included.",
+    "detail": {
+      "you": [
+        {
+          "id": "kadri",
+          "name": "Kadri",
+          "games": 2,
+          "b2b": false,
+          "projected_pts": 1.4
+        },
+        {
+          "id": "zary",
+          "name": "Zary",
+          "games": 2,
+          "b2b": false,
+          "projected_pts": 1.2
+        },
+        {
+          "id": "coronato",
+          "name": "Coronato",
+          "games": 2,
+          "b2b": false,
+          "projected_pts": 1.2
+        },
+        {
+          "id": "frost",
+          "name": "Frost",
+          "games": 1,
+          "b2b": false,
+          "projected_pts": 0.7
+        },
+        {
+          "id": "weegar",
+          "name": "Weegar",
+          "games": 2,
+          "b2b": false,
+          "projected_pts": 1.2
+        },
+        {
+          "id": "andersson",
+          "name": "Andersson",
+          "games": 2,
+          "b2b": false,
+          "projected_pts": 1.1
+        },
+        {
+          "id": "bahl",
+          "name": "Bahl",
+          "games": 2,
+          "b2b": false,
+          "projected_pts": 0.6
+        },
+        {
+          "id": "wolf",
+          "name": "Wolf",
+          "games": 2,
+          "b2b": true,
+          "projected_pts": 0
+        },
+        {
+          "id": "strome",
+          "name": "Strome",
+          "games": 3,
+          "b2b": false,
+          "projected_pts": 1.5
+        }
+      ],
+      "opp": null
+    }
   },
   "verdicts": [
     {

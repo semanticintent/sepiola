@@ -93,6 +93,7 @@ state
   replay        { ids: [a] | [a, b] } | null
   log           [{ line, ack, readId? }]           the transcript, appended by dispatch (D20)
   reads         [{ id, read, name, input, line, at }] the last 20 reads, for restore / run again (D40)
+  menu, pick    the skater menu and a compare in progress (D41); handOpen: the comparison expanded (D42)
   layer         active layer name (future)
 ```
 

@@ -399,7 +399,182 @@
   "games_in_hand": {
     "you": 45,
     "opp": 39,
-    "take": "Edge +6. Thursday and Saturday do the work."
+    "take": "Edge +6. Thursday and Saturday do the work.",
+    "counted": "Everyone not on injured reserve, bench included.",
+    "detail": {
+      "you": [
+        {
+          "id": "gridin",
+          "name": "Gridin",
+          "games": 4,
+          "b2b": false,
+          "projected_pts": 2.9
+        },
+        {
+          "id": "frost",
+          "name": "Frost",
+          "games": 3,
+          "b2b": false,
+          "projected_pts": 2
+        },
+        {
+          "id": "coronato",
+          "name": "Coronato",
+          "games": 4,
+          "b2b": false,
+          "projected_pts": 2.4
+        },
+        {
+          "id": "zary",
+          "name": "Zary",
+          "games": 2,
+          "b2b": true,
+          "projected_pts": 1.2
+        },
+        {
+          "id": "backlund",
+          "name": "Backlund",
+          "games": 3,
+          "b2b": false,
+          "projected_pts": 1.6
+        },
+        {
+          "id": "farabee",
+          "name": "Farabee",
+          "games": 3,
+          "b2b": true,
+          "projected_pts": 1.7
+        },
+        {
+          "id": "weegar",
+          "name": "Weegar",
+          "games": 4,
+          "b2b": false,
+          "projected_pts": 2.4
+        },
+        {
+          "id": "andersson",
+          "name": "Andersson",
+          "games": 3,
+          "b2b": false,
+          "projected_pts": 1.6
+        },
+        {
+          "id": "bahl",
+          "name": "Bahl",
+          "games": 3,
+          "b2b": true,
+          "projected_pts": 0.9
+        },
+        {
+          "id": "miromanov",
+          "name": "Miromanov",
+          "games": 4,
+          "b2b": false,
+          "projected_pts": 1.4
+        },
+        {
+          "id": "wolf",
+          "name": "Wolf",
+          "games": 3,
+          "b2b": false,
+          "projected_pts": 0
+        },
+        {
+          "id": "strome",
+          "name": "Strome",
+          "games": 4,
+          "b2b": false,
+          "projected_pts": 2
+        },
+        {
+          "id": "sharangovich",
+          "name": "Sharangovich",
+          "games": 3,
+          "b2b": false,
+          "projected_pts": 1.5
+        },
+        {
+          "id": "tsyplakov",
+          "name": "Tsyplakov",
+          "games": 2,
+          "b2b": false,
+          "projected_pts": 0.8
+        }
+      ],
+      "opp": [
+        {
+          "id": "matthews",
+          "name": "Matthews",
+          "games": 4,
+          "b2b": false,
+          "projected_pts": 4.3
+        },
+        {
+          "id": "nylander",
+          "name": "Nylander",
+          "games": 4,
+          "b2b": false,
+          "projected_pts": 3.9
+        },
+        {
+          "id": "marner",
+          "name": "Marner",
+          "games": 4,
+          "b2b": false,
+          "projected_pts": 4.1
+        },
+        {
+          "id": "tavares",
+          "name": "Tavares",
+          "games": 4,
+          "b2b": false,
+          "projected_pts": 2.6
+        },
+        {
+          "id": "knies",
+          "name": "Knies",
+          "games": 4,
+          "b2b": false,
+          "projected_pts": 2.2
+        },
+        {
+          "id": "domi",
+          "name": "Domi",
+          "games": 3,
+          "b2b": true,
+          "projected_pts": 1.4
+        },
+        {
+          "id": "rielly",
+          "name": "Rielly",
+          "games": 4,
+          "b2b": false,
+          "projected_pts": 2.0
+        },
+        {
+          "id": "mccabe",
+          "name": "McCabe",
+          "games": 4,
+          "b2b": false,
+          "projected_pts": 1.1
+        },
+        {
+          "id": "ekman-larsson",
+          "name": "Ekman-Larsson",
+          "games": 4,
+          "b2b": false,
+          "projected_pts": 1.5
+        },
+        {
+          "id": "woll",
+          "name": "Woll",
+          "games": 4,
+          "b2b": false,
+          "projected_pts": 0
+        }
+      ]
+    }
   },
   "verdicts": [
     {

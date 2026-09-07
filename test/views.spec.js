@@ -50,10 +50,16 @@ describe('views', () => {
       for (const n of read.notes ?? []) expect(out).toContain(esc(n));
       expect(String(views.panel(states(name, read).cued))).not.toContain('data-replay');
     });
-    it(`hand over ${name} draws one bar per known side`, () => {
+    it(`hand over ${name} draws one bar per known side, and opens to the analyst's tallies`, () => {
       const out = String(views.hand(states(name, read).iced));
       expect(out.match(/data-seq="gih_bar"/g)).toHaveLength(read.games_in_hand.opp == null ? 1 : 2);
       expect(out).toContain(esc(read.games_in_hand.take));
+      expect(out).not.toContain('class="tally"');
+      const open = String(views.hand(states(name, read).handOpen));
+      const d = read.games_in_hand.detail;
+      expect(open.match(/<tr><td>/g)).toHaveLength(d.you.length + (d.opp?.length ?? 0));
+      expect(open).toContain(esc(read.games_in_hand.counted));
+      expect(open.match(/<caption>/g)).toHaveLength(d.opp ? 2 : 1);
     });
   }
 

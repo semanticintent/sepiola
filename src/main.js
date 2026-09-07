@@ -51,6 +51,7 @@ document.addEventListener('click', (e) => {
     box.value = copy.paste.sample; box.focus({ preventScroll: true });
     return;
   }
+  if (e.target.closest('[data-hand-toggle]')) return touch((s) => ({ ...s, handOpen: !s.handOpen }), ['hand']);
   const restoreBtn = e.target.closest('[data-restore]');
   if (restoreBtn) return restore(restoreBtn.dataset.restore);
   const againBtn = e.target.closest('[data-again]');

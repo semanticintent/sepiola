@@ -21,6 +21,7 @@ export function states(name, read) {
   const menued = { ...iced, menu: { id: onIce(read).id, x: 400, y: 300 } };
   const benchMenu = read.skaters.find((s) => s.slot === 'BN') ? { ...iced, menu: { id: read.skaters.find((s) => s.slot === 'BN').id, x: 10, y: 10 } } : menued;
   const picking = { ...iced, pick: { a: onIce(read).id } };
-  return { empty, cued, iced, circled, worded, wiped, replayed, split, unmatched, cut, logged, menued, benchMenu, picking };
+  const handOpen = { ...iced, handOpen: true };
+  return { empty, cued, iced, circled, worded, wiped, replayed, split, unmatched, cut, logged, menued, benchMenu, picking, handOpen };
 }
 

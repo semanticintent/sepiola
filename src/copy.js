@@ -42,6 +42,10 @@ export const copy = {
     sub: 'who skates more',
     empty: 'Run the ice to see the edge.',
     you: 'You', opp: 'Opp',
+    expand: 'Both rosters',
+    collapse: 'Totals only',
+    colGames: 'games',
+    colPts: 'pts',
   },
   siteTools: {
     none: 'Site tools: not available in this browser',

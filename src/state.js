@@ -13,6 +13,7 @@ export function initialState() {
     reads: [],       // the last reads kept for restore: [{ id, read, name, input, line, at }], appended by dispatch (D40)
     menu: null,      // { id, x, y } — the skater menu the viewer opened (D41)
     pick: null,      // { a } — a compare in progress: the first skater picked, waiting for the second (D41)
+    handOpen: false, // the games-in-hand comparison is expanded (D42)
     windows: Object.fromEntries([...WINDOWS, ...SHELL_WINDOWS].map((name, i) => [name, { open: name === 'rink' || name === 'console' || name === 'welcome', x: null, y: null, z: i }])),
   };
 }

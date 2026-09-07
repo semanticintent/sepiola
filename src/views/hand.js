@@ -20,5 +20,17 @@ export function hand(state) {
           <text class="n" data-seq="gih_n" x="320" y="${y + 15}">${v}</text>`;
       })}
     </svg>
-    <p class="edge" data-seq="gih_take">${g.take}</p>`;
+    <p class="edge" data-seq="gih_take">${g.take}</p>
+    ${g.detail ? html`<button type="button" class="hand-toggle" data-hand-toggle aria-expanded="${state.handOpen}">${state.handOpen ? copy.hand.collapse : copy.hand.expand}</button>` : ''}
+    ${g.detail && state.handOpen ? detail(g) : ''}`;
 }
+
+// The comparison, as the analyst counted it: one table per side, one line per skater. Counts are the analyst's.
+const tally = (side, rows) => html`<table class="tally"><caption>${side}</caption>
+  <thead><tr><th></th><th>${copy.hand.colGames}</th><th></th><th>${copy.hand.colPts}</th></tr></thead>
+  <tbody>${rows.map((t) => html`<tr><td>${t.name}</td><td class="n">${t.games}</td><td class="b2b">${t.b2b ? copy.glyph.b2b : ''}</td><td class="n">${t.projected_pts}</td></tr>`)}</tbody>
+</table>`;
+const detail = (g) => html`<div class="hand-detail">
+  ${g.counted ? html`<p class="counted">${g.counted}</p>` : ''}
+  <div class="tallies">${tally(copy.hand.you, g.detail.you)}${g.detail.opp ? tally(copy.hand.opp, g.detail.opp) : ''}</div>
+</div>`;

@@ -124,7 +124,7 @@ An agent in Codex drove the screen through WebMCP and the analyst through MCP, t
 | 3 | **The week, unmistakable** | Analyst returns `window.label`; every window showing week data shows it; previous/next-week controls issue `read_ice` moves. | ☑ 2026-09-06 (CHIRP PR #49, D39) |
 | 4 | **Player actions on click** | Click a skater → Spotlight · Replay · Compare with… (two-click pick). Moves stay the moves. | ☑ 2026-09-06 (D41) |
 | 5 | **Talkback as history** | Reads kept in state; readable entries from copy templates filled with ack values; click restores, Run again re-issues; raw JSON expandable. Seed of `state()`. | ☑ 2026-09-06 (D40) |
-| 6 | **Comparison on demand** | Contract 0.2: opponent skaters with games/b2b/projected; whether bench counts, in the analyst's words. CHIRP alongside. | ☐ |
+| 6 | **Comparison on demand** | Optional `games_in_hand.counted` + `detail` (still 0.1): per-skater games/b2b/projected for both rosters; who counts, in the analyst's words. CHIRP PR alongside. | ☑ 2026-09-06 (D42) — sprint complete |
 
 ## Not in scope
 

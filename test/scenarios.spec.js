@@ -201,6 +201,15 @@ test('in fixture mode the week is labelled but the week controls stay hidden', a
   await page.waitForFunction(() => window.sepiola.state().ice === true);
   await expect(page.locator('.win[data-name="rink"] .sub')).toContainText('Oct 5 – 11');
   expect(await page.locator('.week-nav').isVisible()).toBe(false);
+  // Codex feedback: the compact games-in-hand opens to both rosters, as the analyst counted them.
+  expect(await page.locator('.tally').count()).toBe(0);
+  await page.click('[data-hand-toggle]');
+  expect(await page.locator('.tally').count()).toBe(2);
+  expect(await page.locator('.tally tbody tr').count()).toBe(24);
+  await expect(page.locator('.counted')).toHaveText('Everyone not on injured reserve, bench included.');
+  await page.screenshot({ path: 'test/shots/hand-detail.png' });
+  await page.click('[data-hand-toggle]');
+  expect(await page.locator('.tally').count()).toBe(0);
 });
 
 test('a visitor is welcomed, the sample loads through the grammar, and the welcome steps aside', async ({ page }) => {
