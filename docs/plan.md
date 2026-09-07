@@ -122,7 +122,7 @@ An agent in Codex drove the screen through WebMCP and the analyst through MCP, t
 | 1 | **Stale spotlight after a re-read** | `read_ice` touches every view that shows read data (spot, replay too); the ack names the window it read. | ☑ 2026-09-06 |
 | 2 | **`read_ice 2026-09-29` read the wrong week** | Console: a date where days were expected slides to `start`; nonsense is refused with the move's example; `look_ahead_days` must be 1–14 whole days. Grammar entries carry an `example`. | ☑ 2026-09-06 |
 | 3 | **The week, unmistakable** | Analyst returns `window.label`; every window showing week data shows it; previous/next-week controls issue `read_ice` moves. | ☑ 2026-09-06 (CHIRP PR #49, D39) |
-| 4 | **Player actions on click** | Click a skater → Spotlight · Replay · Compare with… (two-click pick). Moves stay the moves. | ☐ |
+| 4 | **Player actions on click** | Click a skater → Spotlight · Replay · Compare with… (two-click pick). Moves stay the moves. | ☑ 2026-09-06 (D41) |
 | 5 | **Talkback as history** | Reads kept in state; readable entries from copy templates filled with ack values; click restores, Run again re-issues; raw JSON expandable. Seed of `state()`. | ☑ 2026-09-06 (D40) |
 | 6 | **Comparison on demand** | Contract 0.2: opponent skaters with games/b2b/projected; whether bench counts, in the analyst's words. CHIRP alongside. | ☐ |
 

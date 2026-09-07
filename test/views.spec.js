@@ -57,6 +57,19 @@ describe('views', () => {
     });
   }
 
+  for (const [name, read] of Object.entries(fixtures)) {
+    it(`skater menu over ${name} offers the three moves, spotlight only on the ice`, () => {
+      const { menued, benchMenu, picking, iced } = states(name, read);
+      const m = String(views.menu(menued));
+      expect(m).toContain('data-act="circle"'); expect(m).toContain('data-act="replay"'); expect(m).toContain('data-act="compare"');
+      expect(m).not.toMatch(/data-act="circle" disabled/);
+      if (read.skaters.some((s) => s.slot === 'BN')) expect(String(views.menu(benchMenu))).toMatch(/data-act="circle" disabled/);
+      expect(String(views.menu(iced))).toBe('');
+      expect(String(views.pick(picking))).toContain('click another skater');
+      expect(String(views.pick(iced))).toBe('');
+    });
+  }
+
   it('every move names only views that exist', () => {
     for (const g of grammar) for (const t of g.touches) expect(views, `${g.name} touches ${t}`).toHaveProperty(t);
   });

@@ -49,6 +49,15 @@ export const copy = {
     fixture: 'fixtures',
     live: 'live · {url}',
   },
+  skaterMenu: {
+    spotlight: 'Spotlight',
+    replay: 'Run it back',
+    compare: 'Compare with…',
+  },
+  pick: {
+    banner: 'Compare {name} with… click another skater.',
+    cancel: 'Cancel',
+  },
   history: {
     games: '{you} vs {opp} games',
     gamesSolo: '{you} games',

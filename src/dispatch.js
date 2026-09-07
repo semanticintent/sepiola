@@ -18,6 +18,7 @@ export async function call(name, input = {}, line = describe(name, input)) {
   const move = findMove(name);
   let ack = null;
   const before = state.read;
+  if (state.menu || state.pick) { state = { ...state, menu: null, pick: null }; render(state, ['menu', 'pick']); } // a move settles any open menu or pick
   if (!move) ack = { error: fill(copy.errors.unknownMove, { name }) };
   else {
     try {
@@ -112,9 +113,9 @@ export const run = (line) => {
 };
 
 /** A viewer's touch (open, close, drag) is a state change that is not a move. It renders chrome only. */
-export function touch(fn) {
+export function touch(fn, views = []) {
   state = fn(state);
-  render(state, []);
+  render(state, views);
 }
 
 export const moves = () => grammar.map((g) => g.name);

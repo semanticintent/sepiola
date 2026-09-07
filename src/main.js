@@ -67,15 +67,32 @@ document.addEventListener('click', (e) => {
   if (closer) return touch((s) => close(s, closer.dataset.close));
   const why = e.target.closest('[data-replay]');
   if (why) return run(`replay ${why.dataset.replay}`);
-  const chip = e.target.closest('.chip[data-id]');
-  if (chip) return run(`replay ${chip.dataset.id}`);
-  const skater = e.target.closest('svg [data-id]');
-  if (skater) run(`circle ${skater.dataset.id}`);
+  // The skater menu (D41): any skater, on the ice or on the bench, opens Spotlight · Run it back · Compare with…
+  const menuBtn = e.target.closest('.skater-menu [data-act]');
+  if (menuBtn) {
+    const id = menuBtn.closest('.skater-menu').dataset.id;
+    const act = menuBtn.dataset.act;
+    if (act === 'compare') return touch((s) => ({ ...s, menu: null, pick: { a: id } }), ['menu', 'pick']);
+    touch((s) => ({ ...s, menu: null }), ['menu']);
+    return run(`${act} ${id}`);
+  }
+  if (e.target.closest('.pick-bar [data-act="cancel"]')) return touch((s) => ({ ...s, pick: null }), ['pick']);
+  const picked = e.target.closest('svg [data-id], .chip[data-id]');
+  if (picked) {
+    const id = picked.dataset.id;
+    const st = getState();
+    if (st.pick && st.pick.a !== id) return run(`split ${st.pick.a} ${id}`);
+    if (st.pick && st.pick.a === id) return;
+    return touch((s) => ({ ...s, menu: { id, x: Math.min(e.clientX, window.innerWidth - 200), y: Math.min(e.clientY, window.innerHeight - 160) } }), ['menu']);
+  }
+  if (getState().menu && !e.target.closest('.skater-menu')) touch((s) => ({ ...s, menu: null }), ['menu']);
 });
 document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && (getState().menu || getState().pick)) return touch((s) => ({ ...s, menu: null, pick: null }), ['menu', 'pick']);
   if ((e.key === 'Enter' || e.key === ' ') && e.target.matches?.('svg [data-id]')) {
     e.preventDefault();
-    run(`circle ${e.target.dataset.id}`);
+    const r = e.target.getBoundingClientRect();
+    touch((s) => ({ ...s, menu: { id: e.target.dataset.id, x: Math.round(r.left + r.width / 2), y: Math.round(r.bottom) } }), ['menu']);
   }
 });
 

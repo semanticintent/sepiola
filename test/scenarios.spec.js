@@ -241,3 +241,31 @@ test('the paste window explains the formats and can fill itself with the sample 
   expect(await page.evaluate(() => window.scrollY)).toBe(0);
   await page.screenshot({ path: 'test/shots/paste-formats.png' });
 });
+
+test('clicking a skater opens the menu; spotlight, run it back, and compare-with need no ids', async ({ page }) => {
+  await boot(page);
+  await page.click('.win[data-name="welcome"] [data-sample]');
+  await page.waitForFunction(() => window.sepiola.state().ice === true);
+  await page.evaluate(() => window.sepiola.settled());
+  await page.click('.jersey[data-id="zary"]');
+  await expect(page.locator('.skater-menu')).toBeVisible();
+  await expect(page.locator('.skater-menu b')).toHaveText('Zary');
+  await page.click('.skater-menu [data-act="circle"]');
+  await page.waitForFunction(() => window.sepiola.state().circle?.id === 'zary');
+  expect(await page.locator('.skater-menu').count()).toBe(0);
+  await page.click('.jersey[data-id="gridin"]');
+  await page.click('.skater-menu [data-act="compare"]');
+  await expect(page.locator('.pick-bar')).toContainText('Compare Gridin with… click another skater.');
+  await page.click('.jersey[data-id="zary"]');
+  await page.waitForFunction(() => window.sepiola.state().replay?.ids?.join() === 'gridin,zary');
+  expect(await page.locator('.pick-bar').textContent()).toBe('');
+  await expect(page.locator('[data-view="replay"] .verdict-t')).toHaveText('Gridin skates 2 more. Start him.');
+  // bench chips get the same menu, minus spotlight (bring the rink forward first: the replay window covers the bench)
+  await page.evaluate(() => window.sepiola.run('cut_to rink'));
+  await page.click('.chip[data-id="strome"]');
+  expect(await page.locator('.skater-menu [data-act="circle"]').isDisabled()).toBe(true);
+  await page.click('.skater-menu [data-act="replay"]');
+  await page.waitForFunction(() => window.sepiola.state().replay?.ids?.join() === 'strome');
+  await page.keyboard.press('Escape');
+  await page.screenshot({ path: 'test/shots/skater-menu.png' });
+});

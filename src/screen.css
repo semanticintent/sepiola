@@ -288,6 +288,22 @@ body::after{ /* fine grain */
 .about-section p{margin:0 0 8px}
 .about-section ol{margin:0; padding-left:22px} .about-section li{margin:0 0 6px}
 
+/* skater menu + compare pick */
+.menu-layer{position:fixed; inset:0; pointer-events:none; z-index:70}
+.skater-menu{
+  position:absolute; pointer-events:auto; transform:translate(-50%, 8px); min-width:168px; display:flex; flex-direction:column; padding:6px;
+  background:var(--glass); backdrop-filter:blur(26px) saturate(1.4); border:1px solid var(--glass-edge); border-radius:12px;
+  box-shadow:0 1px 0 rgba(255,255,255,.7) inset, 0 24px 48px -16px rgba(120,60,10,.45);
+}
+.skater-menu b{font-family:var(--font-d); font-weight:800; font-size:14px; padding:4px 10px 6px; color:var(--ink)}
+.skater-menu button{all:unset; display:block; cursor:pointer; padding:7px 10px; border-radius:8px; font-size:13.5px; color:var(--ink)}
+.skater-menu button:hover,.skater-menu button:focus-visible{background:var(--sun); outline:none}
+.skater-menu button:disabled{opacity:.4; cursor:default; background:transparent}
+.pick-bar:empty{display:none}
+.pick-bar{display:flex; align-items:center; gap:10px; margin:0 0 8px; padding:8px 12px; border-radius:10px; background:var(--sun); color:var(--ink); font-size:13px; font-weight:600}
+.pick-bar button{all:unset; cursor:pointer; margin-left:auto; font-family:var(--font-d); font-weight:700; font-size:13px; padding:3px 10px; border-radius:6px; background:rgba(255,255,255,.7)}
+.pick-bar button:hover{background:#fff}
+
 /* dock */
 .dock{
   position:absolute; left:50%; bottom:14px; transform:translateX(-50%); z-index:40;
