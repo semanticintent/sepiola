@@ -209,8 +209,7 @@ body::after{ /* fine grain */
 .hand-toggle:hover,.hand-toggle:focus-visible{border-color:var(--amber); outline:none}
 .hand-detail{margin-top:10px}
 .counted{margin:0 0 8px; font-size:12px; color:var(--ink-2)}
-.tallies{display:grid; grid-template-columns:1fr 1fr; gap:10px}
-.tallies:has(> table:only-child){grid-template-columns:1fr}
+.tallies{display:grid; grid-template-columns:1fr; gap:12px} /* stacked: the window is 300px wide and stays where it is */
 .tally{border-collapse:collapse; width:100%; font-size:12px}
 .tally caption{text-align:left; font-family:var(--font-d); font-weight:800; font-size:14px; padding:0 0 4px}
 .tally th{text-align:right; font-weight:600; color:var(--ink-2); font-size:11px; padding:2px 4px; border-bottom:1px solid rgba(180,130,60,.25)}

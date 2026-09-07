@@ -207,6 +207,7 @@ test('in fixture mode the week is labelled but the week controls stay hidden', a
   expect(await page.locator('.tally').count()).toBe(2);
   expect(await page.locator('.tally tbody tr').count()).toBe(24);
   await expect(page.locator('.counted')).toHaveText('Everyone not on injured reserve, bench included.');
+  await page.evaluate(() => window.sepiola.settled());
   await page.screenshot({ path: 'test/shots/hand-detail.png' });
   await page.click('[data-hand-toggle]');
   expect(await page.locator('.tally').count()).toBe(0);
