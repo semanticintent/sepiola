@@ -67,6 +67,10 @@ describe('views', () => {
       expect(String(views.menu(iced))).toBe('');
       expect(String(views.pick(picking))).toContain('click another skater');
       expect(String(views.pick(iced))).toBe('');
+      expect(String(views.focus(menued))).toContain(`class="focus-ring menu" data-id="${onIce(read).id}"`);
+      expect(String(views.focus(picking))).toContain('focus-ring picked');
+      expect(String(views.focus(iced))).toBe('');
+      if (read.skaters.some((s) => s.slot === 'BN')) expect(String(views.strips(benchMenu))).toContain('chip focused');
     });
   }
 

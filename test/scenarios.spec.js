@@ -250,12 +250,14 @@ test('clicking a skater opens the menu; spotlight, run it back, and compare-with
   await page.click('.jersey[data-id="zary"]');
   await expect(page.locator('.skater-menu')).toBeVisible();
   await expect(page.locator('.skater-menu b')).toHaveText('Zary');
+  expect(await page.locator('.focus-ring[data-id="zary"]').count()).toBe(1); // the skater the menu is about is ringed
   await page.click('.skater-menu [data-act="circle"]');
   await page.waitForFunction(() => window.sepiola.state().circle?.id === 'zary');
   expect(await page.locator('.skater-menu').count()).toBe(0);
   await page.click('.jersey[data-id="gridin"]');
   await page.click('.skater-menu [data-act="compare"]');
   await expect(page.locator('.pick-bar')).toContainText('Compare Gridin with… click another skater.');
+  expect(await page.locator('.focus-ring.picked[data-id="gridin"]').count()).toBe(1); // the first pick stays ringed
   await page.click('.jersey[data-id="zary"]');
   await page.waitForFunction(() => window.sepiola.state().replay?.ids?.join() === 'gridin,zary');
   expect(await page.locator('.pick-bar').textContent()).toBe('');

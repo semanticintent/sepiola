@@ -18,7 +18,7 @@ export async function call(name, input = {}, line = describe(name, input)) {
   const move = findMove(name);
   let ack = null;
   const before = state.read;
-  if (state.menu || state.pick) { state = { ...state, menu: null, pick: null }; render(state, ['menu', 'pick']); } // a move settles any open menu or pick
+  if (state.menu || state.pick) { state = { ...state, menu: null, pick: null }; render(state, ['menu', 'pick', 'focus', 'strips']); } // a move settles any open menu or pick
   if (!move) ack = { error: fill(copy.errors.unknownMove, { name }) };
   else {
     try {

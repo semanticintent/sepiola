@@ -148,6 +148,11 @@ body::after{ /* fine grain */
 
 /* skaters */
 .jersey{cursor:pointer; outline:none}
+.jersey:hover .body{stroke:var(--amber); stroke-width:2.5} /* a highlight, not a shift: nothing moves under the pointer */
+.focus-ring{fill:none; stroke:var(--amber); stroke-width:2.5; stroke-dasharray:6 5; opacity:.95; animation:ring-turn 6s linear infinite}
+.focus-ring.picked{stroke:var(--ink); stroke-dasharray:none; stroke-width:2; opacity:.7}
+@keyframes ring-turn{to{stroke-dashoffset:-44}}
+.chip.focused{border-color:var(--amber); box-shadow:0 0 0 3px rgba(232,154,60,.25)}
 .jersey:focus-visible .body{stroke:var(--ink); stroke-width:2.5}
 .jersey .body{fill:var(--c1); stroke:var(--jersey-edge); stroke-width:1.5}
 .jersey .stripe{fill:var(--c2)}
@@ -324,4 +329,4 @@ body::after{ /* fine grain */
 .dock button span{position:absolute; top:-30px; font-size:12px; padding:3px 8px; border-radius:6px; background:var(--ink); color:#fff; opacity:0; pointer-events:none; white-space:nowrap}
 .dock button:hover span{opacity:1}
 
-@media (prefers-reduced-motion: reduce){ *{transition:none !important} }
+@media (prefers-reduced-motion: reduce){ *{transition:none !important} .focus-ring{animation:none} }
