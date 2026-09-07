@@ -65,7 +65,11 @@ document.addEventListener('click', (e) => {
   const opener = e.target.closest('[data-open]');
   if (opener) return touch((s) => open(s, opener.dataset.open));
   const closer = e.target.closest('[data-close]');
-  if (closer) return touch((s) => close(s, closer.dataset.close));
+  if (closer) {
+    // Closing About also drops the section hash, so a reload does not reopen it over the welcome card.
+    if (closer.dataset.close === 'about' && location.hash) history.replaceState(null, '', location.pathname + location.search);
+    return touch((s) => close(s, closer.dataset.close));
+  }
   const why = e.target.closest('[data-replay]');
   if (why) return run(`replay ${why.dataset.replay}`);
   // The skater menu (D41): any skater, on the ice or on the bench, opens Spotlight · Run it back · Compare with…

@@ -237,6 +237,12 @@ test('the menubar menus open windows and the about sections answer to hashes', a
   await page.goto('/#terms');
   await page.waitForFunction(() => window.sepiola?.ready === true);
   expect(await page.evaluate(() => window.sepiola.state().windows.about.open)).toBe(true);
+  await page.click('.win[data-name="about"] [data-close]');
+  expect(await page.evaluate(() => location.hash)).toBe(''); // closing About forgets the section, so a reload starts on the welcome
+  expect(await page.evaluate(() => window.sepiola.state().windows.about.open)).toBe(false);
+  // the right column never overlaps: games in hand starts below the talkback
+  const gap = await page.evaluate(() => parseFloat(getComputedStyle(document.querySelector('.win[data-name="hand"]')).top) - document.querySelector('.win[data-name="console"]').getBoundingClientRect().bottom);
+  expect(gap).toBeGreaterThanOrEqual(8);
   await page.screenshot({ path: 'test/shots/about-terms.png' });
 });
 
