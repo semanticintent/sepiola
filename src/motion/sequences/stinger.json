@@ -1,0 +1,10 @@
+{
+  "name": "stinger",
+  "steps": [
+    { "at": 0.00, "target": "cloud",   "do": "sweep_x",  "duration": 1.15, "stagger": 0.12, "ease": "power2.inOut" },
+    { "at": 0.25, "target": "ident",   "do": "fade_in",  "duration": 0.35 },
+    { "at": 0.30, "target": "win",     "do": "settle",   "duration": 0.80, "stagger": 0.06, "ease": "power3.out" },
+    { "at": 0.90, "target": "ident",   "do": "fade_out", "duration": 0.30 },
+    { "at": 1.05, "target": "stinger", "do": "fade_out", "duration": 0.25 }
+  ]
+}

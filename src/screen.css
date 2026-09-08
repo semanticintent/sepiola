@@ -321,6 +321,20 @@ body::after{ /* fine grain */
 .pick-bar button{all:unset; cursor:pointer; margin-left:auto; font-family:var(--font-d); font-weight:700; font-size:13px; padding:3px 10px; border-radius:6px; background:rgba(255,255,255,.7)}
 .pick-bar button:hover{background:#fff}
 
+/* stinger */
+.stinger{position:fixed; inset:0; z-index:100; pointer-events:none; overflow:hidden}
+.stinger[hidden]{display:none}
+.cloud{
+  position:absolute; top:-25%; height:150%; width:34%; left:0; transform:skewX(-14deg); opacity:.6; filter:blur(28px);
+  background:linear-gradient(90deg, rgba(200,86,30,0) 0%, var(--ember) 35%, var(--amber) 62%, rgba(232,154,60,0) 100%);
+}
+.cloud.second{opacity:.42; width:22%; filter:blur(36px)}
+.cloud.third{opacity:.3; width:14%; filter:blur(44px); background:linear-gradient(90deg, rgba(43,32,22,0), rgba(43,32,22,.5) 50%, rgba(43,32,22,0))}
+.ident{position:absolute; left:50%; top:44%; transform:translate(-50%,-50%); display:flex; align-items:center; gap:16px; opacity:0}
+.ident .mark.big{width:64px; height:64px}
+.ident .wordmark{font-family:var(--font-d); font-weight:800; font-size:56px; letter-spacing:.01em; color:var(--ink)}
+.ident .tag{font-family:var(--font-b); font-size:15px; color:var(--ink-2); margin-left:6px; align-self:flex-end; padding-bottom:12px}
+
 /* dock */
 .dock{
   position:absolute; left:50%; bottom:14px; transform:translateX(-50%); z-index:40;

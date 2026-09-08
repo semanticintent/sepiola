@@ -3,9 +3,9 @@
 import './fonts.css';
 import './tokens.css';
 import './screen.css';
-import { run, call, getState, touch, moves, restore, again } from './dispatch.js';
+import { run, call, getState, touch, moves, restore, again, onMove } from './dispatch.js';
 import { render } from './render.js';
-import { settled } from './motion/runner.js';
+import { settled, play, cut } from './motion/runner.js';
 import { open, close, move } from './state.js';
 import { submit } from './talkback.js';
 import { register } from './webmcp.js';
@@ -145,5 +145,24 @@ document.getElementById('paste-go')?.addEventListener('click', () => {
 // The signal: whether an agent can reach the moves (WebMCP), and where the reads come from (the analyst).
 const webmcp = register();
 mountSignal({ webmcp, mode: mode(), url: analystUrl() });
+
+// The stinger (D43): the ident, played once per visit after the tools are registered. Any input or the first move cuts it.
+const stinger = document.getElementById('stinger');
+function endStinger() {
+  cut('stinger');
+  if (stinger) stinger.hidden = true;
+  if (!getState().stung) touch((s) => ({ ...s, stung: true }));
+}
+if (stinger) {
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduced) endStinger();
+  else {
+    stinger.hidden = false;
+    const tl = play('stinger');
+    tl?.then(endStinger);
+    for (const ev of ['pointerdown', 'keydown', 'wheel']) window.addEventListener(ev, endStinger, { once: true, passive: true });
+    onMove(endStinger);
+  }
+}
 
 window.sepiola = { ready: true, run, call, submit, restore, again, state: getState, settled, moves: moves(), webmcp, showAbout };

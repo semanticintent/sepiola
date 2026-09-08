@@ -14,6 +14,7 @@ export function initialState() {
     menu: null,      // { id, x, y } — the skater menu the viewer opened (D41)
     pick: null,      // { a } — a compare in progress: the first skater picked, waiting for the second (D41)
     handOpen: false, // the games-in-hand comparison is expanded (D42)
+    stung: false,    // the stinger has played (or been cut) this visit (D43)
     windows: Object.fromEntries([...WINDOWS, ...SHELL_WINDOWS].map((name, i) => [name, { open: name === 'rink' || name === 'console' || name === 'welcome', x: null, y: null, z: i }])),
   };
 }

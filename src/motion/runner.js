@@ -22,10 +22,15 @@ export const VERBS = {
     const to = +el.textContent; const o = { v: 0 };
     tl.to(o, { v: to, duration: s.duration, ease: s.ease, onUpdate: () => { el.textContent = String(Math.round(o.v)); } }, s.at + i * s.stagger);
   }),
+  // a band crossing the screen, like the passing cloud across a cuttlefish's mantle
+  sweep_x: (tl, els, s) => tl.fromTo(els, { xPercent: -140 }, { xPercent: 160, duration: s.duration, ease: s.ease, stagger: s.stagger }, s.at),
+  // windows arriving: opacity only, never a transform, so centred windows keep their own transform
+  settle: (tl, els, s) => tl.fromTo(els, { opacity: 0 }, { opacity: 1, duration: s.duration, ease: s.ease, stagger: s.stagger }, s.at),
   drop: (tl, els, s) => tl.fromTo(els, { opacity: 0, y: -12 }, { opacity: 1, y: 0, duration: s.duration, ease: s.ease, stagger: s.stagger }, s.at),
 };
 
 let active = [];
+const byName = new Map();
 
 export function play(name, root = document) {
   const seq = sequences[name];
@@ -38,9 +43,18 @@ export function play(name, root = document) {
     if (!els.length || !verb) continue;
     verb(tl, els, { ...step, at: (step.at ?? 0) * k, duration: (step.duration ?? 0.5) * k, stagger: (step.stagger ?? 0) * k, ease: step.ease ?? 'power2.out' });
   }
-  active.push(tl);
-  tl.then(() => { active = active.filter((t) => t !== tl); });
+  active.push(tl); byName.set(name, tl);
+  tl.then(() => { active = active.filter((t) => t !== tl); if (byName.get(name) === tl) byName.delete(name); });
   return tl;
+}
+
+/** Cut a running sequence straight to its end state. Returns true if it was running. */
+export function cut(name) {
+  const tl = byName.get(name);
+  if (!tl) return false;
+  tl.progress(1).kill();
+  active = active.filter((t) => t !== tl); byName.delete(name);
+  return true;
 }
 
 /** Resolves when every running sequence has finished. The scenario runner screenshots after this. */

@@ -76,7 +76,7 @@
 </div>
 
 <!-- WELCOME: the viewer's first window; closes itself when a roster is cued -->
-<section class="win" id="w-welcome" data-name="welcome" tabindex="0">
+<section class="win" id="w-welcome" data-name="welcome" data-seq="win" tabindex="0">
   <div class="head">
     <div class="lights"><button class="x" aria-label="Close" data-close="welcome"></button><button class="m" aria-label="Minimize" data-close="welcome"></button></div>
     <span class="title"><svg class="mark" aria-hidden="true"><use href="#mark"/></svg>Sepiola</span><span class="sub">a screen for an analyst's read</span>
@@ -94,7 +94,7 @@
 </section>
 
 <!-- RINK: the static ice sheet is shell; the views render into the data-view groups. -->
-<section class="win" id="w-rink" data-name="rink" tabindex="0">
+<section class="win" id="w-rink" data-name="rink" data-seq="win" tabindex="0">
   <div class="head">
     <div class="lights"><button class="x" aria-label="Close" data-close="rink"></button><button class="m" aria-label="Minimize" data-close="rink"></button></div>
     <span class="title">My rink</span>
@@ -181,7 +181,7 @@
 </section>
 
 <!-- CONSOLE -->
-<section class="win" id="w-console" data-name="console" tabindex="0">
+<section class="win" id="w-console" data-name="console" data-seq="win" tabindex="0">
   <div class="head">
     <div class="lights"><button class="x" aria-label="Close" data-close="console"></button><button class="m" aria-label="Minimize" data-close="console"></button></div>
     <span class="title">Talkback</span><span class="sub">the same moves the agent makes</span>
@@ -214,9 +214,17 @@
   </div>
 </section>
 
+<!-- The stinger (D43): the ident, once per visit, ~1.3 s, cut by any input or the first move, off under reduced motion -->
+<div id="stinger" class="stinger" data-seq="stinger" aria-hidden="true" hidden>
+  <div class="cloud" data-seq="cloud"></div>
+  <div class="cloud second" data-seq="cloud"></div>
+  <div class="cloud third" data-seq="cloud"></div>
+  <div class="ident" data-seq="ident"><svg class="mark big" aria-hidden="true"><use href="#mark"/></svg><span class="wordmark">Sepiola</span><span class="tag">a screen for an analyst's read</span></div>
+</div>
+
 <div class="menu-layer" data-view="menu"></div>
 
-<div class="dock" role="toolbar" aria-label="Windows">
+<div class="dock" role="toolbar" aria-label="Windows" data-seq="win">
   <button data-open="rink"><span>Rink</span>
     <svg viewBox="0 0 32 32"><rect x="3" y="7" width="26" height="18" rx="8" fill="#EAF4FA" stroke="#2B5E9E" stroke-width="1.5"/><line x1="16" y1="8" x2="16" y2="24" stroke="#C8102E" stroke-width="2"/><circle cx="16" cy="16" r="4" fill="none" stroke="#2B5E9E" stroke-width="1.2"/></svg></button>
   <button data-open="panel"><span>Panel</span>

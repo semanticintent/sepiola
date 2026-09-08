@@ -202,7 +202,7 @@ sepiola/
     html.js                    template helper
     views/                     index.js chrome.js (4 header subtitles) rink.js spot.js strips.js replay.js panel.js hand.js console.js welcome.js about.js formats.js
     motion/runner.js
-    motion/sequences/*.json    read_ice circle replay wipe
+    motion/sequences/*.json    read_ice circle replay wipe stinger
     tokens.css                 colours, type, glass
     screen.css                 the desktop, windows, dock, rink classes
   test/

@@ -287,3 +287,30 @@ test('clicking a skater opens the menu; spotlight, run it back, and compare-with
   await page.keyboard.press('Escape');
   await page.screenshot({ path: 'test/shots/skater-menu.png' });
 });
+
+test('the stinger plays once, cuts on input, never delays the tools, and stays off under reduced motion', async ({ page }) => {
+  await page.addInitScript(() => { navigator.modelContext = { tools: [], async registerTool(t) { this.tools.push(t); } }; });
+  await page.goto('/');
+  await page.waitForFunction(() => window.sepiola?.ready === true);
+  // tools are registered while the ident is still on screen
+  expect(await page.evaluate(() => navigator.modelContext.tools.length)).toBe(7);
+  expect(await page.locator('#stinger').isHidden()).toBe(false);
+  await page.screenshot({ path: 'test/shots/stinger.png' });
+  await page.keyboard.press('Shift'); // any key cuts straight through
+  await expect(page.locator('#stinger')).toBeHidden();
+  expect(await page.evaluate(() => window.sepiola.state().stung)).toBe(true);
+  // reduced motion: never shown
+  const p2 = await page.context().newPage();
+  await p2.emulateMedia({ reducedMotion: 'reduce' });
+  await p2.goto('/');
+  await p2.waitForFunction(() => window.sepiola?.ready === true);
+  expect(await p2.locator('#stinger').isHidden()).toBe(true);
+  expect(await p2.evaluate(() => window.sepiola.state().stung)).toBe(true);
+});
+
+test('the first move cuts the stinger', async ({ page }) => {
+  await page.goto('/');
+  await page.waitForFunction(() => window.sepiola?.ready === true);
+  await page.evaluate(() => window.sepiola.run('cue_roster cgy-week1'));
+  await expect(page.locator('#stinger')).toBeHidden();
+});

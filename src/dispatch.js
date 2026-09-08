@@ -10,6 +10,10 @@ import { play } from './motion/runner.js';
 let state = initialState();
 export const getState = () => state;
 
+let beforeMove = null;
+/** Register a one-time-per-visit hook that runs before any move; the stinger uses it (D43). */
+export function onMove(fn) { beforeMove = fn; }
+
 const describe = (name, input) => `${name} ${JSON.stringify(input)}`.slice(0, 160);
 
 /** Make a move by name with a structured input. Returns the ack, or { error } with a line from copy.
@@ -17,6 +21,7 @@ const describe = (name, input) => `${name} ${JSON.stringify(input)}`.slice(0, 16
 export async function call(name, input = {}, line = describe(name, input)) {
   const move = findMove(name);
   let ack = null;
+  if (beforeMove) { const f = beforeMove; beforeMove = null; f(); }
   const before = state.read;
   if (state.menu || state.pick) { state = { ...state, menu: null, pick: null }; render(state, ['menu', 'pick', 'focus', 'strips']); } // a move settles any open menu or pick
   if (!move) ack = { error: fill(copy.errors.unknownMove, { name }) };
