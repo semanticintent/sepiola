@@ -324,6 +324,8 @@ body::after{ /* fine grain */
 /* stinger */
 .stinger{position:fixed; inset:0; z-index:100; pointer-events:none; overflow:hidden}
 .stinger[hidden]{display:none}
+/* while the ident plays the workspace is held out of sight; GSAP's inline opacity takes over the moment the windows settle */
+body.stinging [data-seq="win"]{opacity:0}
 .cloud{
   position:absolute; top:-25%; height:150%; width:34%; left:0; transform:skewX(-14deg); opacity:.6; filter:blur(28px);
   background:linear-gradient(90deg, rgba(200,86,30,0) 0%, var(--ember) 35%, var(--amber) 62%, rgba(232,154,60,0) 100%);

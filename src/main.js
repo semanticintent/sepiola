@@ -150,6 +150,7 @@ mountSignal({ webmcp, mode: mode(), url: analystUrl() });
 const stinger = document.getElementById('stinger');
 function endStinger() {
   cut('stinger');
+  document.body.classList.remove('stinging');
   if (stinger) stinger.hidden = true;
   if (!getState().stung) touch((s) => ({ ...s, stung: true }));
 }
@@ -157,6 +158,7 @@ if (stinger) {
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (reduced) endStinger();
   else {
+    document.body.classList.add('stinging');
     stinger.hidden = false;
     const tl = play('stinger');
     tl?.then(endStinger);
