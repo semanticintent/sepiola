@@ -1,0 +1,293 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://semanticintent.dev/chirp/board.schema.json",
+  "title": "Board",
+  "description": "A draft board the screen may draw: the analyst's tiers per position, one note per prospect, who is already drafted, where each position thins out, and what the analyst cannot know. The screen ranks nothing and crosses off nothing itself.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contract_version",
+    "kind",
+    "generated_at",
+    "positions",
+    "dries_up",
+    "taken",
+    "take",
+    "not_included",
+    "source"
+  ],
+  "properties": {
+    "contract_version": {
+      "const": "0.1"
+    },
+    "kind": {
+      "const": "board"
+    },
+    "generated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "positions": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "C",
+        "LW",
+        "RW",
+        "D",
+        "G"
+      ],
+      "properties": {
+        "C": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tier",
+              "players"
+            ],
+            "properties": {
+              "tier": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "players": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/prospect"
+                }
+              }
+            }
+          }
+        },
+        "LW": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tier",
+              "players"
+            ],
+            "properties": {
+              "tier": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "players": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/prospect"
+                }
+              }
+            }
+          }
+        },
+        "RW": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tier",
+              "players"
+            ],
+            "properties": {
+              "tier": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "players": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/prospect"
+                }
+              }
+            }
+          }
+        },
+        "D": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tier",
+              "players"
+            ],
+            "properties": {
+              "tier": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "players": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/prospect"
+                }
+              }
+            }
+          }
+        },
+        "G": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tier",
+              "players"
+            ],
+            "properties": {
+              "tier": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "players": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/prospect"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "dries_up": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "C",
+        "LW",
+        "RW",
+        "D",
+        "G"
+      ],
+      "properties": {
+        "C": {
+          "type": "string"
+        },
+        "LW": {
+          "type": "string"
+        },
+        "RW": {
+          "type": "string"
+        },
+        "D": {
+          "type": "string"
+        },
+        "G": {
+          "type": "string"
+        }
+      }
+    },
+    "taken": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "take": {
+      "type": "string"
+    },
+    "not_included": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "analyst",
+        "data"
+      ],
+      "properties": {
+        "analyst": {
+          "type": "string"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "$defs": {
+    "prospect": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "name",
+        "club",
+        "pos",
+        "rank",
+        "age",
+        "ppg",
+        "flags",
+        "note",
+        "taken"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "club": {
+          "type": "string",
+          "pattern": "^[A-Z]{3}$"
+        },
+        "pos": {
+          "enum": [
+            "C",
+            "LW",
+            "RW",
+            "D",
+            "G"
+          ]
+        },
+        "rank": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "age": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "ppg": {
+          "type": "number",
+          "minimum": 0
+        },
+        "flags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "note": {
+          "type": "string",
+          "description": "One line, the analyst's words."
+        },
+        "taken": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

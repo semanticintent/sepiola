@@ -12,4 +12,4 @@ export function chrome(state) {
 }
 export const chromePanel = (state) => html`${copy.panel.sub}${week(state)}`;
 export const chromeHand = (state) => html`${copy.hand.sub}${week(state)}`;
-export const chromeReplay = (state) => html`${copy.replay.sub}${state.replay ? week(state) : ''}`;
+export const chromeReplay = (state) => html`${copy.replay.sub}${state.replay && !state.replay.board ? week(state) : ''}`;

@@ -183,6 +183,7 @@ sepiola/
     plan.md                    the two tracks
     grammar.md                 generated from grammar.js (not yet generated)
   contracts/read.schema.json
+  contracts/board.schema.json  the draft board (D48)
   fixtures/*.json
   scenarios/*.txt
   src/

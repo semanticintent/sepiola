@@ -28,7 +28,7 @@ If a change seems to need code in a place not listed here, re-read `ARCHITECTURE
 
 ## The grammar
 
-Seven verbs. Do not add analysis verbs.
+Eight verbs. Do not add analysis verbs.
 
 | Tool | Move |
 |---|---|
@@ -38,6 +38,7 @@ Seven verbs. Do not add analysis verbs.
 | `replay(id)` | Run it back |
 | `split(a, b)` | Split screen |
 | `cut_to(view)` | Cut to |
+| `cue_board(drafted_text)` | Put up the board (D48) |
 | `wipe()` | Wipe |
 
 Producer verbs (`ready`, `roll`, `caption`, `layer`) are designed but not built. Do not build them until a second analyst source exists.

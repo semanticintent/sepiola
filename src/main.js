@@ -42,6 +42,12 @@ document.addEventListener('click', (e) => {
   const aboutOpener = e.target.closest('[data-open-about]');
   if (aboutOpener) return showAbout(aboutOpener.dataset.openAbout);
   if (e.target.closest('[data-demo-skip]')) return stopDemo();
+  if (e.target.closest('[data-board]')) return run('cue_board');
+  if (e.target.closest('[data-cross-off]')) {
+    const drafted_text = document.getElementById('drafted-in')?.value.trim();
+    if (drafted_text) call('cue_board', { drafted_text }, 'cue_board (drafted so far)');
+    return;
+  }
   if (e.target.closest('[data-sample]')) return (async () => { stopDemo(); await run('cue_roster cgy-week1'); await run('read_ice'); playDemo(); })();
   if (e.target.closest('[data-paste]')) {
     touch((s) => open(s, 'paste'));
@@ -79,28 +85,28 @@ document.addEventListener('click', (e) => {
   if (menuBtn) {
     const id = menuBtn.closest('.skater-menu').dataset.id;
     const act = menuBtn.dataset.act;
-    if (act === 'compare') return touch((s) => ({ ...s, menu: null, pick: { a: id } }), ['menu', 'pick', 'focus', 'strips']);
-    touch((s) => ({ ...s, menu: null }), ['menu', 'focus', 'strips']);
+    if (act === 'compare') return touch((s) => ({ ...s, menu: null, pick: { a: id } }), ['menu', 'pick', 'focus', 'strips', 'board']);
+    touch((s) => ({ ...s, menu: null }), ['menu', 'focus', 'strips', 'board']);
     return run(`${act} ${id}`);
   }
-  if (e.target.closest('.pick-bar [data-act="cancel"]')) return touch((s) => ({ ...s, pick: null }), ['pick', 'focus', 'strips']);
-  const picked = e.target.closest('svg [data-id], .chip[data-id]');
+  if (e.target.closest('.pick-bar [data-act="cancel"]')) return touch((s) => ({ ...s, pick: null }), ['pick', 'focus', 'strips', 'board']);
+  const picked = e.target.closest('svg [data-id], .chip[data-id], .prospect[data-id]');
   if (picked) {
     const id = picked.dataset.id;
     const st = getState();
     if (st.pick && st.pick.a !== id) return run(`split ${st.pick.a} ${id}`);
     if (st.pick && st.pick.a === id) return;
-    return touch((s) => ({ ...s, menu: { id, x: Math.min(e.clientX, window.innerWidth - 200), y: Math.min(e.clientY, window.innerHeight - 160) } }), ['menu', 'focus', 'strips']);
+    return touch((s) => ({ ...s, menu: { id, x: Math.min(e.clientX, window.innerWidth - 200), y: Math.min(e.clientY, window.innerHeight - 160) } }), ['menu', 'focus', 'strips', 'board']);
   }
-  if (getState().menu && !e.target.closest('.skater-menu')) touch((s) => ({ ...s, menu: null }), ['menu', 'focus', 'strips']);
+  if (getState().menu && !e.target.closest('.skater-menu')) touch((s) => ({ ...s, menu: null }), ['menu', 'focus', 'strips', 'board']);
 });
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape' && getState().demo) return stopDemo();
-  if (e.key === 'Escape' && (getState().menu || getState().pick)) return touch((s) => ({ ...s, menu: null, pick: null }), ['menu', 'pick', 'focus', 'strips']);
+  if (e.key === 'Escape' && (getState().menu || getState().pick)) return touch((s) => ({ ...s, menu: null, pick: null }), ['menu', 'pick', 'focus', 'strips', 'board']);
   if ((e.key === 'Enter' || e.key === ' ') && e.target.matches?.('svg [data-id]')) {
     e.preventDefault();
     const r = e.target.getBoundingClientRect();
-    touch((s) => ({ ...s, menu: { id: e.target.dataset.id, x: Math.round(r.left + r.width / 2), y: Math.round(r.bottom) } }), ['menu', 'focus', 'strips']);
+    touch((s) => ({ ...s, menu: { id: e.target.dataset.id, x: Math.round(r.left + r.width / 2), y: Math.round(r.bottom) } }), ['menu', 'focus', 'strips', 'board']);
   }
 });
 

@@ -3,7 +3,7 @@
 // Chrome's. What this proves: the descriptors Sepiola derives from the grammar are accepted by the real registerTool.
 import { test, expect } from '@playwright/test';
 
-test('Chromium with WebMCP enabled accepts all seven moves through document.modelContext', async ({ page }) => {
+test('Chromium with WebMCP enabled accepts all eight moves through document.modelContext', async ({ page }) => {
   const errors = [];
   page.on('pageerror', (e) => errors.push(e.message));
   await page.goto('/');
@@ -16,10 +16,10 @@ test('Chromium with WebMCP enabled accepts all seven moves through document.mode
   }));
   expect(info.onDocument, 'Chrome puts WebMCP on document').toBe('object');
   expect(info.hasRegisterTool).toBe('function');
-  expect(info.registered).toEqual({ available: true, registered: 7 });
-  await expect(page.locator('#pill-webmcp')).toHaveText(/WebMCP · 7 tools/);
+  expect(info.registered).toEqual({ available: true, registered: 8 });
+  await expect(page.locator('#pill-webmcp')).toHaveText(/WebMCP · 8 tools/);
   await page.click('.signal summary');
-  await expect(page.locator('#signal-panel')).toContainText('7 tools registered');
+  await expect(page.locator('#signal-panel')).toContainText('8 tools registered');
   expect(errors).toEqual([]);
   await page.screenshot({ path: 'test/shots/webmcp-real-chrome.png' });
 });

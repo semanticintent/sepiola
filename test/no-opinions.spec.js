@@ -29,8 +29,9 @@ describe('no opinions', () => {
       for (const [view, fn] of Object.entries(views)) {
         if (view === 'console') continue; // the transcript echoes what was said; test/console.spec.js holds it to exactly that (D19)
         it(`${view} over ${name} when ${label} shows only the read and the copy`, () => {
+          const boardScalars = scalars(state.board ?? {});
           for (const text of textNodes(String(fn(state)))) {
-            const ok = allowed.has(text) || templates.some((re) => re.test(text));
+            const ok = allowed.has(text) || boardScalars.has(text) || templates.some((re) => re.test(text));
             expect(ok, `"${text}" is not in the read or in copy.js`).toBe(true);
           }
         });

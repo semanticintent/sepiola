@@ -3,7 +3,8 @@
 // tests). Same Read either way, and every live read is checked against the contract before a handler sees it. Nothing
 // here imports from CHIRP (D1).
 import { fixtures } from './fixtures.js';
-import { checkRead } from './contract.js';
+import { checkRead, checkBoard } from './contract.js';
+import { boards } from './boards.js';
 import { copy, fill } from './copy.js';
 
 export class AnalystError extends Error {}
@@ -36,6 +37,26 @@ export async function read({ fixture, text, look_ahead_days = 7, opponent_text, 
   if (!res.ok) throw new AnalystError(fill(copy.errors.analystDown, { url }));
   const body = await res.json().catch(() => null);
   const problems = checkRead(body ?? {});
+  if (problems.length) throw new AnalystError(fill(copy.errors.badRead, { why: problems[0] }));
+  return body;
+}
+
+/** Fetch a draft Board: a fixture by name, or the analyst's board with the drafted players crossed off (D48). */
+export async function board({ fixture, drafted_text } = {}) {
+  const url = analystUrl();
+  if (fixture || !url) {
+    if (drafted_text && !url) throw new AnalystError(copy.errors.noAnalyst);
+    const b = boards[fixture ?? 'board-sample'];
+    if (!b) throw new AnalystError(fill(copy.errors.unknownFixture, { name: fixture }));
+    return b;
+  }
+  let res;
+  try {
+    res = await fetch(`${url}/board`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ drafted_text }) });
+  } catch { throw new AnalystError(fill(copy.errors.analystDown, { url })); }
+  if (!res.ok) throw new AnalystError(fill(copy.errors.analystDown, { url }));
+  const body = await res.json().catch(() => null);
+  const problems = checkBoard(body ?? {});
   if (problems.length) throw new AnalystError(fill(copy.errors.badRead, { why: problems[0] }));
   return body;
 }

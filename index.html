@@ -73,6 +73,7 @@
       <button role="menuitem" data-open="hand">Games in hand</button>
       <button role="menuitem" data-open="replay">Replay</button>
       <button role="menuitem" data-open="console">Console</button>
+      <button role="menuitem" data-board>Draft board</button>
     </div>
   </details>
   <div class="right">
@@ -181,6 +182,22 @@
     <span class="title" title="Games in hand: how many games your team plays this week versus your opponent. More games usually means more points.">Games in hand</span><span class="sub" data-view="chrome-hand"></span>
   </div>
   <div class="body" data-view="hand"></div>
+</section>
+
+<!-- BOARD (D48): the draft board, its own window; its drafted box crosses players off through the analyst -->
+<section class="win hidden" id="w-board" data-name="board" tabindex="0">
+  <div class="head">
+    <div class="lights"><button class="x" aria-label="Close" data-close="board"></button><button class="m" aria-label="Minimize" data-close="board"></button></div>
+    <span class="title">Draft board</span><span class="sub">the analyst's tiers</span>
+  </div>
+  <div class="body board-body">
+    <div data-view="board"></div>
+    <div class="drafted">
+      <label for="drafted-in">Drafted so far<small>One per line, any format. The analyst crosses them off.</small></label>
+      <textarea id="drafted-in" rows="3" spellcheck="false" placeholder="Connor McDavid&#10;Nathan MacKinnon"></textarea>
+      <button type="button" data-cross-off>Cross off</button>
+    </div>
+  </div>
 </section>
 
 <!-- REPLAY -->

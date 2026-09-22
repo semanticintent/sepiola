@@ -1,5 +1,5 @@
 // The whole show as one plain object. Nothing lives in the DOM that is not derivable from here.
-export const WINDOWS = ['rink', 'panel', 'hand', 'replay', 'console'];       // the pen's windows: cut_to can reach these
+export const WINDOWS = ['rink', 'panel', 'hand', 'replay', 'console', 'board'];       // the pen's windows: cut_to can reach these
 export const SHELL_WINDOWS = ['welcome', 'about', 'paste'];                           // the viewer's: menus and hashes open these
 
 export function initialState() {
@@ -16,11 +16,18 @@ export function initialState() {
     handOpen: false, // the games-in-hand comparison is expanded (D42)
     stung: false,    // the stinger has played (or been cut) this visit (D43)
     demo: null,      // { step, total, say } while the sample's watch-the-pen run plays (D45)
+    board: null,     // the last Board (contracts/board.schema.json), or null (D48)
+    boardSpot: null, // { id, reason|null } — a prospect circled on the board (D48)
+    spotOn: null,    // 'rink' | 'board' — where the last circle landed
     windows: Object.fromEntries([...WINDOWS, ...SHELL_WINDOWS].map((name, i) => [name, { open: name === 'rink' || name === 'console' || name === 'welcome', x: null, y: null, z: i }])),
   };
 }
 
 export const skater = (state, id) => state.read?.skaters.find((s) => s.id === id) ?? null;
+
+/** Every prospect on the board, in board order. */
+export const prospects = (state) => (state.board ? Object.values(state.board.positions).flatMap((tiers) => tiers.flatMap((t) => t.players.map((p) => ({ ...p, tier: t.tier })))) : []);
+export const prospect = (state, id) => prospects(state).find((p) => p.id === id) ?? null;
 
 /** The analyst's closing line for the current replay: the verdict whose ids equal replay.ids as a set, or null. */
 export function verdictFor(state) {

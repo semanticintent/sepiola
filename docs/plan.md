@@ -148,7 +148,7 @@ The one concept tool buildable on public data now, drawn where it belongs; and a
 | 2 | **`analyze_goalie_streams`** (CHIRP) | Every NHL goalie ranked for the window: games, each opponent's attack, last season's share of his team's starts, GAA and save percentage, a stream score with its formula stated. Your goalies from a pasted roster, the rest as candidates. Honest limit: starters are not announced in public data. | ☑ 2026-09-22 (D47; CHIRP PR #58) |
 | 3 | **Nights on the read** (contract + CHIRP) | Optional `skater.nights`: per day, the opponent, home or away, and how hard that night is *for this player* (attack for a goalie, defence for a skater). Goalie reasons count soft nights. | ☑ 2026-09-22 (D47; CHIRP PR #58) |
 | 4 | **Nights on the screen** (Sepiola) | Replay tiles show the opponent under each G and a soft/hard edge from the analyst's number. | ☑ 2026-09-22 (D47; CHIRP PR #58) |
-| 5 | **A lean draft board** | Separate contract (a board, not a week), a Board window, `cut_to board`; tiers and flags from `draft_kit`; cross off drafted players by pasting; circle, run it back, and split work on prospects. | ☐ |
+| 5 | **A lean draft board** | Separate contract (a board, not a week), a Board window, `cut_to board`; tiers and flags from `draft_kit`; cross off drafted players by pasting; circle, run it back, and split work on prospects. | ☑ 2026-09-22 (D48; CHIRP `POST /board`) |
 
 Later: Team Buy-In (needs 10–15 games of ice time, November); Injury Impact stays a concept (no public injury feed).
 

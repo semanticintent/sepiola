@@ -40,7 +40,7 @@ The invariant that makes it work: **every number and every sentence on screen co
 
 The pattern is called *the telestrator* and is written up in [docs/pattern.md](docs/pattern.md). Sepiola is its first worked example.
 
-## The seven moves
+## The eight moves
 
 | Move | Tool | On screen |
 |---|---|---|
@@ -50,6 +50,7 @@ The pattern is called *the telestrator* and is written up in [docs/pattern.md](d
 | Run it back | `replay(id)` | His week as tiles, his line, his projected points, the analyst's verdict |
 | Split screen | `split(a, b)` | Two skaters' weeks side by side; the analyst's call on who starts |
 | Cut to | `cut_to(view)` | Bring a window forward: rink, panel, hand, replay, console |
+| Put up the board | `cue_board(drafted_text?)` | The draft board: tiers by position, drafted players crossed off by the analyst |
 | Wipe | `wipe()` | Clean the screen; the roster stays cued |
 
 Every move returns a structured acknowledgment of what it drew. The table is generated from `src/grammar.js` into [docs/grammar.md](docs/grammar.md) and a test fails if it drifts. Producer moves (`ready`, `roll`, `caption`, `layer`) are designed and deliberately not built until a second analyst exists.
@@ -58,7 +59,7 @@ Every move returns a structured acknowledgment of what it drew. The table is gen
 
 ## For an agent
 
-The page registers the seven moves with `navigator.modelContext` (falling back to `document.modelContext`) using the W3C Community Group draft's descriptor shape — `name`, `title`, `description`, `inputSchema`, `annotations`, `execute`. Registration is derived from the grammar, so a tool exists in exactly one place. `execute` returns the same acknowledgment the console shows. Every agent call lands in the talkback transcript, so the viewer sees what the pen did.
+The page registers the eight moves with `navigator.modelContext` (falling back to `document.modelContext`) using the W3C Community Group draft's descriptor shape — `name`, `title`, `description`, `inputSchema`, `annotations`, `execute`. Registration is derived from the grammar, so a tool exists in exactly one place. `execute` returns the same acknowledgment the console shows. Every agent call lands in the talkback transcript, so the viewer sees what the pen did.
 
 Hosts today: Chrome 146+ behind the `enable-webmcp-testing` flag, and the Codex / ChatGPT desktop app's embedded browser. The menubar pill says whether tools registered.
 
@@ -119,7 +120,7 @@ Production builds default to the hosted analyst, `chirp-edge`, a Cloudflare Work
 contracts/read.schema.json   the contract
 fixtures/                    reads the screen can run without an analyst
 scenarios/                   one move per line; console and tests both speak them
-src/grammar.js               the seven moves
+src/grammar.js               the eight moves
 src/state.js                 the whole show
 src/views/                   rink spot strips chrome panel hand replay console
 src/motion/                  runner.js + sequences/*.json

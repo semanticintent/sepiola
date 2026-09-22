@@ -4,7 +4,9 @@ import Ajv2020 from 'ajv/dist/2020.js';
 import addFormats from 'ajv-formats';
 import schema from '../contracts/read.schema.json';
 import { fixtures } from '../src/fixtures.js';
-import { check, checkRead } from '../src/contract.js';
+import { check, checkRead, checkBoard } from '../src/contract.js';
+import boardSchema from '../contracts/board.schema.json';
+import { boards } from '../src/boards.js';
 
 const ajv = new Ajv2020({ allErrors: true, strict: true });
 addFormats(ajv);
@@ -73,5 +75,25 @@ describe('src/contract.js agrees with Ajv', () => {
   it('names the first problem in the analyst\'s terms', () => {
     expect(check({})).toContain('read.contract_version is missing');
     expect(check(null)).toEqual(['read must be object']);
+  });
+});
+
+describe('board contract', () => {
+  const validateBoard = ajv.compile(boardSchema);
+  for (const [name, b] of Object.entries(boards)) {
+    it(`${name} validates against contracts/board.schema.json, and the page agrees`, () => {
+      expect(validateBoard(b), JSON.stringify(validateBoard.errors)).toBe(true);
+      expect(checkBoard(b)).toEqual([]);
+    });
+    it(`${name}: the page's checker refuses what Ajv refuses`, () => {
+      const bad = JSON.parse(JSON.stringify(b)); bad.positions.C[0].players[0].pos = 'QB';
+      expect(validateBoard(bad)).toBe(false); expect(checkBoard(bad).length).toBeGreaterThan(0);
+      const extra = JSON.parse(JSON.stringify(b)); extra.opinion = 'draft him';
+      expect(validateBoard(extra)).toBe(false); expect(checkBoard(extra).length).toBeGreaterThan(0);
+    });
+  }
+  it('the checker now understands anyOf (skater.nights)', () => {
+    const r = JSON.parse(JSON.stringify(fixtures['cgy-week1'])); r.skaters[0].nights[1] = { opponent: 'nope', home: 1, difficulty: 500 };
+    expect(validate(r)).toBe(false); expect(check(r).length).toBeGreaterThan(0);
   });
 });

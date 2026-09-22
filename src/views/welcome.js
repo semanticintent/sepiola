@@ -11,6 +11,7 @@ export function welcome(state) {
         <h3>${w.hockeyDoor}</h3>
         <button class="way" data-sample><b>${w.sample}</b><small>${w.sampleHint}</small></button>
         <button class="way" data-paste><b>${w.paste}</b><small>${w.pasteHint}</small></button>
+        <button class="way" data-board><b>${w.board}</b><small>${w.boardHint}</small></button>
       </section>
       <section class="door">
         <h3>${w.buildDoor}</h3>

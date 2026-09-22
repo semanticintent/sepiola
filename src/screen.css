@@ -373,6 +373,37 @@ body.stinging [data-seq="win"]{opacity:0}
 @media (max-width: 760px){ .defs{grid-template-columns:1fr; gap:2px} .defs dd{margin-bottom:8px} }
 .row .tag{cursor:help}
 
+/* draft board (D48) */
+#w-board{left:40px; top:64px; width:min(1040px, calc(100vw - 80px))}
+.board-body{overflow:auto}
+.board-take{margin:0 0 10px; font-size:14px; font-weight:600}
+.board-cols{display:grid; grid-template-columns:repeat(5, 1fr); gap:10px}
+.board-col h4{margin:0 0 6px; font-family:var(--font-d); font-weight:800; font-size:18px}
+.tier{display:grid; gap:2px; margin-bottom:8px; padding-top:4px; border-top:1px solid rgba(180,130,60,.25)}
+.tier-label{font-family:var(--font-d); font-weight:700; font-size:11px; color:var(--ink-2); letter-spacing:.04em; text-transform:uppercase}
+.prospect{all:unset; cursor:pointer; display:grid; grid-template-columns:22px 1fr auto 12px; gap:4px; align-items:center; padding:3px 6px; border-radius:6px; font-size:12.5px}
+.prospect:hover,.prospect:focus-visible{background:rgba(255,255,255,.7); outline:none}
+.prospect .rk{font-family:var(--font-d); font-weight:700; color:var(--ink-2); font-size:11px}
+.prospect .nm{font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.prospect .cl{font-size:10.5px; color:var(--ink-2)}
+.prospect .flag{font-style:normal; font-weight:800; color:var(--warn); font-size:11px; text-align:center}
+.prospect.taken{opacity:.45} .prospect.taken .nm{text-decoration:line-through}
+.prospect.circled{background:var(--sun)} .prospect.focused{box-shadow:inset 0 0 0 2px var(--amber)}
+.spot-note{margin:2px 0 4px; padding:6px 8px; border-radius:8px; background:var(--callout); color:#fff; font-size:12px; line-height:1.35}
+.dries{margin:0; font-size:11px; color:var(--ink-2)}
+.board-foot{margin-top:8px; display:grid; gap:6px; font-size:12px}
+.board-foot details.source span{display:block}
+.drafted{margin-top:12px; display:grid; gap:6px}
+.drafted label{font-family:var(--font-d); font-weight:700; font-size:14px}
+.drafted label small{display:block; font-family:var(--font-b); font-weight:400; font-size:12px; color:var(--ink-2)}
+.drafted textarea{font:12.5px ui-monospace, Menlo, monospace; padding:8px 10px; border-radius:10px; border:1px solid rgba(43,32,22,.18); background:#fff; color:var(--ink); resize:vertical}
+.drafted button{justify-self:start; font-family:var(--font-d); font-weight:700; font-size:14px; padding:5px 12px; border-radius:8px; border:0; background:var(--ink); color:#fff; cursor:pointer}
+.card-line{font-family:var(--font-b); font-size:12.5px; fill:var(--ink)}
+.card-note{font-family:var(--font-b); font-size:12.5px; fill:var(--ink)}
+.card-flag{font-family:var(--font-b); font-size:11.5px; fill:var(--warn)}
+.taken-t{font-family:var(--font-d); font-weight:800; font-size:13px; fill:var(--warn); text-anchor:end}
+@media (max-width: 760px){ .board-cols{grid-template-columns:1fr 1fr} .win[data-name="board"]{order:0} }
+
 /* folded plumbing */
 details.hint summary,details.source summary{cursor:pointer; list-style:none; user-select:none; color:var(--ink-2)}
 details.hint summary::-webkit-details-marker,details.source summary::-webkit-details-marker{display:none}

@@ -76,10 +76,10 @@ test('an agent with WebMCP sees every move and can make one', async ({ page }) =
   });
   await boot(page);
   await page.evaluate(() => window.sepiola.webmcp);
-  await expect(page.locator('#pill-webmcp')).toHaveText(/WebMCP · 7 tools/);
+  await expect(page.locator('#pill-webmcp')).toHaveText(/WebMCP · 8 tools/);
   await page.click('.signal summary');
-  await expect(page.locator('#signal-panel')).toContainText('7 tools registered with the browser');
-  expect(await page.locator('#signal-panel .chips-row code').count()).toBe(7);
+  await expect(page.locator('#signal-panel')).toContainText('8 tools registered with the browser');
+  expect(await page.locator('#signal-panel .chips-row code').count()).toBe(8);
   const names = await page.evaluate(() => navigator.modelContext.tools.map((t) => t.name));
   expect(names).toEqual(await page.evaluate(() => window.sepiola.moves));
   const ack = await page.evaluate(async () => {
@@ -296,7 +296,7 @@ test('the stinger plays once, cuts on input, never delays the tools, and stays o
   await page.goto('/');
   await page.waitForFunction(() => window.sepiola?.ready === true);
   // tools are registered while the ident is still on screen
-  expect(await page.evaluate(() => navigator.modelContext.tools.length)).toBe(7);
+  expect(await page.evaluate(() => navigator.modelContext.tools.length)).toBe(8);
   expect(await page.locator('#stinger').isHidden()).toBe(false);
   await page.screenshot({ path: 'test/shots/stinger.png' });
   await page.keyboard.press('Shift'); // any key cuts straight through
@@ -384,4 +384,42 @@ test('menus stay above every window, however many times windows are raised', asy
   await page.click('.menu-list [data-open-about="words"]');
   await expect(page.locator('#about-words')).toContainText('Back-to-back');
   await page.screenshot({ path: 'test/shots/words.png' });
+});
+
+test('the draft board: put it up, circle a prospect, run him back, compare two — no ids', async ({ page }) => {
+  await boot(page);
+  await page.click('.win[data-name="welcome"] [data-board]');
+  await expect(page.locator('.win[data-name="board"]')).toBeVisible();
+  await expect(page.locator('.board-take')).toContainText('off the board. Best left:');
+  expect(await page.locator('.prospect.taken').count()).toBe(3);
+  await page.click('.prospect:not(.taken) >> nth=0');
+  await expect(page.locator('.skater-menu')).toBeVisible();
+  await page.click('.skater-menu [data-act="circle"]');
+  await expect(page.locator('.spot-note')).toBeVisible();
+  const first = await page.evaluate(() => window.sepiola.state().boardSpot.id);
+  await page.click(`.prospect[data-id="${first}"]`);
+  await page.click('.skater-menu [data-act="compare"]');
+  await page.click('.prospect:not(.taken) >> nth=1');
+  await page.waitForFunction(() => window.sepiola.state().replay?.board === true && window.sepiola.state().replay.ids.length === 2);
+  expect(await page.locator('[data-view="replay"] .card').count()).toBe(2);
+  await page.screenshot({ path: 'test/shots/draft-board.png' });
+  // without an analyst, crossing off says so rather than pretending
+  await page.fill('#drafted-in', 'Macklin Celebrini');
+  await page.click('[data-cross-off]');
+  await expect(page.locator('[data-view="console"] .log')).toContainText('No analyst is configured');
+});
+
+test('with an analyst, crossing off posts the drafted players and draws the board it returns', async ({ page }) => {
+  const board = JSON.parse(readFileSync('fixtures/boards/board-sample.json', 'utf8'));
+  const posts = [];
+  await page.route('**/health', (route) => route.fulfill({ status: 200, headers: CORS, body: JSON.stringify({ ok: true, analyst: 'chirp', season: '20262027' }) }));
+  await page.route('**/board', async (route) => { posts.push(JSON.parse(route.request().postData())); await route.fulfill({ status: 200, headers: CORS, body: JSON.stringify(board) }); });
+  await page.goto('/?analyst=http://analyst.test'); await page.waitForFunction(() => window.sepiola?.ready === true);
+  await page.evaluate(() => window.sepiola.run('cue_board'));
+  await page.fill('#drafted-in', 'Connor McDavid\nNathan MacKinnon');
+  await page.click('[data-cross-off]');
+  await page.waitForFunction(() => window.sepiola.state().log.at(-1)?.line === 'cue_board (drafted so far)');
+  expect(posts.map((p) => p.drafted_text ?? null)).toEqual([null, 'Connor McDavid\nNathan MacKinnon']);
+  const ack = await page.evaluate(() => window.sepiola.state().log.at(-1).ack);
+  expect(ack.taken).toBe(3);
 });

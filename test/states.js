@@ -1,6 +1,7 @@
 // Every state a view can be asked to render, built from the fixtures through the real handlers. Shared by the specs.
 import { initialState } from '../src/state.js';
 import { findMove } from '../src/grammar.js';
+import { boards } from '../src/boards.js';
 
 export const onIce = (read) => read.skaters.find((s) => !['BN', 'IR'].includes(s.slot));
 
@@ -23,6 +24,12 @@ export function states(name, read) {
   const picking = { ...iced, pick: { a: onIce(read).id } };
   const handOpen = { ...iced, handOpen: true };
   const demoing = { ...iced, demo: { step: 2, total: 4, say: 'replay' } };
-  return { empty, cued, iced, circled, worded, wiped, replayed, split, unmatched, cut, logged, menued, benchMenu, picking, handOpen, demoing };
+  const B = boards['board-sample'];
+  const boarded = findMove('cue_board').handler(iced, { board: B });
+  const top = B.positions.C[0].players;
+  const boardCircled = findMove('circle').handler(boarded, { ids: [top[2].id] });
+  const boardCard = findMove('replay').handler(boarded, { id: top[2].id });
+  const boardSplit = findMove('split').handler(boarded, { a: top[2].id, b: top[3].id });
+  return { empty, cued, iced, circled, worded, wiped, replayed, split, unmatched, cut, logged, menued, benchMenu, picking, handOpen, demoing, boarded, boardCircled, boardCard, boardSplit };
 }
 

@@ -2,14 +2,20 @@
 // the schema file itself (the subset of JSON Schema the contract uses), so there is still one source of truth and no 120 kB
 // dependency in the page. Tests hold it to agreement with Ajv.
 import schema from '../contracts/read.schema.json';
+import boardSchema from '../contracts/board.schema.json';
 
 const kind = (v) => (v === null ? 'null' : Array.isArray(v) ? 'array' : typeof v);
 const matches = (v, t) => (t === 'integer' ? Number.isInteger(v) : t === 'number' ? typeof v === 'number' : kind(v) === t);
 const FORMATS = { date: /^\d{4}-\d{2}-\d{2}$/, 'date-time': /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(:\d{2}(\.\d+)?)?(Z|[+-]\d{2}:\d{2})$/ };
-const deref = (ref) => ref.replace(/^#\//, '').split('/').reduce((n, k) => n[k], schema);
+const deref = (root, ref) => ref.replace(/^#\//, '').split('/').reduce((n, k) => n[k], root);
 
-export function check(value, node = schema, path = 'read', out = []) {
-  if (node.$ref) node = deref(node.$ref);
+export function check(value, node = schema, path = 'read', out = [], root = schema) {
+  if (node.$ref) node = deref(root, node.$ref);
+  if (node.anyOf) {
+    const passes = node.anyOf.some((alt) => check(value, alt, path, [], root).length === 0);
+    if (!passes) out.push(`${path} matches none of the allowed shapes`);
+    return out;
+  }
   if ('const' in node && value !== node.const) out.push(`${path} must be ${JSON.stringify(node.const)}`);
   if (node.enum && !node.enum.includes(value)) out.push(`${path} must be one of ${node.enum.map((e) => JSON.stringify(e)).join(', ')}`);
   const types = [].concat(node.type ?? []);
@@ -27,12 +33,12 @@ export function check(value, node = schema, path = 'read', out = []) {
     if (node.minItems != null && value.length < node.minItems) out.push(`${path} needs at least ${node.minItems} items`);
     if (node.maxItems != null && value.length > node.maxItems) out.push(`${path} allows at most ${node.maxItems} items`);
     if (node.uniqueItems && new Set(value.map((v) => JSON.stringify(v))).size !== value.length) out.push(`${path} must not repeat`);
-    if (node.items) value.forEach((v, i) => check(v, node.items, `${path}[${i}]`, out));
+    if (node.items) value.forEach((v, i) => check(v, node.items, `${path}[${i}]`, out, root));
   }
   if (kind(value) === 'object') {
     for (const k of node.required ?? []) if (!(k in value)) out.push(`${path}.${k} is missing`);
     for (const [k, v] of Object.entries(value)) {
-      if (node.properties?.[k]) check(v, node.properties[k], `${path}.${k}`, out);
+      if (node.properties?.[k]) check(v, node.properties[k], `${path}.${k}`, out, root);
       else if (node.additionalProperties === false) out.push(`${path}.${k} is not in the contract`);
     }
   }
@@ -51,3 +57,6 @@ export function checkRead(read) {
   for (const v of read.verdicts) for (const id of v.ids) if (!ids.has(id)) out.push(`read.verdicts names an unknown skater ${id}`);
   return out;
 }
+
+/** A draft board, checked against contracts/board.schema.json. Returns a list of problems; empty means drawable. */
+export const checkBoard = (board) => check(board, boardSchema, 'board', [], boardSchema);

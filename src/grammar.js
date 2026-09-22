@@ -1,7 +1,7 @@
 // The only place a tool is defined. WebMCP registration, the console, the scenario runner, and docs/grammar.md derive from this array.
 // Handlers are pure: (state, input) → state. They never touch the DOM. They throw MoveError with a line from copy when a move cannot be made.
 import * as analyst from './analyst.js';
-import { open, close, skater, verdictFor, WINDOWS } from './state.js';
+import { open, close, skater, prospect, verdictFor, WINDOWS } from './state.js';
 import { copy, fill } from './copy.js';
 
 export class MoveError extends Error {}
@@ -57,15 +57,18 @@ export const grammar = [
     input: { ids: 'id[]', reason: 'string?' },
     positional: ['ids[]', 'reason...'],
     example: 'circle zary 2 games, back-to-back',
-    touches: ['spot'],
+    touches: ['spot', 'board'],
     sequence: 'circle',
     handler(state, { ids, reason }) {
       const id = (Array.isArray(ids) ? ids : [ids])[0];
+      if (!skater(state, id) && prospect(state, id)) return open({ ...state, boardSpot: { id, reason: reason || null }, spotOn: 'board' }, 'board');
       const s = skater(state, id);
       if (!s || s.slot === 'BN' || s.slot === 'IR') refuse(copy.errors.unknownSkater, { id });
-      return open({ ...state, circle: { id, reason: reason || null } }, 'rink');
+      return open({ ...state, circle: { id, reason: reason || null }, spotOn: 'rink' }, 'rink');
     },
-    ack: (s) => ({ circled: s.circle.id, reason: s.circle.reason ?? skater(s, s.circle.id).reason }),
+    ack: (s) => (s.spotOn === 'board'
+      ? { circled: s.boardSpot.id, on: 'board', reason: s.boardSpot.reason ?? prospect(s, s.boardSpot.id).note }
+      : { circled: s.circle.id, reason: s.circle.reason ?? skater(s, s.circle.id).reason }),
   },
   {
     name: 'replay',
@@ -77,6 +80,7 @@ export const grammar = [
     touches: ['replay', 'chrome-replay'],
     sequence: 'replay',
     handler(state, { id }) {
+      if (!skater(state, id) && prospect(state, id)) return open({ ...state, replay: { ids: [id], board: true } }, 'replay');
       if (!state.read) refuse(copy.errors.noRoster);
       if (!skater(state, id)) refuse(copy.errors.unknownId, { id });
       return open({ ...state, replay: { ids: [id] } }, 'replay');
@@ -93,9 +97,12 @@ export const grammar = [
     touches: ['replay', 'chrome-replay'],
     sequence: 'replay',
     handler(state, { a, b }) {
+      if (a === b) refuse(copy.errors.sameSkater);
+      const onBoard = [a, b].map((id) => !skater(state, id) && !!prospect(state, id));
+      if (onBoard[0] && onBoard[1]) return open({ ...state, replay: { ids: [a, b], board: true } }, 'replay');
+      if (onBoard[0] || onBoard[1]) refuse(copy.errors.mixedSplit);
       if (!state.read) refuse(copy.errors.noRoster);
       for (const id of [a, b]) if (!skater(state, id)) refuse(copy.errors.unknownId, { id });
-      if (a === b) refuse(copy.errors.sameSkater);
       return open({ ...state, replay: { ids: [a, b] } }, 'replay');
     },
     ack: (s) => ({ split: s.replay.ids, verdict: verdictFor(s)?.line ?? null }),
@@ -116,15 +123,30 @@ export const grammar = [
     ack: (s) => ({ cut_to: Object.entries(s.windows).sort((a, b) => b[1].z - a[1].z)[0][0] }),
   },
   {
+    name: 'cue_board',
+    move: 'Put up the board',
+    description: 'Put up the draft board: the analyst\'s tiers by position from last season, one note per prospect, and where each position thins out. Give `drafted_text`, the players already taken (one per line, any format), and the analyst crosses them off. `fixture` loads a saved board.',
+    input: { drafted_text: 'string?', fixture: 'string?' },
+    positional: ['fixture'],
+    example: 'cue_board board-sample',
+    touches: ['board'],
+    sequence: null,
+    prepare: async (input) => ({ ...input, board: await analyst.board({ fixture: input.fixture, drafted_text: input.drafted_text }) }),
+    handler(state, { board }) {
+      return open({ ...state, board, boardSpot: null }, 'board');
+    },
+    ack: (s) => ({ board: s.board.generated_at, taken: s.board.taken, take: s.board.take }),
+  },
+  {
     name: 'wipe',
     move: 'Wipe',
     description: 'Clean the screen. The roster stays cued; the read, the circle, and the replay are cleared.',
     input: {},
     positional: [],
-    touches: ['chrome', 'chrome-panel', 'chrome-hand', 'chrome-replay', 'rink', 'spot', 'strips', 'replay', 'panel', 'hand'],
+    touches: ['chrome', 'chrome-panel', 'chrome-hand', 'chrome-replay', 'rink', 'spot', 'strips', 'replay', 'panel', 'hand', 'board'],
     sequence: 'wipe',
     handler(state) {
-      return { ...state, ice: false, circle: null, replay: null };
+      return { ...state, ice: false, circle: null, replay: null, boardSpot: null };
     },
     ack: () => ({ cleared: true }),
   },

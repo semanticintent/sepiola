@@ -91,6 +91,28 @@ describe('views', () => {
     const thin = String(views.replay(findMove('replay').handler(states('thin-week-no-opp', fixtures['thin-week-no-opp']).iced, { id: 'wolf' })));
     expect(thin).not.toContain('soft night'); // no nights in that read, no key
   });
+  it('the board draws tiers, crosses off the drafted, circles with the note, and runs prospects back as cards', () => {
+    const [name, read] = Object.entries(fixtures)[0];
+    const st = states(name, read);
+    const B = st.boarded.board;
+    const m = String(views.board(st.boarded));
+    for (const pos of ['C', 'LW', 'RW', 'D', 'G']) expect(m).toContain(`<h4>${pos}</h4>`);
+    expect(m.match(/class="prospect taken/g)).toHaveLength(B.taken);
+    expect(m).toContain(esc(B.take));
+    const top = B.positions.C[0].players;
+    expect(String(views.board(st.boardCircled))).toContain(`class="spot-note">${esc(top[2].note)}`);
+    const card = String(views.replay(st.boardCard));
+    expect(card).toContain(`Tier 1 · rank ${top[2].rank} · C · ${top[2].club}`);
+    expect(String(views.replay(st.boardSplit)).match(/class="card"/g)).toHaveLength(2);
+    expect(String(views.chromeReplay ? '' : '')).toBe('');
+    expect(String(views.board(st.iced))).toContain('No board yet');
+  });
+  it('split refuses one player from the rink and one from the board', () => {
+    const [name, read] = Object.entries(fixtures)[0];
+    const st = states(name, read);
+    const p = st.boarded.board.positions.C[0].players[2].id;
+    expect(() => findMove('split').handler(st.boarded, { a: 'gridin', b: p })).toThrow(/same place/);
+  });
   it('caption shows the step and a way out only while the demo plays', () => {
     const [name, read] = Object.entries(fixtures)[0];
     const { demoing, iced } = states(name, read);
