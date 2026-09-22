@@ -391,6 +391,24 @@ body.stinging [data-seq="win"]{opacity:0}
 .prospect.circled{background:var(--sun)} .prospect.focused{box-shadow:inset 0 0 0 2px var(--amber)}
 .spot-note{margin:2px 0 4px; padding:6px 8px; border-radius:8px; background:var(--callout); color:#fff; font-size:12px; line-height:1.35}
 .dries{margin:0; font-size:11px; color:var(--ink-2)}
+/* the analyst's pick (D49): numbers come from the list's order via counters and data-mark; the screen writes none */
+.your-pick{margin:0 0 12px; padding:10px 12px; border-radius:12px; background:var(--honey); border:1px solid rgba(200,86,30,.35)}
+.your-pick h4{margin:0 0 4px; font-family:var(--font-d); font-weight:800; font-size:16px; color:var(--ember)}
+.pick-take{margin:0 0 6px; font-size:13.5px; font-weight:600; line-height:1.35}
+.pick-needs{margin:0 0 6px; display:flex; flex-wrap:wrap; gap:4px; align-items:center; font-size:12px; color:var(--ink-2)}
+.pick-needs span{margin-right:2px}
+.pick-needs b{font-family:var(--font-d); font-weight:700; color:var(--ink); padding:0 6px; border-radius:6px; background:rgba(255,255,255,.7)}
+.pick-list{margin:0; padding:0; list-style:none; counter-reset:pick; display:grid; gap:4px}
+.pick-list li{counter-increment:pick; display:grid; grid-template-columns:22px auto 1fr; gap:6px; align-items:baseline; font-size:12.5px}
+.pick-list li::before{content:counter(pick); display:grid; place-items:center; width:18px; height:18px; border-radius:50%; border:2px solid var(--ember); color:var(--ember); font-family:var(--font-d); font-weight:800; font-size:11px; line-height:1; box-sizing:border-box}
+.pick-who{all:unset; display:inline-flex; gap:5px; align-items:baseline; white-space:nowrap}
+button.pick-who{cursor:pointer; border-radius:6px; padding:0 4px; margin:0 -4px}
+button.pick-who:hover,button.pick-who:focus-visible{background:rgba(255,255,255,.7); outline:none}
+.pick-who .nm{font-weight:700} .pick-who .cl,.pick-who .ps{font-size:10.5px; color:var(--ink-2)}
+.pick-who .off{font-style:normal; font-size:10.5px; color:var(--ink-2)}
+.pick-list .why{color:var(--ink-2); line-height:1.35}
+.prospect.marked{position:relative; box-shadow:inset 0 0 0 2px var(--ember)}
+.prospect.marked::after{content:attr(data-mark); position:absolute; right:-6px; top:-6px; display:grid; place-items:center; width:16px; height:16px; border-radius:50%; background:var(--ember); color:var(--cream); font-family:var(--font-d); font-weight:800; font-size:10px; line-height:1}
 .board-foot{margin-top:8px; display:grid; gap:6px; font-size:12px}
 .board-foot details.source span{display:block}
 .drafted{margin-top:12px; display:grid; gap:6px}
@@ -402,7 +420,7 @@ body.stinging [data-seq="win"]{opacity:0}
 .card-note{font-family:var(--font-b); font-size:12.5px; fill:var(--ink)}
 .card-flag{font-family:var(--font-b); font-size:11.5px; fill:var(--warn)}
 .taken-t{font-family:var(--font-d); font-weight:800; font-size:13px; fill:var(--warn); text-anchor:end}
-@media (max-width: 760px){ .board-cols{grid-template-columns:1fr 1fr} .win[data-name="board"]{order:0} }
+@media (max-width: 760px){ .board-cols{grid-template-columns:1fr 1fr} .win[data-name="board"]{order:0} .pick-list li{grid-template-columns:22px 1fr} .pick-list .why{grid-column:2} }
 
 /* folded plumbing */
 details.hint summary,details.source summary{cursor:pointer; list-style:none; user-select:none; color:var(--ink-2)}

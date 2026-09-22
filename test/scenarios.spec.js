@@ -423,3 +423,33 @@ test('with an analyst, crossing off posts the drafted players and draws the boar
   const ack = await page.evaluate(() => window.sepiola.state().log.at(-1).ack);
   expect(ack.taken).toBe(3);
 });
+
+test('with your picks, the analyst names who to take next and the board marks them (D49)', async ({ page }) => {
+  const board = JSON.parse(readFileSync('fixtures/boards/board-pick.json', 'utf8'));
+  const posts = [];
+  await page.route('**/health', (route) => route.fulfill({ status: 200, headers: CORS, body: JSON.stringify({ ok: true, analyst: 'chirp', season: '20262027' }) }));
+  await page.route('**/board', async (route) => { posts.push(JSON.parse(route.request().postData())); await route.fulfill({ status: 200, headers: CORS, body: JSON.stringify(board) }); });
+  await page.setViewportSize({ width: 1280, height: 900 });
+  await page.goto('/?analyst=http://analyst.test'); await page.waitForFunction(() => window.sepiola?.ready === true);
+  await page.evaluate(() => window.sepiola.run('cue_board'));
+  await page.fill('#drafted-in', 'Connor McDavid\nNathan MacKinnon');
+  await page.fill('#mine-in', 'Auston Matthews\nQuinn Hughes');
+  await page.click('[data-cross-off]');
+  await page.waitForFunction(() => window.sepiola.state().log.at(-1)?.line === 'cue_board (drafted so far, my picks)');
+  expect(posts.at(-1)).toEqual({ drafted_text: 'Connor McDavid\nNathan MacKinnon', mine_text: 'Auston Matthews\nQuinn Hughes' });
+  await page.evaluate(() => window.sepiola.settled());
+  await expect(page.locator('.your-pick h4')).toHaveText(`Your pick, number ${board.pick.on_clock}`);
+  await expect(page.locator('.pick-list li')).toHaveCount(3);
+  await expect(page.locator('.prospect.marked')).toHaveCount(3);
+  // the numbers are the analyst's order, drawn by CSS
+  const first = board.pick.picks[0].id;
+  expect(await page.locator(`.prospect[data-id="${first}"]`).evaluate((el) => getComputedStyle(el, '::after').content)).toBe('"1"');
+  expect(await page.locator('.board-body').evaluate((el) => el.scrollTop)).toBe(0); // the answer is in view, not the boxes
+  await page.locator('.win[data-name="board"]').screenshot({ path: 'test/shots/draft-board-pick.png' });
+  // a name in the strip opens the same menu a card does
+  await page.click(`.pick-who[data-id="${first}"]`);
+  await expect(page.locator('.skater-menu')).toBeVisible();
+  // the pen gets the same pick in its ack
+  const ack = await page.evaluate(() => window.sepiola.state().log.at(-1).ack);
+  expect(ack.pick.ids).toEqual(board.pick.picks.map((p) => p.id));
+});

@@ -107,6 +107,32 @@ describe('views', () => {
     expect(String(views.chromeReplay ? '' : '')).toBe('');
     expect(String(views.board(st.iced))).toContain('No board yet');
   });
+  it('the pick strip names the analyst\'s choices in its order and the board marks those cards (D49)', () => {
+    const [name, read] = Object.entries(fixtures)[0];
+    const st = states(name, read);
+    const P = st.boardPicked.board.pick;
+    const m = String(views.board(st.boardPicked));
+    expect(m).toContain(`Your pick, number ${P.on_clock}`);
+    expect(m).toContain(esc(P.take));
+    for (const n of P.needs) expect(m).toContain(`<b>${n}</b>`);
+    const listed = [...m.matchAll(/class="pick-who" data-id="(\d+)"/g)].map((x) => x[1]);
+    expect(listed).toEqual(P.picks.map((p) => p.id));
+    P.picks.forEach((p, i) => expect(m).toMatch(new RegExp(`class="prospect[^"]* marked" data-id="${p.id}" data-mark="${i + 1}"`)));
+    expect(String(views.board(st.boarded))).not.toContain('your-pick');
+    const deep = String(views.board(st.boardPickedDeep));
+    expect(deep).toContain('below the columns');
+    expect(deep).not.toContain('data-id="8470000"'); // not on the board: named, not clickable
+    expect(deep.match(/ marked"/g)).toHaveLength(2);
+  });
+  it('cue_board passes your picks to the analyst and acks its pick', async () => {
+    const move = findMove('cue_board');
+    expect(Object.keys(move.input)).toContain('mine_text');
+    const [name, read] = Object.entries(fixtures)[0];
+    const st = states(name, read);
+    const ack = move.ack(st.boardPicked);
+    expect(ack.pick.ids).toEqual(st.boardPicked.board.pick.picks.map((p) => p.id));
+    expect(move.ack(st.boarded).pick).toBeUndefined();
+  });
   it('split refuses one player from the rink and one from the board', () => {
     const [name, read] = Object.entries(fixtures)[0];
     const st = states(name, read);
