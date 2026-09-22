@@ -361,6 +361,10 @@ body.stinging [data-seq="win"]{opacity:0}
 .defs{display:grid; grid-template-columns:max-content 1fr; gap:6px 14px; margin:6px 0 4px}
 .defs dt{font-family:var(--font-d); font-weight:700; font-size:14.5px; color:var(--ink)}
 .defs dd{margin:0; color:var(--ink-2)}
+.defs dt a,.about-link a{color:var(--blue); text-decoration:none; border-bottom:1px dotted currentColor}
+.defs dt a:hover,.about-link a:hover{border-bottom-style:solid}
+.about-link{margin:10px 0 0; font-weight:600}
+.about-link a::after{content:" ↗"}
 @media (max-width: 760px){ .defs{grid-template-columns:1fr; gap:2px} .defs dd{margin-bottom:8px} }
 .row .tag{cursor:help}
 
