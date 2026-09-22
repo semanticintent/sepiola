@@ -199,6 +199,7 @@ test('in fixture mode the week is labelled but the week controls stay hidden', a
   await boot(page);
   await page.click('.win[data-name="welcome"] [data-sample]');
   await page.waitForFunction(() => window.sepiola.state().ice === true);
+  await page.evaluate(() => window.sepiola.stopDemo());
   await expect(page.locator('.win[data-name="rink"] .sub')).toContainText('Oct 5 – 11');
   expect(await page.locator('.week-nav').isVisible()).toBe(false);
   // Codex feedback: the compact games-in-hand opens to both rosters, as the analyst counted them.
@@ -216,9 +217,10 @@ test('in fixture mode the week is labelled but the week controls stay hidden', a
 test('a visitor is welcomed, the sample loads through the grammar, and the welcome steps aside', async ({ page }) => {
   await boot(page);
   await expect(page.locator('.win[data-name="welcome"]')).toBeVisible();
-  await expect(page.locator('.win[data-name="welcome"]')).toContainText('Nothing here has an opinion of its own.');
+  await expect(page.locator('.win[data-name="welcome"]')).toContainText('The page draws; the analyst decides.');
   await page.click('.win[data-name="welcome"] [data-sample]');
   await page.waitForFunction(() => window.sepiola.state().ice === true);
+  await page.evaluate(() => window.sepiola.stopDemo());
   await page.evaluate(() => window.sepiola.settled());
   const state = await page.evaluate(() => window.sepiola.state());
   expect(state.windows.welcome.open).toBe(false);
@@ -262,6 +264,7 @@ test('clicking a skater opens the menu; spotlight, run it back, and compare-with
   await boot(page);
   await page.click('.win[data-name="welcome"] [data-sample]');
   await page.waitForFunction(() => window.sepiola.state().ice === true);
+  await page.evaluate(() => window.sepiola.stopDemo());
   await page.evaluate(() => window.sepiola.settled());
   await page.click('.jersey[data-id="zary"]');
   await expect(page.locator('.skater-menu')).toBeVisible();
@@ -313,4 +316,52 @@ test('the first move cuts the stinger', async ({ page }) => {
   await page.waitForFunction(() => window.sepiola?.ready === true);
   await page.evaluate(() => window.sepiola.run('cue_roster cgy-week1'));
   await expect(page.locator('#stinger')).toBeHidden();
+});
+
+test('watch the pen: the sample plays real moves with captions, and the viewer can skip', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' }); // shorter pauses, same steps
+  await boot(page);
+  await page.click('.win[data-name="welcome"] [data-sample]');
+  await expect(page.locator('.caption')).toContainText('Watch the pen.');
+  await page.waitForFunction(() => window.sepiola.state().log.some((e) => e.line === 'split gridin zary'), null, { timeout: 20000 });
+  const lines = await page.evaluate(() => window.sepiola.state().log.map((e) => e.line));
+  expect(lines).toEqual(expect.arrayContaining(['cue_roster cgy-week1', 'read_ice', 'circle zary', 'replay zary', 'split gridin zary']));
+  await page.screenshot({ path: 'test/shots/watch-the-pen.png' });
+  await page.click('[data-demo-skip]');
+  await expect(page.locator('.caption')).toHaveCount(0);
+});
+
+test('a pointer on the page ends the demo where it stands', async ({ page }) => {
+  await boot(page);
+  await page.click('.win[data-name="welcome"] [data-sample]');
+  await expect(page.locator('.caption')).toBeVisible();
+  await page.mouse.click(1300, 800);
+  await expect(page.locator('.caption')).toHaveCount(0);
+  expect(await page.evaluate(() => window.sepiola.state().demo)).toBeNull();
+});
+
+test('connect your agent opens from the welcome and by hash', async ({ page }) => {
+  await boot(page);
+  await page.click('.win[data-name="welcome"] [data-open-about="connect"]');
+  await expect(page.locator('#about-connect')).toContainText('claude mcp add --transport http chirp https://chirp-mcp.semanticintent.dev/mcp');
+  await page.goto('/#connect'); await page.waitForFunction(() => window.sepiola?.ready === true);
+  expect(await page.evaluate(() => window.sepiola.state().windows.about.open)).toBe(true);
+});
+
+test('on a phone the screen is one column with nothing hidden under anything', async ({ browser }) => {
+  const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
+  await page.goto('/'); await page.waitForFunction(() => window.sepiola?.ready === true);
+  await page.keyboard.press('Shift'); // cut the stinger
+  await expect(page.locator('.win[data-name="welcome"]')).toBeVisible();
+  expect(await page.locator('.dock').isVisible()).toBe(false);
+  const layout = await page.evaluate(() => {
+    const r = (n) => document.querySelector(`.win[data-name="${n}"]`).getBoundingClientRect();
+    return { welcome: r('welcome'), rink: r('rink'), console: r('console'), scrollW: document.documentElement.scrollWidth, w: innerWidth };
+  });
+  expect(layout.scrollW).toBeLessThanOrEqual(layout.w);            // no sideways scroll
+  expect(layout.rink.top).toBeGreaterThanOrEqual(layout.welcome.bottom); // stacked, not overlapped
+  expect(layout.console.top).toBeGreaterThanOrEqual(layout.rink.bottom);
+  expect(layout.rink.width).toBeGreaterThan(340);
+  await page.screenshot({ path: 'test/shots/phone.png', fullPage: true });
+  await page.close();
 });

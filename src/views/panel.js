@@ -17,6 +17,6 @@ export function panel(state) {
     </div>`));
   return html`${rows}
     <p class="quote" data-seq="take">${read.take}</p>
-    <p class="source"><span>${read.source.analyst}</span>${read.source.data.map((d) => html`<span>${d}</span>`)}</p>
+    <details class="source"><summary>${copy.panel.source}</summary><span>${read.source.analyst}</span>${read.source.data.map((d) => html`<span>${d}</span>`)}</details>
     ${(read.notes ?? []).map((n) => html`<p class="note">${n}</p>`)}`;
 }

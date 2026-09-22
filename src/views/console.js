@@ -21,5 +21,5 @@ export function consoleView(state) {
     ? state.log.map((e) => { const r = e.readId && state.reads.find((x) => x.id === e.readId); return r ? card(e, r) : raw(e); })
     : html`<div class="in">${copy.console.ready}</div>`;
   return html`<div class="log" aria-live="polite">${lines}</div>
-    <div class="hint">${copy.console.hint} ${grammar.map((g) => html`<code>${hint(g)}</code>`)}</div>`;
+    <details class="hint"><summary>${copy.console.hint}</summary>${grammar.map((g) => html`<code>${hint(g)}</code>`)}</details>`;
 }

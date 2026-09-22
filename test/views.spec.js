@@ -80,6 +80,21 @@ describe('views', () => {
     });
   }
 
+  it('caption shows the step and a way out only while the demo plays', () => {
+    const [name, read] = Object.entries(fixtures)[0];
+    const { demoing, iced } = states(name, read);
+    const m = String(views.caption(demoing));
+    expect(m).toContain('Run it back.'); expect(m).toContain('data-demo-skip');
+    expect(m.match(/<i class="on">/g)).toHaveLength(2);
+    expect(String(views.caption(iced))).toBe('');
+  });
+  it('welcome has two doors and the connect section carries a command', () => {
+    const w = String(views.welcome(states(...Object.entries(fixtures)[0]).empty));
+    expect(w).toContain('I play fantasy hockey'); expect(w).toContain('I build with agents');
+    expect(w).toContain('data-open-about="connect"');
+    expect(String(views.about())).toContain('claude mcp add --transport http chirp');
+  });
+
   it('every move names only views that exist', () => {
     for (const g of grammar) for (const t of g.touches) expect(views, `${g.name} touches ${t}`).toHaveProperty(t);
   });

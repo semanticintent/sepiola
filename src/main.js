@@ -8,6 +8,7 @@ import { render } from './render.js';
 import { settled, play, cut } from './motion/runner.js';
 import { open, close, move } from './state.js';
 import { submit } from './talkback.js';
+import { playDemo, stopDemo } from './demo.js';
 import { register } from './webmcp.js';
 import { mode, analystUrl } from './analyst.js';
 import { mountSignal } from './signal.js';
@@ -26,7 +27,7 @@ function showAbout(section) {
   if (target && body) body.scrollTop = target.offsetTop - body.offsetTop - 44; // scroll the window's body, never the desktop
   if (section && location.hash !== `#${section}`) history.replaceState(null, '', `#${section}`);
 }
-const ABOUT_SECTIONS = ['about', 'quickStart', 'privacy', 'terms', 'disclaimer', 'credits'];
+const ABOUT_SECTIONS = Object.keys(copy.about.sections);
 const openFromHash = () => { const h = location.hash.replace(/^#/, ''); if (ABOUT_SECTIONS.includes(h)) showAbout(h); };
 window.addEventListener('hashchange', openFromHash);
 openFromHash();
@@ -40,7 +41,8 @@ document.addEventListener('click', (e) => {
   if (aboutLink) { e.preventDefault(); return showAbout(aboutLink.getAttribute('href').slice(1)); }
   const aboutOpener = e.target.closest('[data-open-about]');
   if (aboutOpener) return showAbout(aboutOpener.dataset.openAbout);
-  if (e.target.closest('[data-sample]')) return (async () => { await run('cue_roster cgy-week1'); await run('read_ice'); })();
+  if (e.target.closest('[data-demo-skip]')) return stopDemo();
+  if (e.target.closest('[data-sample]')) return (async () => { stopDemo(); await run('cue_roster cgy-week1'); await run('read_ice'); playDemo(); })();
   if (e.target.closest('[data-paste]')) {
     touch((s) => open(s, 'paste'));
     document.getElementById('paste-in')?.focus({ preventScroll: true }); // never scroll the desktop
@@ -93,6 +95,7 @@ document.addEventListener('click', (e) => {
   if (getState().menu && !e.target.closest('.skater-menu')) touch((s) => ({ ...s, menu: null }), ['menu', 'focus', 'strips']);
 });
 document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && getState().demo) return stopDemo();
   if (e.key === 'Escape' && (getState().menu || getState().pick)) return touch((s) => ({ ...s, menu: null, pick: null }), ['menu', 'pick', 'focus', 'strips']);
   if ((e.key === 'Enter' || e.key === ' ') && e.target.matches?.('svg [data-id]')) {
     e.preventDefault();
@@ -167,4 +170,7 @@ if (stinger) {
   }
 }
 
-window.sepiola = { ready: true, run, call, submit, restore, again, state: getState, settled, moves: moves(), webmcp, showAbout };
+// A viewer reaching in ends the watch-the-pen run; the caption's own button is the exception.
+window.addEventListener('pointerdown', (e) => { if (getState().demo && !e.target.closest('.caption')) stopDemo(); }, true);
+
+window.sepiola = { ready: true, run, call, submit, restore, again, state: getState, settled, moves: moves(), webmcp, showAbout, playDemo, stopDemo };

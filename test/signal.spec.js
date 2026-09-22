@@ -8,7 +8,7 @@ describe('signal', () => {
     expect(pills({ webmcp: { available: true, registered: 7 }, mode: 'live', url: 'https://a.test', health: null })).toEqual({
       webmcp: { state: 'on', text: 'WebMCP · 7 tools' }, analyst: { state: 'on', text: 'Analyst · live' } });
     expect(pills({ webmcp: { available: false, registered: 0 }, mode: 'fixture', url: null, health: null })).toEqual({
-      webmcp: { state: 'off', text: 'WebMCP · off' }, analyst: { state: 'fixture', text: 'Analyst · fixtures' } });
+      webmcp: { state: 'off', text: 'WebMCP · no agent here' }, analyst: { state: 'fixture', text: 'Analyst · fixtures' } });
     expect(pills({ webmcp: null, mode: 'live', url: 'https://a.test', health: 'down' }).analyst.state).toBe('down');
   });
   it('lists every move as a chip and reports health in the analyst\'s terms', () => {

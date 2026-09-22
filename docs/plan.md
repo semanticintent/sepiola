@@ -126,6 +126,18 @@ An agent in Codex drove the screen through WebMCP and the analyst through MCP, t
 | 5 | **Talkback as history** | Reads kept in state; readable entries from copy templates filled with ack values; click restores, Run again re-issues; raw JSON expandable. Seed of `state()`. | ☑ 2026-09-06 (D40) |
 | 6 | **Comparison on demand** | Optional `games_in_hand.counted` + `detail` (still 0.1): per-skater games/b2b/projected for both rosters; who counts, in the analyst's words. CHIRP PR alongside. | ☑ 2026-09-06 (D42) — sprint complete |
 
+## Sprint: the first thirty seconds (started 2026-09-22)
+
+A first-time visitor should understand what, why, and how within half a minute, on desktop or phone, whether they came for hockey or for agents.
+
+| # | Item | Scope | Status |
+|---|---|---|---|
+| 1 | **Watch the pen** | The sample plays a short scripted run of real moves (circle, run it back, split, cut to panel) with one-line captions, ~15 s, skippable, the Talkback filling as it goes. | ☑ 2026-09-22 (D45) |
+| 2 | **Two doors** | Welcome leads with what and why in plain words, then two paths: I play fantasy hockey / I build with agents. | ☑ 2026-09-22 (D45) |
+| 3 | **Connect your agent** | About section with three ways in (Chrome flag, Codex browser, any MCP client with a copyable command); grey lamp reads "no agent here"; menu and signal panel link to it. | ☑ 2026-09-22 (D45) |
+| 4 | **Phone layout** | Below 760 px: one column (welcome, rink, panel, games in hand, replay, talkback), overlays full-width, no dock, lamps as dots. | ☑ 2026-09-22 (D45) |
+| 5 | **Hide the plumbing** | Talkback's move list folded; the panel's source line folded behind "Where these numbers come from". | ☑ 2026-09-22 (D45) |
+
 ## Not in scope
 
 Producer verbs (`ready`, `roll`, `caption`, `layer`), a `state()` tool, multiple circles, remote hosting behind auth, any second analyst, any Yahoo integration.

@@ -15,6 +15,7 @@ export function initialState() {
     pick: null,      // { a } — a compare in progress: the first skater picked, waiting for the second (D41)
     handOpen: false, // the games-in-hand comparison is expanded (D42)
     stung: false,    // the stinger has played (or been cut) this visit (D43)
+    demo: null,      // { step, total, say } while the sample's watch-the-pen run plays (D45)
     windows: Object.fromEntries([...WINDOWS, ...SHELL_WINDOWS].map((name, i) => [name, { open: name === 'rink' || name === 'console' || name === 'welcome', x: null, y: null, z: i }])),
   };
 }

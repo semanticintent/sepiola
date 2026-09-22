@@ -16,12 +16,15 @@ The first analyst is [CHIRP](https://github.com/semanticintent/semantic-chirp-in
 
 ## Try it in a minute
 
-1. Open the live page. The **Talkback** window at the top right is the producer console: it speaks the same moves an agent would. The welcome card offers a sample week if you would rather look first.
-2. Press **Paste a lineup**, paste any roster (one player per line, any format), press **Cue it**. Names resolve against the NHL's player index.
-3. Type `read_ice 7 2026-10-12` and press Run. The ice reveals itself under each skater, the panel puts up the calls, games in hand fills. Before opening night, the date is how you read a real week; once the season is on, `read_ice` alone reads this one.
-4. Click a skater to circle him. Press **why** on a panel row to run it back. Type `split <id> <id>` for two weeks side by side.
+1. Open the live page. After a one-second ident, the welcome offers two doors.
+2. **I play fantasy hockey:** press **Watch a sample week**. For about fifteen seconds the page plays the moves an agent makes — circle a skater, run his week back, split two weeks side by side — with a caption for each. Skip at any time, then click any skater yourself. Or press **Paste your lineup**, paste a roster from any platform, and read a real week (`read_ice 7 2026-10-12` in the Talkback before opening night).
+3. **I build with agents:** press **Connect your agent** for three ways in — Chrome with WebMCP enabled, the Codex desktop browser, or any MCP client pointed at `https://chirp-mcp.semanticintent.dev/mcp`:
 
-Add `?analyst=fixtures` to the URL to run on the built-in fixtures with no analyst at all, or `?analyst=http://localhost:3200` to point at a CHIRP running on your machine.
+```
+claude mcp add --transport http chirp https://chirp-mcp.semanticintent.dev/mcp
+```
+
+It works on a phone too, as a single column. Add `?analyst=fixtures` to run without the analyst.
 
 ## The idea
 

@@ -37,7 +37,7 @@ export function signalMarkup(s) {
         <p class="hint-line">${c.analyst.hint}</p>
       </section>
     </div>
-    <p class="signal-more"><button type="button" data-open-about="about">${c.more}</button></p>`;
+    <p class="signal-more"><button type="button" data-open-about="connect">${c.connect}</button><button type="button" data-open-about="about">${c.more}</button></p>`;
 }
 
 /** GET {url}/health and time it. Never throws. */
