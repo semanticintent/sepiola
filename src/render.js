@@ -2,12 +2,18 @@
 // Only the views named in `touches` are rebuilt (D9). Window chrome (open, position, stacking) is applied on every render; it is cheap and non-destructive.
 import { views } from './views/index.js';
 
+let pickShown = null; // the board whose pick was last brought into view
+
 export function render(state, touches = Object.keys(views)) {
   for (const name of touches) {
     const view = views[name];
     const host = document.querySelector(`[data-view="${name}"]`);
     if (view && host) host.innerHTML = String(view(state));
   }
+  // A new pick (D49) lands at the top of the board while the viewer is down at the boxes; bring it into view once.
+  const pickFor = state.board?.pick ?? null; // each answer from the analyst is a new object
+  if (touches.includes('board') && pickFor && pickFor !== pickShown) document.querySelector('.board-body')?.scrollTo({ top: 0 });
+  if (touches.includes('board')) pickShown = pickFor;
   for (const [name, w] of Object.entries(state.windows)) {
     const win = document.querySelector(`.win[data-name="${name}"]`);
     if (!win) continue;

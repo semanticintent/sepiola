@@ -50,7 +50,7 @@ The pattern is called *the telestrator* and is written up in [docs/pattern.md](d
 | Run it back | `replay(id)` | His week as tiles, his line, his projected points, the analyst's verdict |
 | Split screen | `split(a, b)` | Two skaters' weeks side by side; the analyst's call on who starts |
 | Cut to | `cut_to(view)` | Bring a window forward: rink, panel, hand, replay, console |
-| Put up the board | `cue_board(drafted_text?)` | The draft board: tiers by position, drafted players crossed off by the analyst |
+| Put up the board | `cue_board(drafted_text?, mine_text?)` | The draft board: tiers by position, drafted players crossed off by the analyst; with your picks, the analyst's next pick marked on it |
 | Wipe | `wipe()` | Clean the screen; the roster stays cued |
 
 Every move returns a structured acknowledgment of what it drew. The table is generated from `src/grammar.js` into [docs/grammar.md](docs/grammar.md) and a test fails if it drifts. Producer moves (`ready`, `roll`, `caption`, `layer`) are designed and deliberately not built until a second analyst exists.

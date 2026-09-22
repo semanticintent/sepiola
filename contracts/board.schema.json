@@ -220,6 +220,86 @@
       "items": {
         "type": "string"
       }
+    },
+    "pick": {
+      "description": "The analyst's answer to who to take next (D49), present when the request named your own picks. Its order is the analyst's; the screen marks these ids and ranks nothing.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "on_clock",
+        "needs",
+        "take",
+        "picks"
+      ],
+      "properties": {
+        "on_clock": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "needs": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "C",
+              "LW",
+              "RW",
+              "D",
+              "G"
+            ]
+          }
+        },
+        "take": {
+          "type": "string",
+          "description": "One line, the analyst's words."
+        },
+        "picks": {
+          "type": "array",
+          "maxItems": 5,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "name",
+              "club",
+              "pos",
+              "why",
+              "on_board"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "name": {
+                "type": "string",
+                "minLength": 1
+              },
+              "club": {
+                "type": "string",
+                "pattern": "^[A-Z]{3}$"
+              },
+              "pos": {
+                "enum": [
+                  "C",
+                  "LW",
+                  "RW",
+                  "D",
+                  "G"
+                ]
+              },
+              "why": {
+                "type": "string",
+                "description": "One line, the analyst's words."
+              },
+              "on_board": {
+                "type": "boolean",
+                "description": "Whether this id appears in positions above."
+              }
+            }
+          }
+        }
+      }
     }
   },
   "$defs": {

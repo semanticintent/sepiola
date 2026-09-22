@@ -45,7 +45,10 @@ document.addEventListener('click', (e) => {
   if (e.target.closest('[data-board]')) return run('cue_board');
   if (e.target.closest('[data-cross-off]')) {
     const drafted_text = document.getElementById('drafted-in')?.value.trim();
-    if (drafted_text) call('cue_board', { drafted_text }, 'cue_board (drafted so far)');
+    const mine_text = document.getElementById('mine-in')?.value.trim();
+    if (drafted_text || mine_text) {
+      call('cue_board', { ...(drafted_text && { drafted_text }), ...(mine_text && { mine_text }) }, mine_text ? 'cue_board (drafted so far, my picks)' : 'cue_board (drafted so far)');
+    }
     return;
   }
   if (e.target.closest('[data-sample]')) return (async () => { stopDemo(); await run('cue_roster cgy-week1'); await run('read_ice'); playDemo(); })();
@@ -90,7 +93,7 @@ document.addEventListener('click', (e) => {
     return run(`${act} ${id}`);
   }
   if (e.target.closest('.pick-bar [data-act="cancel"]')) return touch((s) => ({ ...s, pick: null }), ['pick', 'focus', 'strips', 'board']);
-  const picked = e.target.closest('svg [data-id], .chip[data-id], .prospect[data-id]');
+  const picked = e.target.closest('svg [data-id], .chip[data-id], .prospect[data-id], .pick-who[data-id]');
   if (picked) {
     const id = picked.dataset.id;
     const st = getState();
