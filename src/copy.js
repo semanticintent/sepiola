@@ -30,6 +30,8 @@ export const copy = {
     title: 'Replay',
     sub: 'run it back',
     pts: '{pts} projected pts',
+    soft: 'soft night',
+    hard: 'hard night',
     empty: 'Run it back on a skater and his week shows up here.',
   },
   panel: {

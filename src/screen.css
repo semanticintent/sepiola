@@ -176,6 +176,11 @@ body::after{ /* fine grain */
 .rp-day{font-family:var(--font-d); font-weight:700; font-size:12px; fill:var(--ink-2); text-anchor:middle}
 .tile{fill:#fff; stroke:rgba(43,32,22,.15)}
 .tile.game{fill:var(--honey); stroke:var(--amber)}
+.tile.game.soft{stroke:var(--go); stroke-width:2.5}
+.tile.game.hard{stroke:var(--warn); stroke-width:2.5}
+.tile-t.opp{font-size:9.5px; font-weight:700; letter-spacing:.02em}
+.night-key{font-family:var(--font-b); font-size:10.5px; text-anchor:end}
+.night-key .k-soft{fill:var(--go)} .night-key .k-hard{fill:var(--warn)}
 .tile-t{font-family:var(--font-d); font-weight:800; font-size:14px; fill:var(--ink); text-anchor:middle; dominant-baseline:central}
 .rsn{font-family:var(--font-b); font-size:12px; fill:var(--ink-2)}
 .track{fill:rgba(43,32,22,.08)}

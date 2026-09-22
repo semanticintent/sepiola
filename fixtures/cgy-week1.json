@@ -42,7 +42,32 @@
       "reason": "4 games this week",
       "ppg": 0.72,
       "projected_pts": 2.9,
-      "note": null
+      "note": null,
+      "nights": [
+        null,
+        {
+          "opponent": "VAN",
+          "home": false,
+          "difficulty": 45
+        },
+        null,
+        {
+          "opponent": "SJS",
+          "home": false,
+          "difficulty": 88
+        },
+        null,
+        {
+          "opponent": "LAK",
+          "home": false,
+          "difficulty": 40
+        },
+        {
+          "opponent": "ANA",
+          "home": true,
+          "difficulty": 80
+        }
+      ]
     },
     {
       "id": "frost",
@@ -66,7 +91,28 @@
       "reason": "3 games this week",
       "ppg": 0.68,
       "projected_pts": 2,
-      "note": null
+      "note": null,
+      "nights": [
+        null,
+        {
+          "opponent": "VAN",
+          "home": false,
+          "difficulty": 45
+        },
+        null,
+        {
+          "opponent": "SJS",
+          "home": false,
+          "difficulty": 88
+        },
+        null,
+        {
+          "opponent": "LAK",
+          "home": false,
+          "difficulty": 40
+        },
+        null
+      ]
     },
     {
       "id": "coronato",
@@ -90,7 +136,32 @@
       "reason": "4 games this week",
       "ppg": 0.61,
       "projected_pts": 2.4,
-      "note": null
+      "note": null,
+      "nights": [
+        null,
+        {
+          "opponent": "VAN",
+          "home": false,
+          "difficulty": 45
+        },
+        null,
+        {
+          "opponent": "SJS",
+          "home": false,
+          "difficulty": 88
+        },
+        null,
+        {
+          "opponent": "LAK",
+          "home": false,
+          "difficulty": 40
+        },
+        {
+          "opponent": "ANA",
+          "home": true,
+          "difficulty": 80
+        }
+      ]
     },
     {
       "id": "zary",
@@ -114,7 +185,24 @@
       "reason": "2 games, back-to-back",
       "ppg": 0.58,
       "projected_pts": 1.2,
-      "note": null
+      "note": null,
+      "nights": [
+        null,
+        null,
+        null,
+        null,
+        {
+          "opponent": "UTA",
+          "home": true,
+          "difficulty": 65
+        },
+        {
+          "opponent": "LAK",
+          "home": false,
+          "difficulty": 40
+        },
+        null
+      ]
     },
     {
       "id": "backlund",
@@ -138,7 +226,28 @@
       "reason": "3 games this week",
       "ppg": 0.52,
       "projected_pts": 1.6,
-      "note": null
+      "note": null,
+      "nights": [
+        null,
+        {
+          "opponent": "VAN",
+          "home": false,
+          "difficulty": 45
+        },
+        null,
+        {
+          "opponent": "SJS",
+          "home": false,
+          "difficulty": 88
+        },
+        null,
+        {
+          "opponent": "LAK",
+          "home": false,
+          "difficulty": 40
+        },
+        null
+      ]
     },
     {
       "id": "farabee",
@@ -162,7 +271,28 @@
       "reason": "3 games, back-to-back",
       "ppg": 0.55,
       "projected_pts": 1.7,
-      "note": null
+      "note": null,
+      "nights": [
+        null,
+        {
+          "opponent": "VAN",
+          "home": false,
+          "difficulty": 45
+        },
+        null,
+        null,
+        {
+          "opponent": "UTA",
+          "home": true,
+          "difficulty": 65
+        },
+        {
+          "opponent": "LAK",
+          "home": false,
+          "difficulty": 40
+        },
+        null
+      ]
     },
     {
       "id": "weegar",
@@ -186,7 +316,32 @@
       "reason": "4 games this week",
       "ppg": 0.6,
       "projected_pts": 2.4,
-      "note": null
+      "note": null,
+      "nights": [
+        null,
+        {
+          "opponent": "VAN",
+          "home": false,
+          "difficulty": 45
+        },
+        null,
+        {
+          "opponent": "SJS",
+          "home": false,
+          "difficulty": 88
+        },
+        null,
+        {
+          "opponent": "LAK",
+          "home": false,
+          "difficulty": 40
+        },
+        {
+          "opponent": "ANA",
+          "home": true,
+          "difficulty": 80
+        }
+      ]
     },
     {
       "id": "andersson",
@@ -210,7 +365,28 @@
       "reason": "3 games this week",
       "ppg": 0.54,
       "projected_pts": 1.6,
-      "note": null
+      "note": null,
+      "nights": [
+        null,
+        {
+          "opponent": "VAN",
+          "home": false,
+          "difficulty": 45
+        },
+        null,
+        {
+          "opponent": "SJS",
+          "home": false,
+          "difficulty": 88
+        },
+        null,
+        {
+          "opponent": "LAK",
+          "home": false,
+          "difficulty": 40
+        },
+        null
+      ]
     },
     {
       "id": "bahl",
@@ -234,7 +410,28 @@
       "reason": "3 games, back-to-back",
       "ppg": 0.3,
       "projected_pts": 0.9,
-      "note": null
+      "note": null,
+      "nights": [
+        null,
+        null,
+        {
+          "opponent": "SEA",
+          "home": true,
+          "difficulty": 52
+        },
+        null,
+        {
+          "opponent": "UTA",
+          "home": true,
+          "difficulty": 65
+        },
+        {
+          "opponent": "LAK",
+          "home": false,
+          "difficulty": 40
+        },
+        null
+      ]
     },
     {
       "id": "miromanov",
@@ -258,7 +455,32 @@
       "reason": "4 games this week",
       "ppg": 0.35,
       "projected_pts": 1.4,
-      "note": null
+      "note": null,
+      "nights": [
+        null,
+        {
+          "opponent": "VAN",
+          "home": false,
+          "difficulty": 45
+        },
+        null,
+        {
+          "opponent": "SJS",
+          "home": false,
+          "difficulty": 88
+        },
+        null,
+        {
+          "opponent": "LAK",
+          "home": false,
+          "difficulty": 40
+        },
+        {
+          "opponent": "ANA",
+          "home": true,
+          "difficulty": 80
+        }
+      ]
     },
     {
       "id": "wolf",
@@ -282,7 +504,28 @@
       "reason": "3 games this week",
       "ppg": 0,
       "projected_pts": 0,
-      "note": null
+      "note": null,
+      "nights": [
+        null,
+        {
+          "opponent": "VAN",
+          "home": false,
+          "difficulty": 55
+        },
+        null,
+        {
+          "opponent": "SJS",
+          "home": false,
+          "difficulty": 12
+        },
+        null,
+        {
+          "opponent": "LAK",
+          "home": false,
+          "difficulty": 60
+        },
+        null
+      ]
     },
     {
       "id": "strome",
@@ -306,7 +549,32 @@
       "reason": "4 games this week",
       "ppg": 0.49,
       "projected_pts": 2,
-      "note": null
+      "note": null,
+      "nights": [
+        null,
+        {
+          "opponent": "VAN",
+          "home": false,
+          "difficulty": 45
+        },
+        null,
+        {
+          "opponent": "SJS",
+          "home": false,
+          "difficulty": 88
+        },
+        null,
+        {
+          "opponent": "LAK",
+          "home": false,
+          "difficulty": 40
+        },
+        {
+          "opponent": "ANA",
+          "home": true,
+          "difficulty": 80
+        }
+      ]
     },
     {
       "id": "sharangovich",
@@ -330,7 +598,28 @@
       "reason": "3 games this week",
       "ppg": 0.5,
       "projected_pts": 1.5,
-      "note": null
+      "note": null,
+      "nights": [
+        null,
+        {
+          "opponent": "VAN",
+          "home": false,
+          "difficulty": 45
+        },
+        null,
+        {
+          "opponent": "SJS",
+          "home": false,
+          "difficulty": 88
+        },
+        null,
+        {
+          "opponent": "LAK",
+          "home": false,
+          "difficulty": 40
+        },
+        null
+      ]
     },
     {
       "id": "tsyplakov",
@@ -354,7 +643,24 @@
       "reason": "2 games this week",
       "ppg": 0.4,
       "projected_pts": 0.8,
-      "note": null
+      "note": null,
+      "nights": [
+        null,
+        null,
+        null,
+        {
+          "opponent": "SJS",
+          "home": false,
+          "difficulty": 88
+        },
+        null,
+        {
+          "opponent": "LAK",
+          "home": false,
+          "difficulty": 40
+        },
+        null
+      ]
     },
     {
       "id": "huberdeau",
@@ -378,7 +684,16 @@
       "reason": "day-to-day, upper body",
       "ppg": 0.9,
       "projected_pts": 0,
-      "note": "day-to-day, upper body"
+      "note": "day-to-day, upper body",
+      "nights": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
     }
   ],
   "calls": {

@@ -7,6 +7,8 @@ import { skater, verdictFor } from '../state.js';
 
 // layout constants only
 const X0 = 10, TILE = 30, STEP = 40, ROW = 92, BAR_X = 380, BAR_W = 150, PTS_FULL = 6;
+const SOFT = 40, HARD = 70; // the analyst's 0–100 difficulty, drawn as a tile edge; layout thresholds only
+const edge = (n) => (!n || n.difficulty == null ? '' : n.difficulty < SOFT ? ' soft' : n.difficulty >= HARD ? ' hard' : '');
 
 export function replay(state) {
   const r = state.replay;
@@ -23,9 +25,10 @@ export function replay(state) {
       ${read.window.labels.map((label, d) => {
         const x = X0 + d * STEP;
         const game = s.games[d];
+        const night = s.nights?.[d] ?? null;
         return html`<text class="rp-day" x="${x + TILE / 2}" y="${y0 + 12}">${label}</text>
-          <rect class="tile${game ? ' game' : ''}" data-seq="${game ? 'tile' : ''}" x="${x}" y="${y0 + 18}" width="${TILE}" height="${TILE}" rx="7"/>
-          ${game ? html`<text class="tile-t" data-seq="tile_t" x="${x + TILE / 2}" y="${y0 + 33}">${copy.glyph.game}</text>` : ''}`;
+          <rect class="tile${game ? ' game' : ''}${edge(night)}" data-seq="${game ? 'tile' : ''}" x="${x}" y="${y0 + 18}" width="${TILE}" height="${TILE}" rx="7"/>
+          ${game ? html`<text class="tile-t${night ? ' opp' : ''}" data-seq="tile_t" x="${x + TILE / 2}" y="${y0 + 33}">${night ? night.opponent : copy.glyph.game}</text>` : ''}`;
       })}
       <text class="rsn" data-seq="count" x="${X0}" y="${y0 + 66}">${s.reason}</text>
       <rect class="track" x="${BAR_X}" y="${y0 + 22}" width="${BAR_W}" height="20" rx="10"/>
@@ -35,5 +38,7 @@ export function replay(state) {
   });
 
   const vy = 30 + rows.length * ROW + 12;
-  return html`${body}${verdict ? html`<text class="verdict-t" data-seq="verdict" x="${X0}" y="${vy}">${verdict.line}</text>` : ''}`;
+  const hasNights = rows.some((s) => s.nights?.some(Boolean));
+  const key = hasNights ? html`<text class="night-key" x="530" y="12"><tspan class="k-soft">${copy.replay.soft}</tspan><tspan dx="10" class="k-hard">${copy.replay.hard}</tspan></text>` : '';
+  return html`${key}${body}${verdict ? html`<text class="verdict-t" data-seq="verdict" x="${X0}" y="${vy}">${verdict.line}</text>` : ''}`;
 }

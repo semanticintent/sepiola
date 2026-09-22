@@ -2,7 +2,7 @@
 import { describe, it, expect } from 'vitest';
 import { views } from '../src/views/index.js';
 import { fixtures } from '../src/fixtures.js';
-import { grammar } from '../src/grammar.js';
+import { grammar, findMove } from '../src/grammar.js';
 import { esc } from '../src/html.js';
 import { states, onIce } from './states.js';
 
@@ -80,6 +80,17 @@ describe('views', () => {
     });
   }
 
+  it('replay tiles carry the opponent and a soft/hard edge when the read has nights', () => {
+    const read = fixtures['cgy-week1'];
+    const st = states('cgy-week1', read);
+    const wolf = findMove('replay').handler(st.iced, { id: 'wolf' });
+    const m = String(views.replay(wolf));
+    expect(m).toContain('>SJS<'); expect(m).toMatch(/class="tile game soft"/); // Wolf: SJS is a soft night for a goalie
+    expect(String(views.replay(findMove('replay').handler(st.iced, { id: 'gridin' })))).toMatch(/class="tile game hard"/); // Gridin: SJS defends well against skaters
+    expect(m).toContain('soft night');
+    const thin = String(views.replay(findMove('replay').handler(states('thin-week-no-opp', fixtures['thin-week-no-opp']).iced, { id: 'wolf' })));
+    expect(thin).not.toContain('soft night'); // no nights in that read, no key
+  });
   it('caption shows the step and a way out only while the demo plays', () => {
     const [name, read] = Object.entries(fixtures)[0];
     const { demoing, iced } = states(name, read);
