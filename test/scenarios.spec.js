@@ -365,3 +365,23 @@ test('on a phone the screen is one column with nothing hidden under anything', a
   await page.screenshot({ path: 'test/shots/phone.png', fullPage: true });
   await page.close();
 });
+
+test('menus stay above every window, however many times windows are raised', async ({ page }) => {
+  await boot(page);
+  await page.click('.win[data-name="welcome"] [data-sample]');
+  await page.waitForFunction(() => window.sepiola.state().ice === true);
+  await page.evaluate(() => window.sepiola.stopDemo());
+  for (let i = 0; i < 30; i++) await page.evaluate((v) => window.sepiola.run('cut_to ' + v), ['rink', 'panel', 'hand', 'console'][i % 4]);
+  await page.click('details.menu summary.brand');
+  const top = await page.evaluate(() => {
+    const item = document.querySelector('.menu-list [data-open-about="words"]').getBoundingClientRect();
+    const el = document.elementFromPoint(item.left + 10, item.top + item.height / 2);
+    return el.closest('.menu-list') ? 'menu' : (el.closest('.win')?.dataset.name ?? el.tagName);
+  });
+  expect(top).toBe('menu');
+  const zs = await page.evaluate(() => [...document.querySelectorAll('.win')].map((w) => +w.style.zIndex || 0));
+  expect(Math.max(...zs)).toBeLessThan(90);
+  await page.click('.menu-list [data-open-about="words"]');
+  await expect(page.locator('#about-words')).toContainText('Back-to-back');
+  await page.screenshot({ path: 'test/shots/words.png' });
+});

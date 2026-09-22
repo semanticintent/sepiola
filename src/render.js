@@ -12,7 +12,8 @@ export function render(state, touches = Object.keys(views)) {
     const win = document.querySelector(`.win[data-name="${name}"]`);
     if (!win) continue;
     win.classList.toggle('hidden', !w.open);
-    win.style.zIndex = String(10 + w.z);
+    // rank among the windows, not the raw counter: z grows every time a window is raised, and must never climb past the menubar
+    win.style.zIndex = String(10 + Object.values(state.windows).filter((o) => o.z < w.z).length);
     if (w.x != null) Object.assign(win.style, { left: `${w.x}px`, top: `${w.y}px`, right: 'auto', bottom: 'auto', transform: 'none' });
   }
   const nav = document.querySelector('.week-nav');

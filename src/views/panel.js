@@ -11,7 +11,7 @@ export function panel(state) {
   if (!read || !state.ice) return html`<p class="empty">${copy.panel.empty}</p>`;
   const rows = ORDER.flatMap((kind) => read.calls[kind].map((id) => skater(state, id)).filter(Boolean).map((s) => html`
     <div class="row" data-seq="call">
-      <span class="tag ${kind}">${copy.panel[kind]}</span>
+      <span class="tag ${kind}" title="${copy.panel.help[kind]}">${copy.panel[kind]}</span>
       <span><b>${s.name}</b><br><small>${kind === 'ir' && s.note ? s.note : s.reason}</small></span>
       <button class="why" data-replay="${s.id}">${copy.panel.why}</button>
     </div>`));

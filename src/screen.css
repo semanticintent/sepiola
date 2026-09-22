@@ -24,7 +24,7 @@ body::after{ /* fine grain */
 
 /* menubar */
 .bar{
-  position:absolute; top:0; left:0; right:0; height:40px; z-index:50;
+  position:absolute; top:0; left:0; right:0; height:40px; z-index:90; /* above every window, dock, caption, and skater menu */
   display:flex; align-items:center; gap:22px; padding:0 18px;
   background:rgba(255,248,236,.55); backdrop-filter:blur(18px) saturate(1.3);
   border-bottom:1px solid rgba(255,255,255,.5); font-size:14px; font-weight:500;
@@ -353,6 +353,16 @@ body.stinging [data-seq="win"]{opacity:0}
 .caption .say{flex:1}
 .caption button{all:unset; cursor:pointer; flex:none; font-family:var(--font-d); font-weight:700; font-size:13px; padding:4px 10px; border-radius:8px; background:rgba(255,255,255,.15)}
 .caption button:hover,.caption button:focus-visible{background:var(--sun); color:var(--ink); outline:none}
+
+/* plain words */
+.new-here{margin:12px 0 0; text-align:center}
+.new-here button{all:unset; cursor:pointer; font-size:13px; color:var(--blue); padding:3px 8px; border-radius:6px}
+.new-here button:hover,.new-here button:focus-visible{background:rgba(43,94,158,.1); outline:none}
+.defs{display:grid; grid-template-columns:max-content 1fr; gap:6px 14px; margin:6px 0 4px}
+.defs dt{font-family:var(--font-d); font-weight:700; font-size:14.5px; color:var(--ink)}
+.defs dd{margin:0; color:var(--ink-2)}
+@media (max-width: 760px){ .defs{grid-template-columns:1fr; gap:2px} .defs dd{margin-bottom:8px} }
+.row .tag{cursor:help}
 
 /* folded plumbing */
 details.hint summary,details.source summary{cursor:pointer; list-style:none; user-select:none; color:var(--ink-2)}

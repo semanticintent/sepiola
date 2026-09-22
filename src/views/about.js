@@ -11,6 +11,7 @@ export function about() {
       <h3>${s[k].heading}</h3>
       ${s[k].paras && !s[k].steps ? s[k].paras.map((t) => html`<p>${t}</p>`) : ''}
       ${s[k].steps ? html`<ol>${s[k].steps.map((t) => html`<li>${t}</li>`)}</ol>` : ''}
+      ${s[k].defs ? html`<dl class="defs">${s[k].defs.map(([t, d]) => html`<dt>${t}</dt><dd>${d}</dd>`)}</dl>` : ''}
       ${s[k].code ? html`<pre class="about-code"><code>${s[k].code}</code></pre>` : ''}
       ${s[k].paras && s[k].steps ? s[k].paras.map((t) => html`<p>${t}</p>`) : ''}
     </section>`)}`;

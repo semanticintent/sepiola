@@ -17,5 +17,6 @@ export function welcome(state) {
         <button class="way" data-open-about="connect"><b>${w.connect}</b><small>${w.connectHint}</small></button>
         <button class="way" data-open-about="about"><b>${w.learn}</b><small>${w.learnHint}</small></button>
       </section>
-    </div>`;
+    </div>
+    <p class="new-here"><button type="button" data-open-about="words">${w.newHere}</button></p>`;
 }
