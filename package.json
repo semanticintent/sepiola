@@ -11,7 +11,8 @@
     "scenarios": "playwright test",
     "build": "vite build",
     "docs:grammar": "node scripts/grammar-doc.mjs",
-    "deploy": "npm run build && wrangler pages deploy dist --project-name sepiola"
+    "deploy": "npm run build && wrangler pages deploy dist --project-name sepiola",
+    "brand:card": "node scripts/social-card.mjs"
   },
   "dependencies": {
     "gsap": "3.15.0"
