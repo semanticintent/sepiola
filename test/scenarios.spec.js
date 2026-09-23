@@ -453,3 +453,46 @@ test('with your picks, the analyst names who to take next and the board marks th
   const ack = await page.evaluate(() => window.sepiola.state().log.at(-1).ack);
   expect(ack.pick.ids).toEqual(board.pick.picks.map((p) => p.id));
 });
+
+test('draft night: playoff weeks go to the analyst, and the boxes survive a reload', async ({ page }) => {
+  const board = JSON.parse(readFileSync('fixtures/boards/board-pick.json', 'utf8'));
+  const posts = [];
+  await page.route('**/health', (route) => route.fulfill({ status: 200, headers: CORS, body: JSON.stringify({ ok: true, analyst: 'chirp', season: '20262027' }) }));
+  await page.route('**/board', async (route) => { posts.push(JSON.parse(route.request().postData())); await route.fulfill({ status: 200, headers: CORS, body: JSON.stringify(board) }); });
+  await page.goto('/?analyst=http://analyst.test'); await page.waitForFunction(() => window.sepiola?.ready === true);
+  await page.evaluate(() => window.sepiola.run('cue_board'));
+  await page.fill('#drafted-in', 'Connor McDavid');
+  await page.fill('#mine-in', 'Auston Matthews');
+  await page.fill('#po-start', '23');
+  await page.fill('#po-end', '25');
+  await page.click('[data-cross-off]');
+  await page.waitForFunction(() => window.sepiola.state().log.at(-1)?.line === 'cue_board (drafted so far, my picks)');
+  expect(posts.at(-1)).toEqual({ drafted_text: 'Connor McDavid', mine_text: 'Auston Matthews', playoff_start_week: 23, playoff_end_week: 25 });
+
+  // a reload keeps all four boxes
+  await page.reload(); await page.waitForFunction(() => window.sepiola?.ready === true);
+  expect(await page.inputValue('#drafted-in')).toBe('Connor McDavid');
+  expect(await page.inputValue('#mine-in')).toBe('Auston Matthews');
+  expect(await page.inputValue('#po-start')).toBe('23');
+  expect(await page.inputValue('#po-end')).toBe('25');
+
+  // an out-of-order pair is left out rather than sent
+  await page.evaluate(() => window.sepiola.run('cue_board'));
+  await page.fill('#po-start', '25'); await page.fill('#po-end', '23');
+  const before = posts.length;
+  await page.click('[data-cross-off]');
+  await expect.poll(() => posts.length).toBe(before + 1);
+  expect(posts.at(-1)).not.toHaveProperty('playoff_start_week');
+});
+
+test('draft night: with storage blocked, the board still works', async ({ page }) => {
+  await page.addInitScript(() => {
+    const deny = () => { throw new Error('storage blocked'); };
+    Object.defineProperty(window, 'localStorage', { get: deny });
+  });
+  const errors = await boot(page);
+  await page.evaluate(() => window.sepiola.run('cue_board'));
+  await page.fill('#drafted-in', 'Connor McDavid');
+  await expect(page.locator('.win[data-name="board"]')).toBeVisible();
+  expect(errors).toEqual([]);
+});
