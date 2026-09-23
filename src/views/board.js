@@ -15,7 +15,7 @@ export function board(state) {
   const row = (p) => html`<button type="button" class="prospect${p.taken ? ' taken' : ''}${spot?.id === p.id ? ' circled' : ''}${focus.has(p.id) ? ' focused' : ''}${marks.has(p.id) ? ' marked' : ''}" data-id="${p.id}"${marks.has(p.id) ? html` data-mark="${marks.get(p.id)}"` : ''} title="${p.note}">
       <span class="rk">${p.rank}</span><span class="nm">${p.name}</span><span class="cl">${p.club}</span>${p.flags.length ? html`<i class="flag" title="${p.flags[0]}">${copy.glyph.warn}</i>` : ''}
     </button>${spot?.id === p.id ? html`<p class="spot-note">${spot.reason ?? p.note}</p>` : ''}`;
-  return html`${b.pick ? yourPick(b.pick) : ''}<p class="board-take">${b.take}</p>
+  return html`${b.pick ? yourPick(b.pick) : ''}${b.scoring ? rankedFor(b.scoring) : ''}<p class="board-take">${b.take}</p>
     <div class="board-cols">${POS.map((pos) => html`<section class="board-col">
       <h4>${pos}</h4>
       ${b.positions[pos].map((t) => html`<div class="tier"><span class="tier-label">${fill(copy.board.tier, { tier: t.tier })}</span>${t.players.map(row)}</div>`)}
@@ -26,6 +26,14 @@ export function board(state) {
       <details class="source"><summary>${copy.panel.source}</summary><span>${b.source.analyst}</span>${b.source.data.map((d) => html`<span>${d}</span>`)}</details>
       ${(b.notes ?? []).map((n) => html`<p class="note">${n}</p>`)}
     </div>`;
+}
+
+/** What the analyst ranked for (D51): the league's categories as chips, and how, in its words. */
+function rankedFor(scoring) {
+  return html`<div class="ranked-for">
+    <p class="cats"><span>${copy.board.rankedFor}</span>${scoring.categories.map((c) => html`<b>${c}</b>`)}</p>
+    <details class="source"><summary>${copy.board.method}</summary><span>${scoring.method}</span>${scoring.too_few_games ? html`<span>${fill(copy.board.tooFew, { n: scoring.too_few_games })}</span>` : ''}</details>
+  </div>`;
 }
 
 /** The analyst's pick, in its order. Numbers are drawn by CSS from each item's place, so the screen writes none. */

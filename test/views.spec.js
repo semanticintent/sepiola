@@ -124,6 +124,21 @@ describe('views', () => {
     expect(deep).not.toContain('data-id="8470000"'); // not on the board: named, not clickable
     expect(deep.match(/ marked"/g)).toHaveLength(2);
   });
+  it('a board ranked for the league names its categories and how, and carries each prospect\'s category line (D51)', () => {
+    const [name, read] = Object.entries(fixtures)[0];
+    const st = states(name, read);
+    const B = st.boardCats.board;
+    const m = String(views.board(st.boardCats));
+    expect(m).toContain('Ranked for your categories');
+    for (const c of B.scoring.categories) expect(m).toContain(`<b>${esc(c)}</b>`);
+    expect(m).toContain(esc(B.scoring.method));
+    expect(m).toContain(`Left out for too few games: ${B.scoring.too_few_games}`);
+    const d1 = B.positions.D[0].players[0];
+    expect(d1.note).toMatch(/[+−]\d\.\d/);
+    expect(m).toContain(`title="${esc(d1.note)}"`);
+    expect(String(views.board(st.boarded))).not.toContain('ranked-for');
+    expect(Object.keys(findMove('cue_board').input)).toContain('categories');
+  });
   it('cue_board passes your picks to the analyst and acks its pick', async () => {
     const move = findMove('cue_board');
     expect(Object.keys(move.input)).toContain('mine_text');

@@ -34,6 +34,7 @@ export function states(name, read) {
   const boardPicked = findMove('cue_board').handler(iced, { board: P });
   const deep = { ...P, pick: { ...P.pick, picks: [...P.pick.picks.slice(0, 2), { id: '8470000', name: 'Sleeper', club: 'UTA', pos: 'LW', why: '180th best producer, 171 slots below this pick.', on_board: false }] } };
   const boardPickedDeep = findMove('cue_board').handler(iced, { board: deep });
-  return { empty, cued, iced, circled, worded, wiped, replayed, split, unmatched, cut, logged, menued, benchMenu, picking, handOpen, demoing, boarded, boardCircled, boardCard, boardSplit, boardPicked, boardPickedDeep };
+  const boardCats = findMove('cue_board').handler(iced, { board: boards['board-categories'] });
+  return { empty, cued, iced, circled, worded, wiped, replayed, split, unmatched, cut, logged, menued, benchMenu, picking, handOpen, demoing, boarded, boardCircled, boardCard, boardSplit, boardPicked, boardPickedDeep, boardCats };
 }
 

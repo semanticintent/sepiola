@@ -1,0 +1,1703 @@
+{
+  "contract_version": "0.1",
+  "kind": "board",
+  "generated_at": "2026-09-23T00:56:46.240Z",
+  "positions": {
+    "C": [
+      {
+        "tier": 1,
+        "players": [
+          {
+            "id": "8477492",
+            "name": "MacKinnon",
+            "club": "COL",
+            "pos": "C",
+            "rank": 2,
+            "age": 31.1,
+            "ppg": 1.59,
+            "flags": [
+              "4.4 shots/gm"
+            ],
+            "note": "G +3.0 · A +3.0 · +/- +3.0; 4.4 shots/gm.",
+            "taken": true
+          },
+          {
+            "id": "8478402",
+            "name": "McDavid",
+            "club": "EDM",
+            "pos": "C",
+            "rank": 3,
+            "age": 29.7,
+            "ppg": 1.68,
+            "flags": [
+              "3.7 shots/gm"
+            ],
+            "note": "G +3.0 · A +3.0 · PPP +3.0; 3.7 shots/gm.",
+            "taken": true
+          },
+          {
+            "id": "8478403",
+            "name": "Eichel",
+            "club": "VGK",
+            "pos": "C",
+            "rank": 4,
+            "age": 29.9,
+            "ppg": 1.22,
+            "flags": [
+              "3.5 shots/gm"
+            ],
+            "note": "A +3.0 · SOG +2.8 · PPP +2.3; 3.5 shots/gm.",
+            "taken": false
+          },
+          {
+            "id": "8484801",
+            "name": "Celebrini",
+            "club": "SJS",
+            "pos": "C",
+            "rank": 10,
+            "age": 20.3,
+            "ppg": 1.4,
+            "flags": [
+              "3.5 shots/gm"
+            ],
+            "note": "A +3.0 · G +2.9 · SOG +2.8; 3.5 shots/gm.",
+            "taken": false
+          },
+          {
+            "id": "8481559",
+            "name": "Hughes",
+            "club": "NJD",
+            "pos": "C",
+            "rank": 14,
+            "age": 25.4,
+            "ppg": 1.26,
+            "flags": [
+              "3.7 shots/gm"
+            ],
+            "note": "SOG +3.0 · A +2.9 · PPP +2.3; 3.7 shots/gm.",
+            "taken": false
+          },
+          {
+            "id": "8480039",
+            "name": "Necas",
+            "club": "COL",
+            "pos": "C",
+            "rank": 16,
+            "age": 27.7,
+            "ppg": 1.28,
+            "flags": [],
+            "note": "+/- +3.0 · A +2.7 · G +2.4.",
+            "taken": false
+          }
+        ]
+      },
+      {
+        "tier": 2,
+        "players": [
+          {
+            "id": "8477934",
+            "name": "Draisaitl",
+            "club": "EDM",
+            "pos": "C",
+            "rank": 17,
+            "age": 30.9,
+            "ppg": 1.49,
+            "flags": [],
+            "note": "A +3.0 · PPP +3.0 · G +2.8.",
+            "taken": false
+          },
+          {
+            "id": "8477404",
+            "name": "Guentzel",
+            "club": "TBL",
+            "pos": "C",
+            "rank": 19,
+            "age": 32,
+            "ppg": 1.09,
+            "flags": [],
+            "note": "G +2.3 · PPP +2.2 · A +1.8.",
+            "taken": false
+          },
+          {
+            "id": "8478427",
+            "name": "Aho",
+            "club": "CAR",
+            "pos": "C",
+            "rank": 23,
+            "age": 29.2,
+            "ppg": 1.01,
+            "flags": [],
+            "note": "SHP +3.0 · A +2.1 · PPP +2.0.",
+            "taken": false
+          },
+          {
+            "id": "8482116",
+            "name": "Stützle",
+            "club": "OTT",
+            "pos": "C",
+            "rank": 24,
+            "age": 24.7,
+            "ppg": 1.04,
+            "flags": [],
+            "note": "PPP +2.1 · G +1.9 · A +1.8.",
+            "taken": false
+          },
+          {
+            "id": "8480018",
+            "name": "Suzuki",
+            "club": "MTL",
+            "pos": "C",
+            "rank": 27,
+            "age": 27.1,
+            "ppg": 1.23,
+            "flags": [],
+            "note": "A +3.0 · PPP +3.0 · +/- +2.3.",
+            "taken": false
+          },
+          {
+            "id": "8477933",
+            "name": "Reinhart",
+            "club": "FLA",
+            "pos": "C",
+            "rank": 29,
+            "age": 30.9,
+            "ppg": 0.95,
+            "flags": [],
+            "note": "SHP +3.0 · GWG +2.7 · PPP +2.4.",
+            "taken": false
+          }
+        ]
+      },
+      {
+        "tier": 3,
+        "players": [
+          {
+            "id": "8477946",
+            "name": "Larkin",
+            "club": "DET",
+            "pos": "C",
+            "rank": 30,
+            "age": 30.1,
+            "ppg": 0.91,
+            "flags": [],
+            "note": "GWG +3.0 · SOG +2.2 · G +2.2.",
+            "taken": false
+          },
+          {
+            "id": "8477500",
+            "name": "Horvat",
+            "club": "NYI",
+            "pos": "C",
+            "rank": 31,
+            "age": 31.5,
+            "ppg": 0.84,
+            "flags": [
+              "3.3 shots/gm"
+            ],
+            "note": "GWG +3.0 · SOG +2.5 · G +2.2; 3.3 shots/gm.",
+            "taken": false
+          },
+          {
+            "id": "8471215",
+            "name": "Malkin",
+            "club": "PIT",
+            "pos": "C",
+            "rank": 32,
+            "age": 40.1,
+            "ppg": 1.09,
+            "flags": [],
+            "note": "A +2.5 · PPP +2.4 · PIM +1.7.",
+            "taken": false
+          },
+          {
+            "id": "8477951",
+            "name": "Schmaltz",
+            "club": "UTA",
+            "pos": "C",
+            "rank": 35,
+            "age": 30.6,
+            "ppg": 0.9,
+            "flags": [],
+            "note": "GWG +3.0 · G +1.8 · SOG +1.4.",
+            "taken": false
+          },
+          {
+            "id": "8479420",
+            "name": "Thompson",
+            "club": "BUF",
+            "pos": "C",
+            "rank": 40,
+            "age": 28.9,
+            "ppg": 1,
+            "flags": [
+              "3.4 shots/gm"
+            ],
+            "note": "SOG +2.6 · G +2.5 · PPP +1.6; 3.4 shots/gm.",
+            "taken": false
+          },
+          {
+            "id": "8480023",
+            "name": "Thomas",
+            "club": "STL",
+            "pos": "C",
+            "rank": 41,
+            "age": 27.2,
+            "ppg": 1,
+            "flags": [],
+            "note": "SHP +2.5 · +/- +1.8 · A +1.7.",
+            "taken": false
+          }
+        ]
+      },
+      {
+        "tier": 4,
+        "players": [
+          {
+            "id": "8475158",
+            "name": "O'Reilly",
+            "club": "NSH",
+            "pos": "C",
+            "rank": 44,
+            "age": 35.6,
+            "ppg": 0.91,
+            "flags": [
+              "age 35.6 on 20.4 min — usage may not hold"
+            ],
+            "note": "GWG +2.9 · SHP +1.8 · A +1.7; age 35.6 on 20.4 min — usage may not hold.",
+            "taken": false
+          },
+          {
+            "id": "8476460",
+            "name": "Scheifele",
+            "club": "WPG",
+            "pos": "C",
+            "rank": 46,
+            "age": 33.5,
+            "ppg": 1.26,
+            "flags": [
+              "age 33.5 on 21.5 min — usage may not hold"
+            ],
+            "note": "A +2.9 · G +2.0 · GWG +1.9; age 33.5 on 21.5 min — usage may not hold.",
+            "taken": false
+          },
+          {
+            "id": "8478519",
+            "name": "Cirelli",
+            "club": "TBL",
+            "pos": "C",
+            "rank": 47,
+            "age": 29.2,
+            "ppg": 0.73,
+            "flags": [],
+            "note": "SHP +3.0 · +/- +2.8 · G +1.2.",
+            "taken": false
+          },
+          {
+            "id": "8475754",
+            "name": "Nelson",
+            "club": "COL",
+            "pos": "C",
+            "rank": 49,
+            "age": 34.9,
+            "ppg": 0.8,
+            "flags": [
+              "age 34.9 on 19.7 min — usage may not hold"
+            ],
+            "note": "GWG +3.0 · G +1.8 · SOG +1.1; age 34.9 on 19.7 min — usage may not hold.",
+            "taken": false
+          },
+          {
+            "id": "8484153",
+            "name": "Carlsson",
+            "club": "ANA",
+            "pos": "C",
+            "rank": 56,
+            "age": 21.7,
+            "ppg": 0.96,
+            "flags": [],
+            "note": "SHP +2.2 · G +1.9 · SOG +1.7.",
+            "taken": false
+          },
+          {
+            "id": "8482740",
+            "name": "Johnston",
+            "club": "DAL",
+            "pos": "C",
+            "rank": 58,
+            "age": 23.4,
+            "ppg": 1.05,
+            "flags": [],
+            "note": "PPP +3.0 · G +2.9 · SOG +1.4.",
+            "taken": false
+          }
+        ]
+      }
+    ],
+    "LW": [
+      {
+        "tier": 1,
+        "players": [
+          {
+            "id": "8481557",
+            "name": "Boldy",
+            "club": "MIN",
+            "pos": "LW",
+            "rank": 5,
+            "age": 25.5,
+            "ppg": 1.12,
+            "flags": [
+              "3.3 shots/gm"
+            ],
+            "note": "G +2.9 · SHP +2.8 · SOG +2.6; 3.3 shots/gm.",
+            "taken": false
+          },
+          {
+            "id": "8480801",
+            "name": "Tkachuk",
+            "club": "FLA",
+            "pos": "LW",
+            "rank": 6,
+            "age": 27,
+            "ppg": 0.98,
+            "flags": [
+              "3.7 shots/gm"
+            ],
+            "note": "SOG +3.0 · PIM +2.0 · PPP +1.9; 3.7 shots/gm.",
+            "taken": false
+          },
+          {
+            "id": "8480027",
+            "name": "Robertson",
+            "club": "DAL",
+            "pos": "LW",
+            "rank": 7,
+            "age": 27.2,
+            "ppg": 1.17,
+            "flags": [
+              "3.6 shots/gm"
+            ],
+            "note": "PPP +3.0 · GWG +3.0 · SOG +2.9; 3.6 shots/gm.",
+            "taken": false
+          },
+          {
+            "id": "8479542",
+            "name": "Hagel",
+            "club": "TBL",
+            "pos": "LW",
+            "rank": 12,
+            "age": 28.1,
+            "ppg": 1.04,
+            "flags": [],
+            "note": "G +2.6 · +/- +2.5 · GWG +2.3.",
+            "taken": false
+          },
+          {
+            "id": "8478864",
+            "name": "Kaprizov",
+            "club": "MIN",
+            "pos": "LW",
+            "rank": 21,
+            "age": 29.4,
+            "ppg": 1.14,
+            "flags": [
+              "3.4 shots/gm"
+            ],
+            "note": "G +3.0 · SOG +2.7 · GWG +2.5; 3.4 shots/gm.",
+            "taken": false
+          },
+          {
+            "id": "8479314",
+            "name": "Tkachuk",
+            "club": "FLA",
+            "pos": "LW",
+            "rank": 34,
+            "age": 28.8,
+            "ppg": 1.1,
+            "flags": [
+              "1.55 PIM/gm"
+            ],
+            "note": "PIM +3.0 · PPP +2.6 · A +2.1; 1.55 PIM/gm.",
+            "taken": false
+          }
+        ]
+      },
+      {
+        "tier": 2,
+        "players": [
+          {
+            "id": "8478398",
+            "name": "Connor",
+            "club": "WPG",
+            "pos": "LW",
+            "rank": 43,
+            "age": 29.8,
+            "ppg": 1.12,
+            "flags": [
+              "3.3 shots/gm"
+            ],
+            "note": "SOG +2.6 · G +2.3 · A +1.9; 3.3 shots/gm.",
+            "taken": false
+          },
+          {
+            "id": "8476399",
+            "name": "Coleman",
+            "club": "MIN",
+            "pos": "LW",
+            "rank": 54,
+            "age": 34.8,
+            "ppg": 0.51,
+            "flags": [],
+            "note": "SHP +3.0 · SOG +1.4 · HIT +1.2.",
+            "taken": false
+          },
+          {
+            "id": "8483445",
+            "name": "Gauthier",
+            "club": "ANA",
+            "pos": "LW",
+            "rank": 55,
+            "age": 22.7,
+            "ppg": 0.91,
+            "flags": [
+              "3.8 shots/gm"
+            ],
+            "note": "SOG +3.0 · G +2.8 · GWG +2.6; 3.8 shots/gm.",
+            "taken": false
+          },
+          {
+            "id": "8483515",
+            "name": "Slafkovský",
+            "club": "MTL",
+            "pos": "LW",
+            "rank": 57,
+            "age": 22.5,
+            "ppg": 0.89,
+            "flags": [],
+            "note": "PPP +2.0 · G +1.5 · A +1.3.",
+            "taken": false
+          },
+          {
+            "id": "8476887",
+            "name": "Forsberg",
+            "club": "NSH",
+            "pos": "LW",
+            "rank": 79,
+            "age": 32.1,
+            "ppg": 0.91,
+            "flags": [],
+            "note": "G +2.4 · SOG +2.1 · PPP +1.8.",
+            "taken": false
+          },
+          {
+            "id": "8482077",
+            "name": "Holloway",
+            "club": "STL",
+            "pos": "LW",
+            "rank": 81,
+            "age": 25,
+            "ppg": 0.86,
+            "flags": [],
+            "note": "SOG +1.7 · G +1.6 · HIT +1.2.",
+            "taken": false
+          }
+        ]
+      },
+      {
+        "tier": 3,
+        "players": [
+          {
+            "id": "8473419",
+            "name": "Marchand",
+            "club": "FLA",
+            "pos": "LW",
+            "rank": 82,
+            "age": 38.4,
+            "ppg": 1.04,
+            "flags": [],
+            "note": "G +2.6 · PPP +2.3 · SOG +1.6.",
+            "taken": false
+          },
+          {
+            "id": "8475786",
+            "name": "Hyman",
+            "club": "EDM",
+            "pos": "LW",
+            "rank": 87,
+            "age": 34.3,
+            "ppg": 0.9,
+            "flags": [
+              "age 34.3 on 20.0 min — usage may not hold"
+            ],
+            "note": "G +2.8 · SOG +1.7 · PPP +1.3; age 34.3 on 20.0 min — usage may not hold.",
+            "taken": false
+          },
+          {
+            "id": "8478042",
+            "name": "Arvidsson",
+            "club": "DET",
+            "pos": "LW",
+            "rank": 96,
+            "age": 33.5,
+            "ppg": 0.78,
+            "flags": [],
+            "note": "GWG +2.4 · +/- +1.5 · G +1.5.",
+            "taken": false
+          },
+          {
+            "id": "8484145",
+            "name": "Benson",
+            "club": "BUF",
+            "pos": "LW",
+            "rank": 97,
+            "age": 21.4,
+            "ppg": 0.66,
+            "flags": [],
+            "note": "+/- +2.2 · GWG +1.4 · SHP +1.4.",
+            "taken": false
+          },
+          {
+            "id": "8478474",
+            "name": "Crouse",
+            "club": "UTA",
+            "pos": "LW",
+            "rank": 98,
+            "age": 29.3,
+            "ppg": 0.54,
+            "flags": [],
+            "note": "HIT +1.7 · +/- +1.3 · SHP +1.0.",
+            "taken": false
+          },
+          {
+            "id": "8477940",
+            "name": "Ehlers",
+            "club": "CAR",
+            "pos": "LW",
+            "rank": 110,
+            "age": 30.6,
+            "ppg": 0.87,
+            "flags": [],
+            "note": "PPP +2.1 · GWG +1.9 · A +1.4.",
+            "taken": false
+          }
+        ]
+      },
+      {
+        "tier": 4,
+        "players": [
+          {
+            "id": "8480748",
+            "name": "Sherwood",
+            "club": "SJS",
+            "pos": "LW",
+            "rank": 112,
+            "age": 31.5,
+            "ppg": 0.5,
+            "flags": [],
+            "note": "HIT +3.0 · SOG +1.2 · +/- −1.4.",
+            "taken": false
+          },
+          {
+            "id": "8471214",
+            "name": "Ovechkin",
+            "club": "WSH",
+            "pos": "LW",
+            "rank": 114,
+            "age": 41,
+            "ppg": 0.78,
+            "flags": [],
+            "note": "SOG +2.0 · G +1.7 · GWG +1.4.",
+            "taken": false
+          },
+          {
+            "id": "8481656",
+            "name": "Protas",
+            "club": "WSH",
+            "pos": "LW",
+            "rank": 119,
+            "age": 25.7,
+            "ppg": 0.68,
+            "flags": [],
+            "note": "SHP +2.0 · GWG +1.6 · +/- +1.4.",
+            "taken": false
+          },
+          {
+            "id": "8476455",
+            "name": "Landeskog",
+            "club": "COL",
+            "pos": "LW",
+            "rank": 121,
+            "age": 33.8,
+            "ppg": 0.58,
+            "flags": [],
+            "note": "+/- +2.5 · SOG +1.0 · PIM +0.8.",
+            "taken": false
+          },
+          {
+            "id": "8482078",
+            "name": "Raymond",
+            "club": "DET",
+            "pos": "LW",
+            "rank": 122,
+            "age": 24.5,
+            "ppg": 0.95,
+            "flags": [],
+            "note": "PPP +1.9 · A +1.9 · GWG +1.5.",
+            "taken": false
+          },
+          {
+            "id": "8475722",
+            "name": "Zucker",
+            "club": "BUF",
+            "pos": "LW",
+            "rank": 124,
+            "age": 34.7,
+            "ppg": 0.73,
+            "flags": [],
+            "note": "GWG +3.0 · G +1.7 · PPP +1.3.",
+            "taken": false
+          }
+        ]
+      }
+    ],
+    "RW": [
+      {
+        "tier": 1,
+        "players": [
+          {
+            "id": "8476453",
+            "name": "Kucherov",
+            "club": "TBL",
+            "pos": "RW",
+            "rank": 1,
+            "age": 33.3,
+            "ppg": 1.71,
+            "flags": [
+              "age 33.3 on 20.3 min — usage may not hold"
+            ],
+            "note": "G +3.0 · A +3.0 · PPP +3.0; age 33.3 on 20.3 min — usage may not hold.",
+            "taken": true
+          },
+          {
+            "id": "8475913",
+            "name": "Stone",
+            "club": "VGK",
+            "pos": "RW",
+            "rank": 8,
+            "age": 34.4,
+            "ppg": 1.22,
+            "flags": [
+              "age 34.4 on 19.2 min — usage may not hold"
+            ],
+            "note": "PPP +2.8 · A +2.5 · G +2.3; age 34.4 on 19.2 min — usage may not hold.",
+            "taken": false
+          },
+          {
+            "id": "8482093",
+            "name": "Jarvis",
+            "club": "CAR",
+            "pos": "RW",
+            "rank": 9,
+            "age": 24.6,
+            "ppg": 0.93,
+            "flags": [],
+            "note": "SHP +3.0 · GWG +2.9 · SOG +2.3.",
+            "taken": false
+          },
+          {
+            "id": "8477956",
+            "name": "Pastrnak",
+            "club": "BOS",
+            "pos": "RW",
+            "rank": 15,
+            "age": 30.3,
+            "ppg": 1.3,
+            "flags": [
+              "3.4 shots/gm"
+            ],
+            "note": "A +3.0 · PPP +2.7 · SOG +2.6; 3.4 shots/gm.",
+            "taken": false
+          },
+          {
+            "id": "8476880",
+            "name": "Wilson",
+            "club": "WSH",
+            "pos": "RW",
+            "rank": 18,
+            "age": 32.5,
+            "ppg": 0.86,
+            "flags": [
+              "1.63 PIM/gm"
+            ],
+            "note": "PIM +3.0 · G +1.9 · HIT +1.5; 1.63 PIM/gm.",
+            "taken": false
+          },
+          {
+            "id": "8477960",
+            "name": "Kempe",
+            "club": "LAK",
+            "pos": "RW",
+            "rank": 20,
+            "age": 30,
+            "ppg": 0.9,
+            "flags": [],
+            "note": "GWG +2.9 · G +2.1 · SOG +1.8.",
+            "taken": false
+          }
+        ]
+      },
+      {
+        "tier": 2,
+        "players": [
+          {
+            "id": "8481540",
+            "name": "Caufield",
+            "club": "MTL",
+            "pos": "RW",
+            "rank": 25,
+            "age": 25.7,
+            "ppg": 1.09,
+            "flags": [],
+            "note": "G +3.0 · GWG +3.0 · SOG +2.4.",
+            "taken": false
+          },
+          {
+            "id": "8477949",
+            "name": "Tuch",
+            "club": "WSH",
+            "pos": "RW",
+            "rank": 28,
+            "age": 30.4,
+            "ppg": 0.84,
+            "flags": [],
+            "note": "SHP +3.0 · G +1.9 · +/- +1.6.",
+            "taken": false
+          },
+          {
+            "id": "8478420",
+            "name": "Rantanen",
+            "club": "DAL",
+            "pos": "RW",
+            "rank": 33,
+            "age": 29.9,
+            "ppg": 1.2,
+            "flags": [
+              "1.45 PIM/gm"
+            ],
+            "note": "A +3.0 · PPP +3.0 · PIM +2.8; 1.45 PIM/gm.",
+            "taken": false
+          },
+          {
+            "id": "8480893",
+            "name": "Marchenko",
+            "club": "CBJ",
+            "pos": "RW",
+            "rank": 38,
+            "age": 26.2,
+            "ppg": 0.88,
+            "flags": [],
+            "note": "GWG +2.6 · SOG +1.9 · PPP +1.7.",
+            "taken": false
+          },
+          {
+            "id": "8475810",
+            "name": "Rust",
+            "club": "PIT",
+            "pos": "RW",
+            "rank": 48,
+            "age": 34.4,
+            "ppg": 0.9,
+            "flags": [
+              "age 34.4 on 19.9 min — usage may not hold"
+            ],
+            "note": "PPP +1.9 · G +1.8 · SOG +1.4; age 34.4 on 19.9 min — usage may not hold.",
+            "taken": false
+          },
+          {
+            "id": "8479337",
+            "name": "DeBrincat",
+            "club": "DET",
+            "pos": "RW",
+            "rank": 51,
+            "age": 28.8,
+            "ppg": 1.04,
+            "flags": [
+              "3.5 shots/gm"
+            ],
+            "note": "SOG +2.8 · G +2.5 · GWG +1.9; 3.5 shots/gm.",
+            "taken": false
+          }
+        ]
+      },
+      {
+        "tier": 3,
+        "players": [
+          {
+            "id": "8479343",
+            "name": "Keller",
+            "club": "UTA",
+            "pos": "RW",
+            "rank": 52,
+            "age": 28.2,
+            "ppg": 1.07,
+            "flags": [],
+            "note": "A +2.5 · GWG +1.9 · PPP +1.9.",
+            "taken": false
+          },
+          {
+            "id": "8482699",
+            "name": "Guenther",
+            "club": "UTA",
+            "pos": "RW",
+            "rank": 59,
+            "age": 23.5,
+            "ppg": 0.92,
+            "flags": [],
+            "note": "G +2.6 · SOG +2.2 · GWG +2.0.",
+            "taken": false
+          },
+          {
+            "id": "8480830",
+            "name": "Svechnikov",
+            "club": "CAR",
+            "pos": "RW",
+            "rank": 62,
+            "age": 26.5,
+            "ppg": 0.89,
+            "flags": [],
+            "note": "PPP +2.2 · G +1.7 · SOG +1.5.",
+            "taken": false
+          },
+          {
+            "id": "8478873",
+            "name": "Terry",
+            "club": "ANA",
+            "pos": "RW",
+            "rank": 66,
+            "age": 29,
+            "ppg": 0.93,
+            "flags": [],
+            "note": "SHP +3.0 · A +1.8 · SOG +1.6.",
+            "taken": false
+          },
+          {
+            "id": "8478439",
+            "name": "Konecny",
+            "club": "PHI",
+            "pos": "RW",
+            "rank": 68,
+            "age": 29.5,
+            "ppg": 0.88,
+            "flags": [],
+            "note": "G +1.4 · A +1.3 · SHP +1.1.",
+            "taken": false
+          },
+          {
+            "id": "8479671",
+            "name": "Olivier",
+            "club": "CBJ",
+            "pos": "RW",
+            "rank": 80,
+            "age": 29.6,
+            "ppg": 0.43,
+            "flags": [
+              "1.66 PIM/gm"
+            ],
+            "note": "PIM +3.0 · HIT +2.6 · +/- +1.1; 1.66 PIM/gm.",
+            "taken": false
+          }
+        ]
+      },
+      {
+        "tier": 4,
+        "players": [
+          {
+            "id": "8480208",
+            "name": "Batherson",
+            "club": "OTT",
+            "pos": "RW",
+            "rank": 90,
+            "age": 28.4,
+            "ppg": 0.9,
+            "flags": [],
+            "note": "PPP +2.3 · G +1.9 · GWG +1.5.",
+            "taken": false
+          },
+          {
+            "id": "8482159",
+            "name": "Foerster",
+            "club": "PHI",
+            "pos": "RW",
+            "rank": 91,
+            "age": 24.7,
+            "ppg": 0.59,
+            "flags": [],
+            "note": "G +2.1 · GWG +1.7 · +/- +1.4.",
+            "taken": false
+          },
+          {
+            "id": "8476483",
+            "name": "Rakell",
+            "club": "PIT",
+            "pos": "RW",
+            "rank": 95,
+            "age": 33.4,
+            "ppg": 0.8,
+            "flags": [],
+            "note": "G +1.8 · SOG +1.8 · SHP +1.6.",
+            "taken": false
+          },
+          {
+            "id": "8477939",
+            "name": "Nylander",
+            "club": "TOR",
+            "pos": "RW",
+            "rank": 106,
+            "age": 30.4,
+            "ppg": 1.22,
+            "flags": [],
+            "note": "A +2.5 · G +2.2 · PPP +1.9.",
+            "taken": false
+          },
+          {
+            "id": "8480015",
+            "name": "Tippett",
+            "club": "PHI",
+            "pos": "RW",
+            "rank": 111,
+            "age": 27.6,
+            "ppg": 0.63,
+            "flags": [],
+            "note": "SHP +1.8 · SOG +1.7 · G +1.4.",
+            "taken": false
+          },
+          {
+            "id": "8478483",
+            "name": "Marner",
+            "club": "VGK",
+            "pos": "RW",
+            "rank": 115,
+            "age": 29.4,
+            "ppg": 0.99,
+            "flags": [],
+            "note": "A +2.2 · PPP +1.6 · +/- +1.1.",
+            "taken": false
+          }
+        ]
+      }
+    ],
+    "D": [
+      {
+        "tier": 1,
+        "players": [
+          {
+            "id": "8478178",
+            "name": "Raddysh",
+            "club": "TOR",
+            "pos": "D",
+            "rank": 11,
+            "age": 30.6,
+            "ppg": 0.96,
+            "flags": [],
+            "note": "GWG +2.2 · PPP +2.1 · A +2.0.",
+            "taken": false
+          },
+          {
+            "id": "8480803",
+            "name": "Bouchard",
+            "club": "EDM",
+            "pos": "D",
+            "rank": 13,
+            "age": 26.9,
+            "ppg": 1.16,
+            "flags": [],
+            "note": "A +3.0 · PPP +2.5 · SOG +1.7.",
+            "taken": false
+          },
+          {
+            "id": "8480069",
+            "name": "Makar",
+            "club": "COL",
+            "pos": "D",
+            "rank": 22,
+            "age": 27.9,
+            "ppg": 1.05,
+            "flags": [],
+            "note": "A +2.7 · PPP +2.3 · +/- +2.2.",
+            "taken": true
+          },
+          {
+            "id": "8479345",
+            "name": "Chychrun",
+            "club": "WSH",
+            "pos": "D",
+            "rank": 26,
+            "age": 28.5,
+            "ppg": 0.75,
+            "flags": [],
+            "note": "GWG +2.9 · SOG +1.8 · +/- +1.3.",
+            "taken": false
+          },
+          {
+            "id": "8481542",
+            "name": "Seider",
+            "club": "DET",
+            "pos": "D",
+            "rank": 36,
+            "age": 25.5,
+            "ppg": 0.73,
+            "flags": [],
+            "note": "BLK +2.9 · PPP +2.0 · A +1.7.",
+            "taken": false
+          },
+          {
+            "id": "8478460",
+            "name": "Werenski",
+            "club": "CBJ",
+            "pos": "D",
+            "rank": 45,
+            "age": 29.2,
+            "ppg": 1.08,
+            "flags": [
+              "3.5 shots/gm"
+            ],
+            "note": "SOG +2.7 · A +2.7 · PPP +1.5; 3.5 shots/gm.",
+            "taken": false
+          }
+        ]
+      },
+      {
+        "tier": 2,
+        "players": [
+          {
+            "id": "8479325",
+            "name": "McAvoy",
+            "club": "BOS",
+            "pos": "D",
+            "rank": 53,
+            "age": 28.8,
+            "ppg": 0.88,
+            "flags": [],
+            "note": "A +2.4 · BLK +2.2 · PPP +1.9.",
+            "taken": false
+          },
+          {
+            "id": "8480807",
+            "name": "Samuelsson",
+            "club": "BUF",
+            "pos": "D",
+            "rank": 61,
+            "age": 26.5,
+            "ppg": 0.53,
+            "flags": [],
+            "note": "+/- +2.7 · BLK +2.4 · SHP +1.9.",
+            "taken": false
+          },
+          {
+            "id": "8480839",
+            "name": "Dahlin",
+            "club": "BUF",
+            "pos": "D",
+            "rank": 64,
+            "age": 26.4,
+            "ppg": 0.96,
+            "flags": [],
+            "note": "A +2.3 · PPP +1.5 · PIM +1.4.",
+            "taken": false
+          },
+          {
+            "id": "8482105",
+            "name": "Sanderson",
+            "club": "OTT",
+            "pos": "D",
+            "rank": 70,
+            "age": 24.2,
+            "ppg": 0.81,
+            "flags": [],
+            "note": "BLK +2.3 · PPP +1.9 · A +1.7.",
+            "taken": false
+          },
+          {
+            "id": "8483457",
+            "name": "Hutson",
+            "club": "MTL",
+            "pos": "D",
+            "rank": 71,
+            "age": 22.6,
+            "ppg": 0.95,
+            "flags": [],
+            "note": "A +2.8 · +/- +2.3 · BLK +1.8.",
+            "taken": false
+          },
+          {
+            "id": "8480036",
+            "name": "Heiskanen",
+            "club": "DAL",
+            "pos": "D",
+            "rank": 72,
+            "age": 27.2,
+            "ppg": 0.82,
+            "flags": [],
+            "note": "A +2.2 · PPP +2.1 · BLK +1.9.",
+            "taken": false
+          }
+        ]
+      },
+      {
+        "tier": 3,
+        "players": [
+          {
+            "id": "8479323",
+            "name": "Fox",
+            "club": "NYR",
+            "pos": "D",
+            "rank": 75,
+            "age": 28.6,
+            "ppg": 0.96,
+            "flags": [],
+            "note": "A +2.8 · PPP +2.7 · BLK +1.1.",
+            "taken": false
+          },
+          {
+            "id": "8479410",
+            "name": "Sergachev",
+            "club": "UTA",
+            "pos": "D",
+            "rank": 85,
+            "age": 28.2,
+            "ppg": 0.76,
+            "flags": [],
+            "note": "PPP +1.9 · A +1.8 · BLK +1.6.",
+            "taken": false
+          },
+          {
+            "id": "8485366",
+            "name": "Schaefer",
+            "club": "NYI",
+            "pos": "D",
+            "rank": 89,
+            "age": 19.1,
+            "ppg": 0.72,
+            "flags": [],
+            "note": "SOG +1.7 · BLK +1.1 · PPP +1.0.",
+            "taken": false
+          },
+          {
+            "id": "8482122",
+            "name": "Faber",
+            "club": "MIN",
+            "pos": "D",
+            "rank": 100,
+            "age": 24.1,
+            "ppg": 0.64,
+            "flags": [],
+            "note": "BLK +2.1 · +/- +1.2 · SHP +1.1.",
+            "taken": false
+          },
+          {
+            "id": "8476906",
+            "name": "Gostisbehere",
+            "club": "CAR",
+            "pos": "D",
+            "rank": 102,
+            "age": 33.4,
+            "ppg": 0.91,
+            "flags": [
+              "age 33.4 on 19.2 min — usage may not hold"
+            ],
+            "note": "A +2.1 · PPP +1.9 · +/- +1.1; age 33.4 on 19.2 min — usage may not hold.",
+            "taken": false
+          },
+          {
+            "id": "8476312",
+            "name": "Manson",
+            "club": "COL",
+            "pos": "D",
+            "rank": 105,
+            "age": 35,
+            "ppg": 0.39,
+            "flags": [],
+            "note": "+/- +2.8 · PIM +1.9 · HIT +1.2.",
+            "taken": false
+          }
+        ]
+      },
+      {
+        "tier": 4,
+        "players": [
+          {
+            "id": "8474600",
+            "name": "Josi",
+            "club": "NSH",
+            "pos": "D",
+            "rank": 107,
+            "age": 36.3,
+            "ppg": 0.81,
+            "flags": [
+              "age 36.3 on 24.9 min — usage may not hold"
+            ],
+            "note": "PPP +2.1 · A +1.8 · SOG +1.6; age 36.3 on 24.9 min — usage may not hold.",
+            "taken": false
+          },
+          {
+            "id": "8480800",
+            "name": "Hughes",
+            "club": "MIN",
+            "pos": "D",
+            "rank": 109,
+            "age": 26.9,
+            "ppg": 1.03,
+            "flags": [],
+            "note": "A +3.0 · PPP +2.9 · SOG +1.4.",
+            "taken": false
+          },
+          {
+            "id": "8478397",
+            "name": "Andersson",
+            "club": "VGK",
+            "pos": "D",
+            "rank": 130,
+            "age": 29.9,
+            "ppg": 0.58,
+            "flags": [],
+            "note": "BLK +2.2 · PIM +1.1 · GWG −1.0.",
+            "taken": false
+          },
+          {
+            "id": "8482730",
+            "name": "Clarke",
+            "club": "LAK",
+            "pos": "D",
+            "rank": 132,
+            "age": 23.6,
+            "ppg": 0.49,
+            "flags": [
+              "shooting 5.0% on 159 shots — volume without conversion"
+            ],
+            "note": "BLK +3.0 · PIM +0.8 · HIT −0.9; shooting 5.0% on 159 shots — volume without conversion.",
+            "taken": false
+          },
+          {
+            "id": "8480817",
+            "name": "Miller",
+            "club": "CAR",
+            "pos": "D",
+            "rank": 135,
+            "age": 26.7,
+            "ppg": 0.51,
+            "flags": [],
+            "note": "SHP +2.1 · PIM +0.8 · A +0.6.",
+            "taken": false
+          },
+          {
+            "id": "8474590",
+            "name": "Carlson",
+            "club": "TBL",
+            "pos": "D",
+            "rank": 136,
+            "age": 36.7,
+            "ppg": 0.85,
+            "flags": [
+              "age 36.7 on 23.2 min — usage may not hold"
+            ],
+            "note": "A +1.9 · BLK +1.4 · HIT −0.9; age 36.7 on 23.2 min — usage may not hold.",
+            "taken": false
+          }
+        ]
+      }
+    ],
+    "G": [
+      {
+        "tier": 1,
+        "players": [
+          {
+            "id": "8480313",
+            "name": "Thompson",
+            "club": "WSH",
+            "pos": "G",
+            "rank": 37,
+            "age": 29.6,
+            "ppg": 0,
+            "flags": [],
+            "note": "GAA +2.0 · SV% +1.9 · SV +1.6.",
+            "taken": false
+          },
+          {
+            "id": "8476883",
+            "name": "Vasilevskiy",
+            "club": "TBL",
+            "pos": "G",
+            "rank": 39,
+            "age": 32.2,
+            "ppg": 0,
+            "flags": [],
+            "note": "GAA +2.5 · W +2.4 · SV% +2.0.",
+            "taken": false
+          },
+          {
+            "id": "8475809",
+            "name": "Wedgewood",
+            "club": "COL",
+            "pos": "G",
+            "rank": 42,
+            "age": 34.1,
+            "ppg": 0,
+            "flags": [],
+            "note": "GAA +2.8 · SV% +2.3 · SHO +1.6.",
+            "taken": false
+          },
+          {
+            "id": "8478009",
+            "name": "Sorokin",
+            "club": "NYI",
+            "pos": "G",
+            "rank": 50,
+            "age": 31.1,
+            "ppg": 0,
+            "flags": [],
+            "note": "SHO +3.0 · SV +1.4 · SV% +1.2.",
+            "taken": false
+          },
+          {
+            "id": "8480981",
+            "name": "Hofer",
+            "club": "STL",
+            "pos": "G",
+            "rank": 76,
+            "age": 26.1,
+            "ppg": 0,
+            "flags": [],
+            "note": "SHO +2.9 · SV% +1.3 · GAA +1.0.",
+            "taken": false
+          },
+          {
+            "id": "8479979",
+            "name": "Oettinger",
+            "club": "DAL",
+            "pos": "G",
+            "rank": 78,
+            "age": 27.8,
+            "ppg": 0,
+            "flags": [],
+            "note": "W +1.9 · SHO +1.6 · GAA +1.3.",
+            "taken": false
+          }
+        ]
+      },
+      {
+        "tier": 2,
+        "players": [
+          {
+            "id": "8476434",
+            "name": "Gibson",
+            "club": "DET",
+            "pos": "G",
+            "rank": 92,
+            "age": 33.2,
+            "ppg": 0,
+            "flags": [],
+            "note": "SHO +1.6 · SV +1.2 · W +1.2.",
+            "taken": false
+          },
+          {
+            "id": "8480280",
+            "name": "Swayman",
+            "club": "BOS",
+            "pos": "G",
+            "rank": 94,
+            "age": 27.8,
+            "ppg": 0,
+            "flags": [],
+            "note": "SV +1.6 · W +1.4 · SV% +1.4.",
+            "taken": false
+          },
+          {
+            "id": "8482982",
+            "name": "Greaves",
+            "club": "CBJ",
+            "pos": "G",
+            "rank": 103,
+            "age": 25.5,
+            "ppg": 0,
+            "flags": [],
+            "note": "SV +1.5 · SV% +1.4 · GAA +1.2.",
+            "taken": false
+          },
+          {
+            "id": "8478872",
+            "name": "Vejmelka",
+            "club": "UTA",
+            "pos": "G",
+            "rank": 104,
+            "age": 30.3,
+            "ppg": 0,
+            "flags": [],
+            "note": "W +2.2 · SV +1.7 · GAA +0.7.",
+            "taken": false
+          },
+          {
+            "id": "8478048",
+            "name": "Shesterkin",
+            "club": "NYR",
+            "pos": "G",
+            "rank": 113,
+            "age": 30.7,
+            "ppg": 0,
+            "flags": [],
+            "note": "SV% +1.7 · GAA +1.6 · SV +1.2.",
+            "taken": false
+          },
+          {
+            "id": "8478435",
+            "name": "Vladar",
+            "club": "PHI",
+            "pos": "G",
+            "rank": 137,
+            "age": 29.1,
+            "ppg": 0,
+            "flags": [],
+            "note": "GAA +1.8 · W +1.2 · SV% +1.1.",
+            "taken": false
+          }
+        ]
+      },
+      {
+        "tier": 3,
+        "players": [
+          {
+            "id": "8481519",
+            "name": "Knight",
+            "club": "CHI",
+            "pos": "G",
+            "rank": 139,
+            "age": 25.4,
+            "ppg": 0,
+            "flags": [],
+            "note": "SV +1.6 · SHO +0.9 · SV% +0.8.",
+            "taken": false
+          },
+          {
+            "id": "8482661",
+            "name": "Wallstedt",
+            "club": "MIN",
+            "pos": "G",
+            "rank": 146,
+            "age": 23.9,
+            "ppg": 0,
+            "flags": [
+              "0.916 SV% on only 18 wins — rate beats the record"
+            ],
+            "note": "SHO +1.6 · SV% +1.4 · GAA +0.7; 0.916 SV% on only 18 wins — rate beats the record.",
+            "taken": false
+          },
+          {
+            "id": "8478406",
+            "name": "Blackwood",
+            "club": "COL",
+            "pos": "G",
+            "rank": 168,
+            "age": 29.8,
+            "ppg": 0,
+            "flags": [],
+            "note": "GAA +1.1 · SHO +0.9 · SV% +0.7.",
+            "taken": false
+          },
+          {
+            "id": "8476999",
+            "name": "Ullmark",
+            "club": "OTT",
+            "pos": "G",
+            "rank": 171,
+            "age": 33.1,
+            "ppg": 0,
+            "flags": [],
+            "note": "W +1.1 · SHO +0.9 · GAA +0.7.",
+            "taken": false
+          },
+          {
+            "id": "8483548",
+            "name": "Bussi",
+            "club": "CAR",
+            "pos": "G",
+            "rank": 175,
+            "age": 28.2,
+            "ppg": 0,
+            "flags": [],
+            "note": "W +1.4 · GAA +1.3 · SV −0.4.",
+            "taken": false
+          },
+          {
+            "id": "8481692",
+            "name": "Wolf",
+            "club": "CGY",
+            "pos": "G",
+            "rank": 179,
+            "age": 25.4,
+            "ppg": 0,
+            "flags": [],
+            "note": "SV +1.5 · SV% +0.5 · W +0.5.",
+            "taken": false
+          }
+        ]
+      },
+      {
+        "tier": 4,
+        "players": [
+          {
+            "id": "8479312",
+            "name": "Lyon",
+            "club": "BUF",
+            "pos": "G",
+            "rank": 192,
+            "age": 33.8,
+            "ppg": 0,
+            "flags": [],
+            "note": "SHO +0.9 · SV% +0.8 · GAA +0.4.",
+            "taken": false
+          },
+          {
+            "id": "8476341",
+            "name": "Forsberg",
+            "club": "LAK",
+            "pos": "G",
+            "rank": 194,
+            "age": 33.8,
+            "ppg": 0,
+            "flags": [],
+            "note": "SV% +0.9 · SHO +0.9 · GAA +0.8.",
+            "taken": false
+          },
+          {
+            "id": "8480045",
+            "name": "Luukkonen",
+            "club": "BUF",
+            "pos": "G",
+            "rank": 210,
+            "age": 27.5,
+            "ppg": 0,
+            "flags": [],
+            "note": "SV% +1.0 · GAA +1.0 · W +0.4.",
+            "taken": false
+          },
+          {
+            "id": "8475311",
+            "name": "Kuemper",
+            "club": "LAK",
+            "pos": "G",
+            "rank": 216,
+            "age": 36.4,
+            "ppg": 0,
+            "flags": [],
+            "note": "SHO +0.9 · SV +0.5 · GAA +0.5.",
+            "taken": false
+          },
+          {
+            "id": "8482487",
+            "name": "Dobes",
+            "club": "MTL",
+            "pos": "G",
+            "rank": 218,
+            "age": 25.3,
+            "ppg": 0,
+            "flags": [],
+            "note": "W +1.2 · SV% +0.6 · SHO −1.0.",
+            "taken": false
+          },
+          {
+            "id": "8476945",
+            "name": "Hellebuyck",
+            "club": "WPG",
+            "pos": "G",
+            "rank": 233,
+            "age": 33.3,
+            "ppg": 0,
+            "flags": [],
+            "note": "SV +1.4 · W +0.5 · SHO −1.0.",
+            "taken": false
+          }
+        ]
+      }
+    ]
+  },
+  "dries_up": {
+    "C": "Thins out after tier 4.",
+    "LW": "Thins out after tier 4.",
+    "RW": "Thins out after tier 4.",
+    "D": "Thins out after tier 4.",
+    "G": "Thins out after tier 4."
+  },
+  "taken": 4,
+  "take": "4 off the board. Best left: Eichel (C, VGK), rank 4.",
+  "not_included": [
+    "Projections for the coming season — ChirpIQX reports the last completed season, it does not forecast",
+    "ADP or value-vs-market — there is no public source of draft-market consensus",
+    "Line combinations and power-play units — the NHL does not publish them",
+    "Injury status — no public feed",
+    "Whether a player is available in your league — ownership is league-private"
+  ],
+  "source": {
+    "analyst": "chirp@4.7.1",
+    "data": [
+      "your categories",
+      "NHL public API (season 20262027)"
+    ]
+  },
+  "scoring": {
+    "categories": [
+      "G",
+      "A",
+      "+/-",
+      "PIM",
+      "PPP",
+      "SHP",
+      "GWG",
+      "SOG",
+      "HIT",
+      "BLK",
+      "W",
+      "GAA",
+      "SV",
+      "SV%",
+      "SHO"
+    ],
+    "unread": [],
+    "missing": [],
+    "too_few_games": 194,
+    "method": "Per game over last season for skaters, season totals for goalie counting categories; each category measured against every player in the group with 20+ games (a z-score: 0 is league average, +1 is one standard deviation better). GAA and SV% are weighted by starts, and no category counts beyond ±3. A player's value is the sum across the league's categories, each counting once as in a matchup. No projections."
+  },
+  "pick": {
+    "on_clock": 5,
+    "needs": [
+      "C",
+      "LW",
+      "RW",
+      "G"
+    ],
+    "take": "Jack Eichel fills the hole you actually have (C), and VGK plays 9 games in your playoff window. Best available is a luxury; a full lineup is not.",
+    "picks": [
+      {
+        "id": "8478403",
+        "name": "Eichel",
+        "club": "VGK",
+        "pos": "C",
+        "why": "4th best for your categories, 1 slot above this pick — A +3.0 · SOG +2.8 · PPP +2.3 — 9 games across your 3 playoff weeks — fills a roster hole.",
+        "on_board": true
+      },
+      {
+        "id": "8481557",
+        "name": "Boldy",
+        "club": "MIN",
+        "pos": "LW",
+        "why": "5th best for your categories, right at this pick — G +2.9 · SHP +2.8 · SOG +2.6 — 10 games across your 3 playoff weeks — fills a roster hole.",
+        "on_board": true
+      },
+      {
+        "id": "8480801",
+        "name": "Tkachuk",
+        "club": "FLA",
+        "pos": "LW",
+        "why": "6th best for your categories, 1 slot below this pick — SOG +3.0 · PIM +2.0 · PPP +1.9 — 11 games across your 3 playoff weeks — fills a roster hole.",
+        "on_board": true
+      }
+    ]
+  }
+}

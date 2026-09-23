@@ -46,9 +46,11 @@ document.addEventListener('click', (e) => {
   if (e.target.closest('[data-cross-off]')) {
     const drafted_text = document.getElementById('drafted-in')?.value.trim();
     const mine_text = document.getElementById('mine-in')?.value.trim();
+    const categories = document.getElementById('cats-in')?.value.trim();
     const weeks = playoffWeeks();
-    if (drafted_text || mine_text) {
-      call('cue_board', { ...(drafted_text && { drafted_text }), ...(mine_text && { mine_text }), ...weeks }, mine_text ? 'cue_board (drafted so far, my picks)' : 'cue_board (drafted so far)');
+    if (drafted_text || mine_text || categories) {
+      const said = [drafted_text && 'drafted so far', mine_text && 'my picks', categories && 'my categories'].filter(Boolean).join(', ');
+      call('cue_board', { ...(drafted_text && { drafted_text }), ...(mine_text && { mine_text }), ...(categories && { categories }), ...weeks }, `cue_board (${said})`);
     }
     return;
   }
@@ -190,7 +192,7 @@ function playoffWeeks() {
 // The draft boxes survive a reload in this browser only: a per-viewer convenience, never the source of truth.
 // Storage can be missing or throw (private windows, blocked site data); the page works the same without it.
 const DRAFT_KEY = 'sepiola.draft';
-const DRAFT_FIELDS = ['drafted-in', 'mine-in', 'po-start', 'po-end'];
+const DRAFT_FIELDS = ['drafted-in', 'mine-in', 'cats-in', 'po-start', 'po-end'];
 try {
   const saved = JSON.parse(localStorage.getItem(DRAFT_KEY) ?? '{}');
   for (const id of DRAFT_FIELDS) { const el = document.getElementById(id); if (el && typeof saved[id] === 'string') el.value = saved[id]; }
