@@ -163,6 +163,20 @@ Small things that matter while a draft is live.
 | 2 | **Playoff weeks on the page** | Two number fields on the board; `cue_board(playoff_start_week, playoff_end_week)`; the analyst weighs each club's games in those weeks when it picks. | ☑ 2026-09-22 |
 | 4 | **Drafted, below the columns** (CHIRP) | A drafted player who resolves but is not in the board's columns is named in the board's notes, and the take counts him, so "off the board" matches what was typed. | ☑ 2026-09-22 (CHIRP 4.7.1) |
 
+## Sprint: your league's categories (scoped 2026-09-22)
+
+Today the board, the pick and "best left" rank skaters on points and goalies on wins. A category league (hits, blocks, power-play points, +/-, shorthanded points…) wants a different list, most of all in the middle rounds. You paste your league's categories once; the analyst ranks for them. Default stays points when none are given. Decision D51.
+
+| # | Item | Scope | Status |
+|---|---|---|---|
+| C1 | **Every scored stat** (CHIRP) | Add hits, blocks, power-play points, shorthanded points, faceoff wins; goalie saves and shutouts. From the NHL stats REST API, league-wide (`skater/realtime`, `skater/summary`, `skater/faceoffwins`, `goalie/summary`): four requests, not 64; cached like the rest, cache version bumped. Already loaded: G, A, P, +/-, PIM, SOG, PPG, SHG, GWG, W, L, GAA, SV%. | ☐ |
+| C2 | **Read the categories** (CHIRP) | A `categories` text field, pasted in any common form: `G, A, +/-, PPP, SOG, HIT, BLK; W, GAA, SV%, SO`. Yahoo/ESPN labels and aliases (`HIT`/`Hits`, `BLK`/`Blocks`, `+/-`/`PM`). Labels it cannot read are named back, never guessed. | ☐ |
+| C3 | **Category value** (CHIRP) | Per game over last season, players with 20 or more games. For each chosen category, how far a player is above or below the league (a z-score: skaters against skaters, goalies against goalies; GAA inverted; SV% weighted by starts). Value = the sum. The method and its limits are stated in the output. | ☐ |
+| C4 | **Rank for your league** (CHIRP) | `draft_kit`, `chirp_draft_pick` and `POST /board` take `categories`; tiers, the pick and "best left" follow category value. Each prospect's note becomes its category line, in the analyst's words: "HIT +2.1 · BLK +1.4 · PPP −0.3". The board gains optional `scoring` (the categories it ranked for, unread labels, the method). | ☐ |
+| C5 | **Your categories on the screen** (Sepiola) | A "Your categories" field on the board (saved like the other boxes, D50); `cue_board(categories)`; a "Ranked for" line of chips above the tiers from `scoring`; unread labels in the notes. Contract: `scoring` optional in `board.schema.json`; fixture from the live analyst. | ☐ |
+
+Honest limits to state on the board: last season per game, no projections, no line changes, a player with fewer than 20 games is left out of the category ranking.
+
 ## Feature backlog (recorded 2026-09-22)
 
 Wanted, not scheduled. Numbers match the list they were proposed in.
@@ -178,6 +192,7 @@ Wanted, not scheduled. Numbers match the list they were proposed in.
 | 10 | **Spotlight dim** (D5) | Darken the rink outside the circle. |
 | 11 | **Share a board** | A link that opens the same draft state elsewhere. |
 | 12 | **Producer verbs** | `ready`, `roll`, `caption`, `layer`; only once a second analyst exists. |
+| 13 | **League categories** | Scoped as the sprint above (D51). |
 
 ## Not in scope
 

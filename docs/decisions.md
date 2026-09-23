@@ -218,3 +218,7 @@ A board tells you who is left; at the table the question is who to take. CHIRP a
 
 A refresh mid-draft used to empty Drafted so far, My picks and the playoff weeks, which is the worst moment to lose them. They are saved to `localStorage` as they are typed and restored on load. It is a per-viewer convenience, not state: nothing on the screen reads it, the analyst never sees it, and every read and write is wrapped so a private window or blocked storage leaves the page working exactly as before (a scenario runs with storage denied). The playoff weeks go to the analyst only as a whole, ordered pair; anything else is left out rather than corrected.
 
+## D51 — Rank for the league you are in — proposed
+
+A points ranking is right for a points league and wrong for a category league, where a banger with 400 hits and few points is worth a pick the points board never shows (last season's hits leader does not appear on it). The screen still ranks nothing: the viewer pastes the league's categories, the analyst computes a category value per player (per-game z-scores over last season, 20-game minimum, summed over the chosen categories) and returns the board in that order with each prospect's category line as its note, plus a `scoring` block naming what it ranked for and what it could not read. Every number comes from the NHL's public stats API; no platform connection, no projections. Points remain the default. This is also what makes "bring your own rankings" (backlog #3) worth having: someone else's kit, re-weighted for this league.
+
