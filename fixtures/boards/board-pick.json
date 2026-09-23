@@ -1,7 +1,7 @@
 {
   "contract_version": "0.1",
   "kind": "board",
-  "generated_at": "2026-09-22T23:26:24.413Z",
+  "generated_at": "2026-09-23T01:00:54.388Z",
   "positions": {
     "C": [
       {
@@ -147,7 +147,7 @@
             "name": "Stützle",
             "club": "OTT",
             "pos": "C",
-            "rank": 21,
+            "rank": 22,
             "age": 24.7,
             "ppg": 1.04,
             "flags": [],
@@ -159,7 +159,7 @@
             "name": "Thompson",
             "club": "BUF",
             "pos": "C",
-            "rank": 22,
+            "rank": 23,
             "age": 28.9,
             "ppg": 1,
             "flags": [
@@ -178,7 +178,7 @@
             "name": "Aho",
             "club": "CAR",
             "pos": "C",
-            "rank": 24,
+            "rank": 25,
             "age": 29.2,
             "ppg": 1.01,
             "flags": [],
@@ -190,7 +190,7 @@
             "name": "Zibanejad",
             "club": "NYR",
             "pos": "C",
-            "rank": 29,
+            "rank": 30,
             "age": 33.4,
             "ppg": 0.96,
             "flags": [
@@ -204,7 +204,7 @@
             "name": "Hughes",
             "club": "NJD",
             "pos": "C",
-            "rank": 31,
+            "rank": 32,
             "age": 25.4,
             "ppg": 1.26,
             "flags": [
@@ -218,7 +218,7 @@
             "name": "Bedard",
             "club": "CHI",
             "pos": "C",
-            "rank": 33,
+            "rank": 35,
             "age": 21.2,
             "ppg": 1.09,
             "flags": [
@@ -232,7 +232,7 @@
             "name": "O'Reilly",
             "club": "NSH",
             "pos": "C",
-            "rank": 36,
+            "rank": 38,
             "age": 35.6,
             "ppg": 0.91,
             "flags": [
@@ -246,7 +246,7 @@
             "name": "Crosby",
             "club": "PIT",
             "pos": "C",
-            "rank": 37,
+            "rank": 39,
             "age": 39.1,
             "ppg": 1.09,
             "flags": [
@@ -265,7 +265,7 @@
             "name": "Schmaltz",
             "club": "UTA",
             "pos": "C",
-            "rank": 39,
+            "rank": 41,
             "age": 30.6,
             "ppg": 0.9,
             "flags": [],
@@ -277,7 +277,7 @@
             "name": "Barzal",
             "club": "NYI",
             "pos": "C",
-            "rank": 44,
+            "rank": 46,
             "age": 29.3,
             "ppg": 0.89,
             "flags": [],
@@ -289,7 +289,7 @@
             "name": "Tavares",
             "club": "TOR",
             "pos": "C",
-            "rank": 48,
+            "rank": 50,
             "age": 36,
             "ppg": 0.87,
             "flags": [],
@@ -301,7 +301,7 @@
             "name": "Vilardi",
             "club": "WPG",
             "pos": "C",
-            "rank": 51,
+            "rank": 54,
             "age": 27.1,
             "ppg": 0.84,
             "flags": [],
@@ -313,7 +313,7 @@
             "name": "Geekie",
             "club": "BOS",
             "pos": "C",
-            "rank": 52,
+            "rank": 55,
             "age": 28.2,
             "ppg": 0.84,
             "flags": [],
@@ -325,7 +325,7 @@
             "name": "Carlsson",
             "club": "ANA",
             "pos": "C",
-            "rank": 54,
+            "rank": 57,
             "age": 21.7,
             "ppg": 0.96,
             "flags": [],
@@ -396,27 +396,29 @@
             "taken": false
           },
           {
+            "id": "8478550",
+            "name": "Panarin",
+            "club": "LAK",
+            "pos": "LW",
+            "rank": 21,
+            "age": 34.9,
+            "ppg": 1.08,
+            "flags": [
+              "age 34.9 on 20.8 min — usage may not hold"
+            ],
+            "note": "1.08 points a game last season, age 34; age 34.9 on 20.8 min — usage may not hold.",
+            "taken": false
+          },
+          {
             "id": "8482078",
             "name": "Raymond",
             "club": "DET",
             "pos": "LW",
-            "rank": 32,
+            "rank": 33,
             "age": 24.5,
             "ppg": 0.95,
             "flags": [],
             "note": "0.95 points a game last season, age 24.",
-            "taken": false
-          },
-          {
-            "id": "8476887",
-            "name": "Forsberg",
-            "club": "NSH",
-            "pos": "LW",
-            "rank": 34,
-            "age": 32.1,
-            "ppg": 0.91,
-            "flags": [],
-            "note": "0.91 points a game last season, age 32.",
             "taken": false
           }
         ]
@@ -425,11 +427,23 @@
         "tier": 2,
         "players": [
           {
+            "id": "8476887",
+            "name": "Forsberg",
+            "club": "NSH",
+            "pos": "LW",
+            "rank": 36,
+            "age": 32.1,
+            "ppg": 0.91,
+            "flags": [],
+            "note": "0.91 points a game last season, age 32.",
+            "taken": false
+          },
+          {
             "id": "8479542",
             "name": "Hagel",
             "club": "TBL",
             "pos": "LW",
-            "rank": 38,
+            "rank": 40,
             "age": 28.1,
             "ppg": 1.04,
             "flags": [],
@@ -441,7 +455,7 @@
             "name": "Slafkovský",
             "club": "MTL",
             "pos": "LW",
-            "rank": 41,
+            "rank": 43,
             "age": 22.5,
             "ppg": 0.89,
             "flags": [],
@@ -453,7 +467,7 @@
             "name": "Ehlers",
             "club": "CAR",
             "pos": "LW",
-            "rank": 45,
+            "rank": 47,
             "age": 30.6,
             "ppg": 0.87,
             "flags": [],
@@ -465,7 +479,7 @@
             "name": "Bratt",
             "club": "NJD",
             "pos": "LW",
-            "rank": 46,
+            "rank": 48,
             "age": 28.2,
             "ppg": 0.87,
             "flags": [],
@@ -477,25 +491,13 @@
             "name": "Gauthier",
             "club": "ANA",
             "pos": "LW",
-            "rank": 50,
+            "rank": 53,
             "age": 22.7,
             "ppg": 0.91,
             "flags": [
               "3.8 shots/gm"
             ],
             "note": "0.91 points a game last season, age 22; 3.8 shots/gm.",
-            "taken": false
-          },
-          {
-            "id": "8482720",
-            "name": "Knies",
-            "club": "TOR",
-            "pos": "LW",
-            "rank": 62,
-            "age": 23.9,
-            "ppg": 0.84,
-            "flags": [],
-            "note": "0.84 points a game last season, age 23.",
             "taken": false
           }
         ]
@@ -504,11 +506,23 @@
         "tier": 3,
         "players": [
           {
+            "id": "8482720",
+            "name": "Knies",
+            "club": "TOR",
+            "pos": "LW",
+            "rank": 65,
+            "age": 23.9,
+            "ppg": 0.84,
+            "flags": [],
+            "note": "0.84 points a game last season, age 23.",
+            "taken": false
+          },
+          {
             "id": "8471214",
             "name": "Ovechkin",
             "club": "WSH",
             "pos": "LW",
-            "rank": 67,
+            "rank": 73,
             "age": 41,
             "ppg": 0.78,
             "flags": [],
@@ -520,7 +534,7 @@
             "name": "Barbashev",
             "club": "VGK",
             "pos": "LW",
-            "rank": 74,
+            "rank": 80,
             "age": 30.8,
             "ppg": 0.74,
             "flags": [],
@@ -528,11 +542,25 @@
             "taken": false
           },
           {
+            "id": "8480801",
+            "name": "Tkachuk",
+            "club": "FLA",
+            "pos": "LW",
+            "rank": 85,
+            "age": 27,
+            "ppg": 0.98,
+            "flags": [
+              "3.7 shots/gm"
+            ],
+            "note": "0.98 points a game last season, age 27; 3.7 shots/gm.",
+            "taken": false
+          },
+          {
             "id": "8477479",
             "name": "Bertuzzi",
             "club": "CHI",
             "pos": "LW",
-            "rank": 84,
+            "rank": 92,
             "age": 31.6,
             "ppg": 0.73,
             "flags": [],
@@ -544,37 +572,11 @@
             "name": "Lafrenière",
             "club": "NYR",
             "pos": "LW",
-            "rank": 90,
+            "rank": 99,
             "age": 25,
             "ppg": 0.7,
             "flags": [],
             "note": "0.7 points a game last season, age 25.",
-            "taken": false
-          },
-          {
-            "id": "8473419",
-            "name": "Marchand",
-            "club": "FLA",
-            "pos": "LW",
-            "rank": 98,
-            "age": 38.4,
-            "ppg": 1.04,
-            "flags": [],
-            "note": "1.04 points a game last season, age 38.",
-            "taken": false
-          },
-          {
-            "id": "8475786",
-            "name": "Hyman",
-            "club": "EDM",
-            "pos": "LW",
-            "rank": 106,
-            "age": 34.3,
-            "ppg": 0.9,
-            "flags": [
-              "age 34.3 on 20.0 min — usage may not hold"
-            ],
-            "note": "0.9 points a game last season, age 34; age 34.3 on 20.0 min — usage may not hold.",
             "taken": false
           }
         ]
@@ -583,11 +585,61 @@
         "tier": 4,
         "players": [
           {
+            "id": "8478042",
+            "name": "Arvidsson",
+            "club": "DET",
+            "pos": "LW",
+            "rank": 108,
+            "age": 33.5,
+            "ppg": 0.78,
+            "flags": [],
+            "note": "0.78 points a game last season, age 33.",
+            "taken": false
+          },
+          {
+            "id": "8473419",
+            "name": "Marchand",
+            "club": "FLA",
+            "pos": "LW",
+            "rank": 109,
+            "age": 38.4,
+            "ppg": 1.04,
+            "flags": [],
+            "note": "1.04 points a game last season, age 38.",
+            "taken": false
+          },
+          {
+            "id": "8482667",
+            "name": "Eklund",
+            "club": "OTT",
+            "pos": "LW",
+            "rank": 115,
+            "age": 23.9,
+            "ppg": 0.68,
+            "flags": [],
+            "note": "0.68 points a game last season, age 23.",
+            "taken": false
+          },
+          {
+            "id": "8475786",
+            "name": "Hyman",
+            "club": "EDM",
+            "pos": "LW",
+            "rank": 119,
+            "age": 34.3,
+            "ppg": 0.9,
+            "flags": [
+              "age 34.3 on 20.0 min — usage may not hold"
+            ],
+            "note": "0.9 points a game last season, age 34; age 34.3 on 20.0 min — usage may not hold.",
+            "taken": false
+          },
+          {
             "id": "8481656",
             "name": "Protas",
             "club": "WSH",
             "pos": "LW",
-            "rank": 108,
+            "rank": 121,
             "age": 25.7,
             "ppg": 0.68,
             "flags": [],
@@ -599,59 +651,11 @@
             "name": "Holloway",
             "club": "STL",
             "pos": "LW",
-            "rank": 115,
+            "rank": 128,
             "age": 25,
             "ppg": 0.86,
             "flags": [],
             "note": "0.86 points a game last season, age 25.",
-            "taken": false
-          },
-          {
-            "id": "8475791",
-            "name": "Hall",
-            "club": "CAR",
-            "pos": "LW",
-            "rank": 127,
-            "age": 34.9,
-            "ppg": 0.6,
-            "flags": [],
-            "note": "0.6 points a game last season, age 34.",
-            "taken": false
-          },
-          {
-            "id": "8477476",
-            "name": "Lehkonen",
-            "club": "COL",
-            "pos": "LW",
-            "rank": 128,
-            "age": 31.2,
-            "ppg": 0.69,
-            "flags": [],
-            "note": "0.69 points a game last season, age 31.",
-            "taken": false
-          },
-          {
-            "id": "8477402",
-            "name": "Buchnevich",
-            "club": "STL",
-            "pos": "LW",
-            "rank": 130,
-            "age": 31.4,
-            "ppg": 0.59,
-            "flags": [],
-            "note": "0.59 points a game last season, age 31.",
-            "taken": false
-          },
-          {
-            "id": "8480220",
-            "name": "Cates",
-            "club": "PHI",
-            "pos": "LW",
-            "rank": 133,
-            "age": 27.6,
-            "ppg": 0.57,
-            "flags": [],
-            "note": "0.57 points a game last season, age 27.",
             "taken": false
           }
         ]
@@ -732,7 +736,7 @@
             "name": "Marner",
             "club": "VGK",
             "pos": "RW",
-            "rank": 25,
+            "rank": 26,
             "age": 29.4,
             "ppg": 0.99,
             "flags": [],
@@ -749,7 +753,7 @@
             "name": "Nylander",
             "club": "TOR",
             "pos": "RW",
-            "rank": 27,
+            "rank": 28,
             "age": 30.4,
             "ppg": 1.22,
             "flags": [],
@@ -761,7 +765,7 @@
             "name": "Rantanen",
             "club": "DAL",
             "pos": "RW",
-            "rank": 30,
+            "rank": 31,
             "age": 29.9,
             "ppg": 1.2,
             "flags": [
@@ -775,7 +779,7 @@
             "name": "Kempe",
             "club": "LAK",
             "pos": "RW",
-            "rank": 40,
+            "rank": 42,
             "age": 30,
             "ppg": 0.9,
             "flags": [],
@@ -787,7 +791,7 @@
             "name": "Guenther",
             "club": "UTA",
             "pos": "RW",
-            "rank": 42,
+            "rank": 44,
             "age": 23.5,
             "ppg": 0.92,
             "flags": [],
@@ -799,7 +803,7 @@
             "name": "Stone",
             "club": "VGK",
             "pos": "RW",
-            "rank": 43,
+            "rank": 45,
             "age": 34.4,
             "ppg": 1.22,
             "flags": [
@@ -813,7 +817,7 @@
             "name": "Batherson",
             "club": "OTT",
             "pos": "RW",
-            "rank": 47,
+            "rank": 49,
             "age": 28.4,
             "ppg": 0.9,
             "flags": [],
@@ -830,7 +834,7 @@
             "name": "Svechnikov",
             "club": "CAR",
             "pos": "RW",
-            "rank": 49,
+            "rank": 51,
             "age": 26.5,
             "ppg": 0.89,
             "flags": [],
@@ -842,7 +846,7 @@
             "name": "Konecny",
             "club": "PHI",
             "pos": "RW",
-            "rank": 53,
+            "rank": 56,
             "age": 29.5,
             "ppg": 0.88,
             "flags": [],
@@ -854,7 +858,7 @@
             "name": "Marchenko",
             "club": "CBJ",
             "pos": "RW",
-            "rank": 55,
+            "rank": 58,
             "age": 26.2,
             "ppg": 0.88,
             "flags": [],
@@ -866,7 +870,7 @@
             "name": "Jarvis",
             "club": "CAR",
             "pos": "RW",
-            "rank": 58,
+            "rank": 61,
             "age": 24.6,
             "ppg": 0.93,
             "flags": [],
@@ -874,29 +878,29 @@
             "taken": false
           },
           {
+            "id": "8477949",
+            "name": "Tuch",
+            "club": "WSH",
+            "pos": "RW",
+            "rank": 66,
+            "age": 30.4,
+            "ppg": 0.84,
+            "flags": [],
+            "note": "0.84 points a game last season, age 30.",
+            "taken": false
+          },
+          {
             "id": "8475810",
             "name": "Rust",
             "club": "PIT",
             "pos": "RW",
-            "rank": 65,
+            "rank": 69,
             "age": 34.4,
             "ppg": 0.9,
             "flags": [
               "age 34.4 on 19.9 min — usage may not hold"
             ],
             "note": "0.9 points a game last season, age 34; age 34.4 on 19.9 min — usage may not hold.",
-            "taken": false
-          },
-          {
-            "id": "8484984",
-            "name": "Demidov",
-            "club": "MTL",
-            "pos": "RW",
-            "rank": 69,
-            "age": 20.8,
-            "ppg": 0.76,
-            "flags": [],
-            "note": "0.76 points a game last season, age 20.",
             "taken": false
           }
         ]
@@ -905,11 +909,47 @@
         "tier": 4,
         "players": [
           {
+            "id": "8477511",
+            "name": "Mantha",
+            "club": "NJD",
+            "pos": "RW",
+            "rank": 70,
+            "age": 32,
+            "ppg": 0.79,
+            "flags": [],
+            "note": "0.79 points a game last season, age 32.",
+            "taken": false
+          },
+          {
+            "id": "8481604",
+            "name": "Dorofeyev",
+            "club": "NYR",
+            "pos": "RW",
+            "rank": 71,
+            "age": 25.9,
+            "ppg": 0.78,
+            "flags": [],
+            "note": "0.78 points a game last season, age 25.",
+            "taken": false
+          },
+          {
+            "id": "8484984",
+            "name": "Demidov",
+            "club": "MTL",
+            "pos": "RW",
+            "rank": 75,
+            "age": 20.8,
+            "ppg": 0.76,
+            "flags": [],
+            "note": "0.76 points a game last season, age 20.",
+            "taken": false
+          },
+          {
             "id": "8476880",
             "name": "Wilson",
             "club": "WSH",
             "pos": "RW",
-            "rank": 70,
+            "rank": 76,
             "age": 32.5,
             "ppg": 0.86,
             "flags": [
@@ -923,7 +963,7 @@
             "name": "Sennecke",
             "club": "ANA",
             "pos": "RW",
-            "rank": 75,
+            "rank": 81,
             "age": 20.7,
             "ppg": 0.73,
             "flags": [],
@@ -935,47 +975,11 @@
             "name": "Terry",
             "club": "ANA",
             "pos": "RW",
-            "rank": 88,
+            "rank": 96,
             "age": 29,
             "ppg": 0.93,
             "flags": [],
             "note": "0.93 points a game last season, age 29.",
-            "taken": false
-          },
-          {
-            "id": "8474586",
-            "name": "Eberle",
-            "club": "SEA",
-            "pos": "RW",
-            "rank": 94,
-            "age": 36.4,
-            "ppg": 0.69,
-            "flags": [],
-            "note": "0.69 points a game last season, age 36.",
-            "taken": false
-          },
-          {
-            "id": "8482809",
-            "name": "Blake",
-            "club": "CAR",
-            "pos": "RW",
-            "rank": 100,
-            "age": 23.1,
-            "ppg": 0.65,
-            "flags": [],
-            "note": "0.65 points a game last season, age 23.",
-            "taken": false
-          },
-          {
-            "id": "8482659",
-            "name": "Doan",
-            "club": "BUF",
-            "pos": "RW",
-            "rank": 105,
-            "age": 24.6,
-            "ppg": 0.63,
-            "flags": [],
-            "note": "0.63 points a game last season, age 24.",
             "taken": false
           }
         ]
@@ -1002,7 +1006,7 @@
             "name": "Werenski",
             "club": "CBJ",
             "pos": "D",
-            "rank": 23,
+            "rank": 24,
             "age": 29.2,
             "ppg": 1.08,
             "flags": [
@@ -1016,7 +1020,7 @@
             "name": "Makar",
             "club": "COL",
             "pos": "D",
-            "rank": 26,
+            "rank": 27,
             "age": 27.9,
             "ppg": 1.05,
             "flags": [],
@@ -1028,7 +1032,7 @@
             "name": "Hutson",
             "club": "MTL",
             "pos": "D",
-            "rank": 28,
+            "rank": 29,
             "age": 22.6,
             "ppg": 0.95,
             "flags": [],
@@ -1036,29 +1040,27 @@
             "taken": false
           },
           {
+            "id": "8480800",
+            "name": "Hughes",
+            "club": "MIN",
+            "pos": "D",
+            "rank": 34,
+            "age": 26.9,
+            "ppg": 1.03,
+            "flags": [],
+            "note": "1.03 points a game last season, age 26.",
+            "taken": true
+          },
+          {
             "id": "8480839",
             "name": "Dahlin",
             "club": "BUF",
             "pos": "D",
-            "rank": 35,
+            "rank": 37,
             "age": 26.4,
             "ppg": 0.96,
             "flags": [],
             "note": "0.96 points a game last season, age 26.",
-            "taken": false
-          },
-          {
-            "id": "8474578",
-            "name": "Karlsson",
-            "club": "PIT",
-            "pos": "D",
-            "rank": 61,
-            "age": 36.3,
-            "ppg": 0.88,
-            "flags": [
-              "age 36.3 on 23.6 min — usage may not hold"
-            ],
-            "note": "0.88 points a game last season, age 36; age 36.3 on 23.6 min — usage may not hold.",
             "taken": false
           }
         ]
@@ -1067,11 +1069,37 @@
         "tier": 2,
         "players": [
           {
+            "id": "8478178",
+            "name": "Raddysh",
+            "club": "TOR",
+            "pos": "D",
+            "rank": 52,
+            "age": 30.6,
+            "ppg": 0.96,
+            "flags": [],
+            "note": "0.96 points a game last season, age 30.",
+            "taken": false
+          },
+          {
+            "id": "8474578",
+            "name": "Karlsson",
+            "club": "PIT",
+            "pos": "D",
+            "rank": 64,
+            "age": 36.3,
+            "ppg": 0.88,
+            "flags": [
+              "age 36.3 on 23.6 min — usage may not hold"
+            ],
+            "note": "0.88 points a game last season, age 36; age 36.3 on 23.6 min — usage may not hold.",
+            "taken": false
+          },
+          {
             "id": "8480036",
             "name": "Heiskanen",
             "club": "DAL",
             "pos": "D",
-            "rank": 68,
+            "rank": 74,
             "age": 27.2,
             "ppg": 0.82,
             "flags": [],
@@ -1083,7 +1111,7 @@
             "name": "McAvoy",
             "club": "BOS",
             "pos": "D",
-            "rank": 71,
+            "rank": 77,
             "age": 28.8,
             "ppg": 0.88,
             "flags": [],
@@ -1095,7 +1123,7 @@
             "name": "Seider",
             "club": "DET",
             "pos": "D",
-            "rank": 76,
+            "rank": 82,
             "age": 25.5,
             "ppg": 0.73,
             "flags": [],
@@ -1103,11 +1131,30 @@
             "taken": false
           },
           {
+            "id": "8474590",
+            "name": "Carlson",
+            "club": "TBL",
+            "pos": "D",
+            "rank": 83,
+            "age": 36.7,
+            "ppg": 0.85,
+            "flags": [
+              "age 36.7 on 23.2 min — usage may not hold"
+            ],
+            "note": "0.85 points a game last season, age 36; age 36.7 on 23.2 min — usage may not hold.",
+            "taken": false
+          }
+        ]
+      },
+      {
+        "tier": 3,
+        "players": [
+          {
             "id": "8479345",
             "name": "Chychrun",
             "club": "WSH",
             "pos": "D",
-            "rank": 77,
+            "rank": 84,
             "age": 28.5,
             "ppg": 0.75,
             "flags": [],
@@ -1119,7 +1166,7 @@
             "name": "Schaefer",
             "club": "NYI",
             "pos": "D",
-            "rank": 78,
+            "rank": 86,
             "age": 19.1,
             "ppg": 0.72,
             "flags": [],
@@ -1131,24 +1178,19 @@
             "name": "Sergachev",
             "club": "UTA",
             "pos": "D",
-            "rank": 81,
+            "rank": 89,
             "age": 28.2,
             "ppg": 0.76,
             "flags": [],
             "note": "0.76 points a game last season, age 28.",
             "taken": false
-          }
-        ]
-      },
-      {
-        "tier": 3,
-        "players": [
+          },
           {
             "id": "8481605",
             "name": "LaCombe",
             "club": "ANA",
             "pos": "D",
-            "rank": 82,
+            "rank": 90,
             "age": 25.7,
             "ppg": 0.71,
             "flags": [],
@@ -1160,7 +1202,7 @@
             "name": "Josi",
             "club": "NSH",
             "pos": "D",
-            "rank": 93,
+            "rank": 103,
             "age": 36.3,
             "ppg": 0.81,
             "flags": [
@@ -1174,47 +1216,11 @@
             "name": "Morrissey",
             "club": "WPG",
             "pos": "D",
-            "rank": 96,
+            "rank": 106,
             "age": 31.5,
             "ppg": 0.71,
             "flags": [],
             "note": "0.71 points a game last season, age 31.",
-            "taken": false
-          },
-          {
-            "id": "8482105",
-            "name": "Sanderson",
-            "club": "OTT",
-            "pos": "D",
-            "rank": 99,
-            "age": 24.2,
-            "ppg": 0.81,
-            "flags": [],
-            "note": "0.81 points a game last season, age 24.",
-            "taken": false
-          },
-          {
-            "id": "8480800",
-            "name": "Hughes",
-            "club": "MIN",
-            "pos": "D",
-            "rank": 101,
-            "age": 26.9,
-            "ppg": 1.1,
-            "flags": [],
-            "note": "1.1 points a game last season, age 26.",
-            "taken": true
-          },
-          {
-            "id": "8479323",
-            "name": "Fox",
-            "club": "NYR",
-            "pos": "D",
-            "rank": 103,
-            "age": 28.6,
-            "ppg": 0.96,
-            "flags": [],
-            "note": "0.96 points a game last season, age 28.",
             "taken": false
           }
         ]
@@ -1223,11 +1229,35 @@
         "tier": 4,
         "players": [
           {
+            "id": "8482105",
+            "name": "Sanderson",
+            "club": "OTT",
+            "pos": "D",
+            "rank": 111,
+            "age": 24.2,
+            "ppg": 0.81,
+            "flags": [],
+            "note": "0.81 points a game last season, age 24.",
+            "taken": false
+          },
+          {
+            "id": "8479323",
+            "name": "Fox",
+            "club": "NYR",
+            "pos": "D",
+            "rank": 114,
+            "age": 28.6,
+            "ppg": 0.96,
+            "flags": [],
+            "note": "0.96 points a game last season, age 28.",
+            "taken": false
+          },
+          {
             "id": "8482122",
             "name": "Faber",
             "club": "MIN",
             "pos": "D",
-            "rank": 111,
+            "rank": 124,
             "age": 24.1,
             "ppg": 0.64,
             "flags": [],
@@ -1239,7 +1269,7 @@
             "name": "Gostisbehere",
             "club": "CAR",
             "pos": "D",
-            "rank": 118,
+            "rank": 131,
             "age": 33.4,
             "ppg": 0.91,
             "flags": [
@@ -1253,7 +1283,7 @@
             "name": "Hronek",
             "club": "VAN",
             "pos": "D",
-            "rank": 125,
+            "rank": 141,
             "age": 28.9,
             "ppg": 0.6,
             "flags": [],
@@ -1265,35 +1295,11 @@
             "name": "Dobson",
             "club": "MTL",
             "pos": "D",
-            "rank": 132,
+            "rank": 149,
             "age": 26.7,
             "ppg": 0.59,
             "flags": [],
             "note": "0.59 points a game last season, age 26.",
-            "taken": false
-          },
-          {
-            "id": "8478407",
-            "name": "Dunn",
-            "club": "SEA",
-            "pos": "D",
-            "rank": 145,
-            "age": 29.9,
-            "ppg": 0.54,
-            "flags": [],
-            "note": "0.54 points a game last season, age 29.",
-            "taken": false
-          },
-          {
-            "id": "8480807",
-            "name": "Samuelsson",
-            "club": "BUF",
-            "pos": "D",
-            "rank": 159,
-            "age": 26.5,
-            "ppg": 0.53,
-            "flags": [],
-            "note": "0.53 points a game last season, age 26.",
             "taken": false
           }
         ]
@@ -1308,11 +1314,11 @@
             "name": "Vasilevskiy",
             "club": "TBL",
             "pos": "G",
-            "rank": 170,
+            "rank": 200,
             "age": 32.2,
             "ppg": 0,
             "flags": [],
-            "note": "Tier 1 goalie, rank 170.",
+            "note": "Tier 1 goalie, rank 200.",
             "taken": false
           },
           {
@@ -1320,11 +1326,11 @@
             "name": "Vejmelka",
             "club": "UTA",
             "pos": "G",
-            "rank": 175,
+            "rank": 206,
             "age": 30.3,
             "ppg": 0,
             "flags": [],
-            "note": "Tier 1 goalie, rank 175.",
+            "note": "Tier 1 goalie, rank 206.",
             "taken": false
           },
           {
@@ -1332,11 +1338,11 @@
             "name": "Oettinger",
             "club": "DAL",
             "pos": "G",
-            "rank": 197,
+            "rank": 233,
             "age": 27.8,
             "ppg": 0,
             "flags": [],
-            "note": "Tier 1 goalie, rank 197.",
+            "note": "Tier 1 goalie, rank 233.",
             "taken": false
           },
           {
@@ -1344,11 +1350,11 @@
             "name": "Swayman",
             "club": "BOS",
             "pos": "G",
-            "rank": 227,
+            "rank": 273,
             "age": 27.8,
             "ppg": 0,
             "flags": [],
-            "note": "Tier 1 goalie, rank 227.",
+            "note": "Tier 1 goalie, rank 273.",
             "taken": false
           },
           {
@@ -1356,11 +1362,11 @@
             "name": "Bussi",
             "club": "CAR",
             "pos": "G",
-            "rank": 229,
+            "rank": 275,
             "age": 28.2,
             "ppg": 0,
             "flags": [],
-            "note": "Tier 1 goalie, rank 229.",
+            "note": "Tier 1 goalie, rank 275.",
             "taken": false
           },
           {
@@ -1368,11 +1374,11 @@
             "name": "Wedgewood",
             "club": "COL",
             "pos": "G",
-            "rank": 233,
+            "rank": 279,
             "age": 34.1,
             "ppg": 0,
             "flags": [],
-            "note": "Tier 1 goalie, rank 233.",
+            "note": "Tier 1 goalie, rank 279.",
             "taken": false
           }
         ]
@@ -1385,11 +1391,11 @@
             "name": "Thompson",
             "club": "WSH",
             "pos": "G",
-            "rank": 240,
+            "rank": 288,
             "age": 29.6,
             "ppg": 0,
             "flags": [],
-            "note": "Tier 2 goalie, rank 240.",
+            "note": "Tier 2 goalie, rank 288.",
             "taken": false
           },
           {
@@ -1397,11 +1403,11 @@
             "name": "Dostal",
             "club": "ANA",
             "pos": "G",
-            "rank": 241,
+            "rank": 289,
             "age": 26.3,
             "ppg": 0,
             "flags": [],
-            "note": "Tier 2 goalie, rank 241.",
+            "note": "Tier 2 goalie, rank 289.",
             "taken": false
           },
           {
@@ -1409,11 +1415,11 @@
             "name": "Gibson",
             "club": "DET",
             "pos": "G",
-            "rank": 255,
+            "rank": 305,
             "age": 33.2,
             "ppg": 0,
             "flags": [],
-            "note": "Tier 2 goalie, rank 255.",
+            "note": "Tier 2 goalie, rank 305.",
             "taken": false
           },
           {
@@ -1421,11 +1427,11 @@
             "name": "Dobes",
             "club": "MTL",
             "pos": "G",
-            "rank": 256,
+            "rank": 306,
             "age": 25.3,
             "ppg": 0,
             "flags": [],
-            "note": "Tier 2 goalie, rank 256.",
+            "note": "Tier 2 goalie, rank 306.",
             "taken": false
           },
           {
@@ -1433,11 +1439,11 @@
             "name": "Sorokin",
             "club": "NYI",
             "pos": "G",
-            "rank": 257,
+            "rank": 307,
             "age": 31.1,
             "ppg": 0,
             "flags": [],
-            "note": "Tier 2 goalie, rank 257.",
+            "note": "Tier 2 goalie, rank 307.",
             "taken": false
           },
           {
@@ -1445,11 +1451,11 @@
             "name": "Vladar",
             "club": "PHI",
             "pos": "G",
-            "rank": 258,
+            "rank": 308,
             "age": 29.1,
             "ppg": 0,
             "flags": [],
-            "note": "Tier 2 goalie, rank 258.",
+            "note": "Tier 2 goalie, rank 308.",
             "taken": false
           }
         ]
@@ -1462,11 +1468,11 @@
             "name": "Saros",
             "club": "NSH",
             "pos": "G",
-            "rank": 269,
+            "rank": 318,
             "age": 31.4,
             "ppg": 0,
             "flags": [],
-            "note": "Tier 3 goalie, rank 269.",
+            "note": "Tier 3 goalie, rank 318.",
             "taken": false
           },
           {
@@ -1474,11 +1480,23 @@
             "name": "Ullmark",
             "club": "OTT",
             "pos": "G",
-            "rank": 270,
+            "rank": 319,
             "age": 33.1,
             "ppg": 0,
             "flags": [],
-            "note": "Tier 3 goalie, rank 270.",
+            "note": "Tier 3 goalie, rank 319.",
+            "taken": false
+          },
+          {
+            "id": "8475683",
+            "name": "Bobrovsky",
+            "club": "TOR",
+            "pos": "G",
+            "rank": 332,
+            "age": 38,
+            "ppg": 0,
+            "flags": [],
+            "note": "Tier 3 goalie, rank 332.",
             "taken": false
           },
           {
@@ -1486,11 +1504,11 @@
             "name": "Greaves",
             "club": "CBJ",
             "pos": "G",
-            "rank": 285,
+            "rank": 337,
             "age": 25.5,
             "ppg": 0,
             "flags": [],
-            "note": "Tier 3 goalie, rank 285.",
+            "note": "Tier 3 goalie, rank 337.",
             "taken": false
           },
           {
@@ -1498,11 +1516,11 @@
             "name": "Shesterkin",
             "club": "NYR",
             "pos": "G",
-            "rank": 295,
+            "rank": 352,
             "age": 30.7,
             "ppg": 0,
             "flags": [],
-            "note": "Tier 3 goalie, rank 295.",
+            "note": "Tier 3 goalie, rank 352.",
             "taken": false
           },
           {
@@ -1510,23 +1528,11 @@
             "name": "Hofer",
             "club": "STL",
             "pos": "G",
-            "rank": 306,
+            "rank": 367,
             "age": 26.1,
             "ppg": 0,
             "flags": [],
-            "note": "Tier 3 goalie, rank 306.",
-            "taken": false
-          },
-          {
-            "id": "8481692",
-            "name": "Wolf",
-            "club": "CGY",
-            "pos": "G",
-            "rank": 308,
-            "age": 25.4,
-            "ppg": 0,
-            "flags": [],
-            "note": "Tier 3 goalie, rank 308.",
+            "note": "Tier 3 goalie, rank 367.",
             "taken": false
           }
         ]
@@ -1535,15 +1541,39 @@
         "tier": 4,
         "players": [
           {
+            "id": "8481692",
+            "name": "Wolf",
+            "club": "CGY",
+            "pos": "G",
+            "rank": 369,
+            "age": 25.4,
+            "ppg": 0,
+            "flags": [],
+            "note": "Tier 4 goalie, rank 369.",
+            "taken": false
+          },
+          {
             "id": "8478406",
             "name": "Blackwood",
             "club": "COL",
             "pos": "G",
-            "rank": 309,
+            "rank": 371,
             "age": 29.8,
             "ppg": 0,
             "flags": [],
-            "note": "Tier 4 goalie, rank 309.",
+            "note": "Tier 4 goalie, rank 371.",
+            "taken": false
+          },
+          {
+            "id": "8474593",
+            "name": "Markstrom",
+            "club": "FLA",
+            "pos": "G",
+            "rank": 372,
+            "age": 36.6,
+            "ppg": 0,
+            "flags": [],
+            "note": "Tier 4 goalie, rank 372.",
             "taken": false
           },
           {
@@ -1551,11 +1581,23 @@
             "name": "Hellebuyck",
             "club": "WPG",
             "pos": "G",
-            "rank": 317,
+            "rank": 382,
             "age": 33.3,
             "ppg": 0,
             "flags": [],
-            "note": "Tier 4 goalie, rank 317.",
+            "note": "Tier 4 goalie, rank 382.",
+            "taken": false
+          },
+          {
+            "id": "8479973",
+            "name": "Skinner",
+            "club": "WPG",
+            "pos": "G",
+            "rank": 383,
+            "age": 27.9,
+            "ppg": 0,
+            "flags": [],
+            "note": "Tier 4 goalie, rank 383.",
             "taken": false
           },
           {
@@ -1563,47 +1605,11 @@
             "name": "Luukkonen",
             "club": "BUF",
             "pos": "G",
-            "rank": 323,
+            "rank": 390,
             "age": 27.5,
             "ppg": 0,
             "flags": [],
-            "note": "Tier 4 goalie, rank 323.",
-            "taken": false
-          },
-          {
-            "id": "8482137",
-            "name": "Askarov",
-            "club": "SJS",
-            "pos": "G",
-            "rank": 335,
-            "age": 24.3,
-            "ppg": 0,
-            "flags": [],
-            "note": "Tier 4 goalie, rank 335.",
-            "taken": false
-          },
-          {
-            "id": "8479312",
-            "name": "Lyon",
-            "club": "BUF",
-            "pos": "G",
-            "rank": 340,
-            "age": 33.8,
-            "ppg": 0,
-            "flags": [],
-            "note": "Tier 4 goalie, rank 340.",
-            "taken": false
-          },
-          {
-            "id": "8478916",
-            "name": "Daccord",
-            "club": "SEA",
-            "pos": "G",
-            "rank": 345,
-            "age": 30.1,
-            "ppg": 0,
-            "flags": [],
-            "note": "Tier 4 goalie, rank 345.",
+            "note": "Tier 4 goalie, rank 390.",
             "taken": false
           }
         ]
@@ -1618,7 +1624,7 @@
     "G": "Thins out after tier 4."
   },
   "taken": 7,
-  "take": "7 off the board. Best left: Celebrini (C, SJS), rank 4.",
+  "take": "8 off the board, 1 of them below the columns. Best left: Celebrini (C, SJS), rank 4.",
   "not_included": [
     "Projections for the coming season — ChirpIQX reports the last completed season, it does not forecast",
     "ADP or value-vs-market — there is no public source of draft-market consensus",
@@ -1627,12 +1633,15 @@
     "Whether a player is available in your league — ownership is league-private"
   ],
   "source": {
-    "analyst": "chirp@4.6.0",
+    "analyst": "chirp@4.7.1",
     "data": [
       "NHL production",
       "NHL public API (season 20262027)"
     ]
   },
+  "notes": [
+    "Drafted, below the columns: Auston Matthews (C, TOR)"
+  ],
   "pick": {
     "on_clock": 9,
     "needs": [

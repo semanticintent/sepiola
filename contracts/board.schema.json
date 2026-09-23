@@ -300,6 +300,49 @@
           }
         }
       }
+    },
+    "scoring": {
+      "description": "What the board ranked for (D51), present when the request named the league's scoring categories. The analyst ranked; the screen names the categories and ranks nothing.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "categories",
+        "unread",
+        "missing",
+        "too_few_games",
+        "method"
+      ],
+      "properties": {
+        "categories": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "unread": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Labels the analyst could not read, as pasted."
+        },
+        "missing": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Categories the loaded stats did not carry."
+        },
+        "too_few_games": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "method": {
+          "type": "string",
+          "description": "How the ranking was made, in the analyst's words."
+        }
+      }
     }
   },
   "$defs": {

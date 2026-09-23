@@ -377,6 +377,11 @@ body.stinging [data-seq="win"]{opacity:0}
 #w-board{left:40px; top:64px; width:min(1040px, calc(100vw - 80px))}
 .board-body{overflow:auto}
 .board-take{margin:0 0 10px; font-size:14px; font-weight:600}
+.ranked-for{margin:0 0 8px; display:grid; gap:4px}
+.ranked-for .cats{margin:0; display:flex; flex-wrap:wrap; gap:4px; align-items:center; font-size:12px; color:var(--ink-2)}
+.ranked-for .cats span{margin-right:2px}
+.ranked-for .cats b{font-family:var(--font-d); font-weight:700; font-size:12px; color:var(--ink); padding:0 6px; border-radius:6px; background:var(--honey)}
+.ranked-for details{font-size:12px} .ranked-for details span{display:block; color:var(--ink-2); margin-top:2px}
 .board-cols{display:grid; grid-template-columns:repeat(5, 1fr); gap:10px}
 .board-col h4{margin:0 0 6px; font-family:var(--font-d); font-weight:800; font-size:18px}
 .tier{display:grid; gap:2px; margin-bottom:8px; padding-top:4px; border-top:1px solid rgba(180,130,60,.25)}

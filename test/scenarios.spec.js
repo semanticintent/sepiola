@@ -496,3 +496,24 @@ test('draft night: with storage blocked, the board still works', async ({ page }
   await expect(page.locator('.win[data-name="board"]')).toBeVisible();
   expect(errors).toEqual([]);
 });
+
+test('your categories: the board ranks for your league, and the field survives a reload (D51)', async ({ page }) => {
+  const board = JSON.parse(readFileSync('fixtures/boards/board-categories.json', 'utf8'));
+  const posts = [];
+  await page.route('**/health', (route) => route.fulfill({ status: 200, headers: CORS, body: JSON.stringify({ ok: true, analyst: 'chirp', season: '20262027' }) }));
+  await page.route('**/board', async (route) => { posts.push(JSON.parse(route.request().postData())); await route.fulfill({ status: 200, headers: CORS, body: JSON.stringify(board) }); });
+  await page.setViewportSize({ width: 1280, height: 900 });
+  await page.goto('/?analyst=http://analyst.test'); await page.waitForFunction(() => window.sepiola?.ready === true);
+  await page.evaluate(() => window.sepiola.run('cue_board'));
+  const cats = 'G, A, +/-, PIM, PPP, SHP, GWG, SOG, HIT, BLK; W, GAA, SV, SV%, SHO';
+  await page.fill('#cats-in', cats);
+  await page.click('[data-cross-off]'); // categories alone are enough to update the board
+  await page.waitForFunction(() => window.sepiola.state().log.at(-1)?.line === 'cue_board (my categories)');
+  expect(posts.at(-1)).toEqual({ categories: cats });
+  await page.evaluate(() => window.sepiola.settled());
+  await expect(page.locator('.ranked-for .cats b')).toHaveCount(board.scoring.categories.length);
+  await expect(page.locator('[data-cross-off]')).toHaveText('Update board');
+  await page.locator('.win[data-name="board"]').screenshot({ path: 'test/shots/draft-board-categories.png' });
+  await page.reload(); await page.waitForFunction(() => window.sepiola?.ready === true);
+  expect(await page.inputValue('#cats-in')).toBe(cats);
+});
