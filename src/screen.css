@@ -387,7 +387,10 @@ body.stinging [data-seq="win"]{opacity:0}
 .prospect .nm{font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
 .prospect .cl{font-size:10.5px; color:var(--ink-2)}
 .prospect .flag{font-style:normal; font-weight:800; color:var(--warn); font-size:11px; text-align:center}
-.prospect.taken{opacity:.45} .prospect.taken .nm{text-decoration:line-through}
+/* drafted: a red pen stroke through the name on a hatched row, so it reads at a glance; the rest of the row steps back */
+.prospect.taken{background:repeating-linear-gradient(135deg, rgba(181,38,44,.08) 0 5px, transparent 5px 10px)}
+.prospect.taken .nm{color:var(--ink-2); text-decoration:line-through; text-decoration-color:var(--warn); text-decoration-thickness:2.5px}
+.prospect.taken .rk,.prospect.taken .cl,.prospect.taken .flag{opacity:.45}
 .prospect.circled{background:var(--sun)} .prospect.focused{box-shadow:inset 0 0 0 2px var(--amber)}
 .spot-note{margin:2px 0 4px; padding:6px 8px; border-radius:8px; background:var(--callout); color:#fff; font-size:12px; line-height:1.35}
 .dries{margin:0; font-size:11px; color:var(--ink-2)}
