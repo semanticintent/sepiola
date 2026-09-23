@@ -125,13 +125,13 @@ export const grammar = [
   {
     name: 'cue_board',
     move: 'Put up the board',
-    description: 'Put up the draft board: the analyst\'s tiers by position from last season, one note per prospect, and where each position thins out. Give `drafted_text`, the players already taken by anyone (one per line, any format), and the analyst crosses them off. Give `mine_text`, your own picks, and the analyst also says who to take next: its top three are marked on the board in its order. `fixture` loads a saved board.',
-    input: { drafted_text: 'string?', mine_text: 'string?', fixture: 'string?' },
+    description: 'Put up the draft board: the analyst\'s tiers by position from last season, one note per prospect, and where each position thins out. Give `drafted_text`, the players already taken by anyone (one per line, any format), and the analyst crosses them off. Give `mine_text`, your own picks, and the analyst also says who to take next: its top three are marked on the board in its order. `playoff_start_week` and `playoff_end_week` (your league\'s fantasy playoff weeks; week 1 is the week of the NHL opener) let that pick weigh each club\'s games in them. `fixture` loads a saved board.',
+    input: { drafted_text: 'string?', mine_text: 'string?', playoff_start_week: 'number?', playoff_end_week: 'number?', fixture: 'string?' },
     positional: ['fixture'],
     example: 'cue_board board-sample',
     touches: ['board'],
     sequence: null,
-    prepare: async (input) => ({ ...input, board: await analyst.board({ fixture: input.fixture, drafted_text: input.drafted_text, mine_text: input.mine_text }) }),
+    prepare: async (input) => ({ ...input, board: await analyst.board({ fixture: input.fixture, drafted_text: input.drafted_text, mine_text: input.mine_text, playoff_start_week: input.playoff_start_week, playoff_end_week: input.playoff_end_week }) }),
     handler(state, { board }) {
       return open({ ...state, board, boardSpot: null }, 'board');
     },

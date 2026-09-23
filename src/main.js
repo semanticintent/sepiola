@@ -46,8 +46,9 @@ document.addEventListener('click', (e) => {
   if (e.target.closest('[data-cross-off]')) {
     const drafted_text = document.getElementById('drafted-in')?.value.trim();
     const mine_text = document.getElementById('mine-in')?.value.trim();
+    const weeks = playoffWeeks();
     if (drafted_text || mine_text) {
-      call('cue_board', { ...(drafted_text && { drafted_text }), ...(mine_text && { mine_text }) }, mine_text ? 'cue_board (drafted so far, my picks)' : 'cue_board (drafted so far)');
+      call('cue_board', { ...(drafted_text && { drafted_text }), ...(mine_text && { mine_text }), ...weeks }, mine_text ? 'cue_board (drafted so far, my picks)' : 'cue_board (drafted so far)');
     }
     return;
   }
@@ -178,6 +179,25 @@ if (stinger) {
     onMove(endStinger);
   }
 }
+
+// Playoff weeks go to the analyst only as a whole, ordered pair; anything else is left out and the pick ignores schedule.
+function playoffWeeks() {
+  const n = (id) => { const v = Number(document.getElementById(id)?.value); return Number.isInteger(v) && v > 0 ? v : null; };
+  const start = n('po-start'), end = n('po-end');
+  return start && end && start <= end ? { playoff_start_week: start, playoff_end_week: end } : {};
+}
+
+// The draft boxes survive a reload in this browser only: a per-viewer convenience, never the source of truth.
+// Storage can be missing or throw (private windows, blocked site data); the page works the same without it.
+const DRAFT_KEY = 'sepiola.draft';
+const DRAFT_FIELDS = ['drafted-in', 'mine-in', 'po-start', 'po-end'];
+try {
+  const saved = JSON.parse(localStorage.getItem(DRAFT_KEY) ?? '{}');
+  for (const id of DRAFT_FIELDS) { const el = document.getElementById(id); if (el && typeof saved[id] === 'string') el.value = saved[id]; }
+} catch { /* nothing saved, or storage unavailable */ }
+document.querySelector('.drafted')?.addEventListener('input', () => {
+  try { localStorage.setItem(DRAFT_KEY, JSON.stringify(Object.fromEntries(DRAFT_FIELDS.map((id) => [id, document.getElementById(id)?.value ?? ''])))); } catch { /* storage unavailable */ }
+});
 
 // A viewer reaching in ends the watch-the-pen run; the caption's own button is the exception.
 window.addEventListener('pointerdown', (e) => { if (getState().demo && !e.target.closest('.caption')) stopDemo(); }, true);

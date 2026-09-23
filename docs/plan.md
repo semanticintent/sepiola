@@ -153,6 +153,32 @@ The one concept tool buildable on public data now, drawn where it belongs; and a
 
 Later: Team Buy-In (needs 10–15 games of ice time, November); Injury Impact stays a concept (no public injury feed).
 
+## Sprint: draft night (started 2026-09-22)
+
+Small things that matter while a draft is live.
+
+| # | Item | Scope | Status |
+|---|---|---|---|
+| 1 | **Keep the boxes through a refresh** | Drafted so far, My picks and the playoff weeks survive a reload, in this browser only (per-viewer convenience; wrapped in try/catch, the page works without storage). | ☑ 2026-09-22 (D50) |
+| 2 | **Playoff weeks on the page** | Two number fields on the board; `cue_board(playoff_start_week, playoff_end_week)`; the analyst weighs each club's games in those weeks when it picks. | ☑ 2026-09-22 |
+| 4 | **Drafted, below the columns** (CHIRP) | A drafted player who resolves but is not in the board's columns is named in the board's notes, and the take counts him, so "off the board" matches what was typed. | ☑ 2026-09-22 (CHIRP 4.7.1) |
+
+## Feature backlog (recorded 2026-09-22)
+
+Wanted, not scheduled. Numbers match the list they were proposed in.
+
+| # | Feature | Notes |
+|---|---|---|
+| 3 | **Bring your own rankings** | Paste a published kit's order; the board keeps it and adds CHIRP's flags (`draft_kit` already takes `rankings`). |
+| 5 | **My team so far** | Your picks by position beside the board, with the analyst's needs. |
+| 6 | **Goalie streams window** | Draw `analyze_goalie_streams`: the week's streamers with soft nights marked. From October. |
+| 7 | **Waiver wire window** | The analyst's streaming pickups as cards, comparable with your own players. |
+| 8 | **Matchup scoreboard** | Your week against the opponent's, from the pasted opponent lineup. |
+| 9 | **Team buy-in** | Needs 10–15 games of ice time; November. |
+| 10 | **Spotlight dim** (D5) | Darken the rink outside the circle. |
+| 11 | **Share a board** | A link that opens the same draft state elsewhere. |
+| 12 | **Producer verbs** | `ready`, `roll`, `caption`, `layer`; only once a second analyst exists. |
+
 ## Not in scope
 
 Producer verbs (`ready`, `roll`, `caption`, `layer`), a `state()` tool, multiple circles, remote hosting behind auth, any second analyst, any Yahoo integration.

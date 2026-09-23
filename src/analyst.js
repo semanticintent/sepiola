@@ -42,7 +42,7 @@ export async function read({ fixture, text, look_ahead_days = 7, opponent_text, 
 }
 
 /** Fetch a draft Board: a fixture by name, or the analyst's board with the drafted crossed off (D48) and, given your own picks, who to take next (D49). */
-export async function board({ fixture, drafted_text, mine_text } = {}) {
+export async function board({ fixture, drafted_text, mine_text, playoff_start_week, playoff_end_week } = {}) {
   const url = analystUrl();
   if (fixture || !url) {
     if ((drafted_text || mine_text) && !url) throw new AnalystError(copy.errors.noAnalyst);
@@ -52,7 +52,7 @@ export async function board({ fixture, drafted_text, mine_text } = {}) {
   }
   let res;
   try {
-    res = await fetch(`${url}/board`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ drafted_text, mine_text }) });
+    res = await fetch(`${url}/board`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ drafted_text, mine_text, playoff_start_week, playoff_end_week }) });
   } catch { throw new AnalystError(fill(copy.errors.analystDown, { url })); }
   if (!res.ok) throw new AnalystError(fill(copy.errors.analystDown, { url }));
   const body = await res.json().catch(() => null);

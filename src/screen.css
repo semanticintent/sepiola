@@ -418,6 +418,8 @@ button.pick-who:hover,button.pick-who:focus-visible{background:rgba(255,255,255,
 .drafted label{font-family:var(--font-d); font-weight:700; font-size:14px}
 .drafted label small{display:block; font-family:var(--font-b); font-weight:400; font-size:12px; color:var(--ink-2)}
 .drafted textarea{font:12.5px ui-monospace, Menlo, monospace; padding:8px 10px; border-radius:10px; border:1px solid rgba(43,32,22,.18); background:#fff; color:var(--ink); resize:vertical}
+.drafted .weeks{display:flex; gap:8px; align-items:center; font-size:13px; color:var(--ink-2)}
+.drafted .weeks input{width:64px; font:13px ui-monospace, Menlo, monospace; padding:6px 8px; border-radius:8px; border:1px solid rgba(43,32,22,.18); background:#fff; color:var(--ink)}
 .drafted button{justify-self:start; font-family:var(--font-d); font-weight:700; font-size:14px; padding:5px 12px; border-radius:8px; border:0; background:var(--ink); color:#fff; cursor:pointer}
 .card-line{font-family:var(--font-b); font-size:12.5px; fill:var(--ink)}
 .card-note{font-family:var(--font-b); font-size:12.5px; fill:var(--ink)}
