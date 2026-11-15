@@ -17,10 +17,10 @@ authors:
     given-names: "Michael"
     orcid: "https://orcid.org/0009-0006-2011-3258"
     affiliation: "Semantic Intent"
-version: 0.1.0
-date-released: 2026-09-05
+version: 0.2.0
+date-released: 2026-11-15
 license: MIT
-doi: "10.5281/zenodo.22387040"
+doi: "10.5281/zenodo.22387039"
 repository-code: "https://github.com/semanticintent/sepiola"
 url: "https://sepiola.semanticintent.dev"
 keywords:

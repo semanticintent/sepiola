@@ -4,6 +4,6 @@
   "creators": [{ "name": "Shatny, Michael", "affiliation": "Semantic Intent", "orcid": "0009-0006-2011-3258" }],
   "keywords": ["webmcp", "model-context-protocol", "ai-agents", "telestrator", "human-ai-collaboration", "fantasy-hockey", "semantic-intent", "cloudflare-workers"],
   "license": "MIT",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "upload_type": "software"
 }
